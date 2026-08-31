@@ -1065,3 +1065,385 @@
 
 </html>
 ```
+```css
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background: #f7f9ff;
+    color: #20243a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+
+header {
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e1e5f0;
+    background: white;
+}
+
+.logo {
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #6174d9;
+}
+
+.subtitle {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #8a91a8;
+}
+
+
+/* MAIN */
+
+.hero,
+.page {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 25px;
+}
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    background: white;
+    border-radius: 28px;
+    padding: 55px;
+    box-shadow: 0 15px 45px rgba(60, 75, 120, 0.10);
+}
+
+
+/* TEXT */
+
+.small-title {
+    color: #7283dc;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    margin-bottom: 20px;
+    color: #29304c;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.9;
+    color: #626a82;
+    margin-bottom: 20px;
+}
+
+
+/* TAGS */
+
+.tags {
+    margin-top: 30px;
+}
+
+.tags span {
+    display: inline-block;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 30px;
+    background: #eef1ff;
+    color: #6174d9;
+}
+
+
+/* PROFILE */
+
+.profile-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100%;
+}
+
+.photo-placeholder {
+    height: 380px;
+    border-radius: 25px;
+    background: #edf0fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #9299ad;
+    letter-spacing: 2px;
+}
+
+.info {
+    display: grid;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.info div {
+    padding: 13px 18px;
+    background: #f7f8ff;
+    border-radius: 12px;
+}
+
+
+/* EDUCATION */
+
+.education-list {
+    margin-top: 35px;
+    border-left: 3px solid #dfe4ff;
+    padding-left: 30px;
+}
+
+.education-item {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.education-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: #7182db;
+}
+
+.education-content span {
+    color: #6578d9;
+    font-weight: 500;
+}
+
+.education-goal {
+    margin-top: 35px;
+    padding: 30px;
+    text-align: center;
+    background: #f2f4ff;
+    border-radius: 20px;
+}
+
+
+/* UNIVERSITY */
+
+.university {
+    text-align: center;
+}
+
+.university-box {
+    margin-top: 30px;
+    padding: 45px;
+    border-radius: 25px;
+    background: #f7f8ff;
+}
+
+.building {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.university-box h2 {
+    color: #303754;
+}
+
+.university-box h3 {
+    color: #6678d7;
+}
+
+.dream {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 20px;
+    background: white;
+}
+
+
+/* PROJECTS */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.project {
+    background: #f7f8ff;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.project-img {
+    height: 180px;
+    background: #e9ecf8;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8b92aa;
+    margin-bottom: 20px;
+}
+
+
+/* PROUD WORK */
+
+.proud-list {
+    margin-top: 30px;
+}
+
+.proud {
+    display: grid;
+    grid-template-columns: 60px 250px 1fr;
+    gap: 25px;
+    padding: 30px 0;
+    border-bottom: 1px solid #e7e9f1;
+}
+
+.proud-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #7182db;
+}
+
+.proud-image {
+    height: 180px;
+    background: #e9ecf8;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8b92aa;
+}
+
+.ending {
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px;
+    background: #f2f4ff;
+    border-radius: 20px;
+}
+
+.dream-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #6174d9;
+    margin-top: 20px;
+}
+
+
+/* NAVIGATION */
+
+.page-nav {
+    margin-top: auto;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-top: 1px solid #e1e5f0;
+    background: white;
+}
+
+.page-nav a {
+    text-decoration: none;
+    padding: 11px 22px;
+    border-radius: 30px;
+    background: #eef1ff;
+    color: #6174d9;
+    transition: 0.25s;
+}
+
+.page-nav a:hover {
+    transform: translateY(-3px);
+    background: #6174d9;
+    color: white;
+}
+
+.page-nav .disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #9ba1b3;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hero,
+    .page {
+        padding: 35px 15px;
+    }
+
+    .card {
+        padding: 30px 22px;
+        border-radius: 20px;
+    }
+
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proud {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-placeholder {
+        height: 300px;
+    }
+
+    .page-nav {
+        padding: 20px 10px;
+    }
+
+    .page-nav a {
+        padding: 9px 15px;
+        font-size: 14px;
+    }
+}
+```
