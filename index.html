@@ -1,200 +1,155 @@
 <!DOCTYPE html>
 <html lang="th">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!DOCTYPE html>
-
-<html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
-<title>Portfolio | Daran</title>
-
-<style>
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: Arial, "Tahoma", sans-serif;
-        background: linear-gradient(135deg, #87CEEB, #E8F8FF);
-        color: #234;
-        min-height: 100vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 25px;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 650px;
-
-        background: white;
-
-        padding: 50px 35px;
-
-        border-radius: 35px;
-
-        text-align: center;
-
-        box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .emoji {
-        font-size: 65px;
-        margin-bottom: 15px;
-    }
-
-    h1 {
-        color: #2471A3;
-        font-size: 36px;
-        margin-bottom: 15px;
-    }
-
-    h2 {
-        color: #3498DB;
-        font-size: 24px;
-        margin-bottom: 25px;
-    }
-
-    p {
-        font-size: 18px;
-        line-height: 1.8;
-        margin: 12px 0;
-    }
-
-    strong {
-        color: #2471A3;
-    }
-
-    .button {
-        display: inline-block;
-
-        margin-top: 25px;
-
-        padding: 14px 30px;
-
-        background: #3498DB;
-        color: white;
-
-        text-decoration: none;
-
-        border-radius: 30px;
-
-        font-size: 18px;
-        font-weight: bold;
-
-        transition: 0.3s;
-    }
-
-    .button:hover {
-        background: #217DBB;
-        transform: translateY(-3px);
-    }
-
-    footer {
-        margin-top: 30px;
-
-        font-size: 14px;
-
-        color: #777;
-    }
-
-    /* สำหรับโทรศัพท์ */
-    @media (max-width: 600px) {
-
+    <title>หน้าหลักเว็บไซต์ของฉัน</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            padding: 15px;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(
+                135deg,
+                #e8f7ff,
+                #c9edff,
+                #b9e5fa
+            );
+            color: #333;
+            text-align: center;
+            padding: 50px 20px;
+            font-family: Arial, Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         .card {
-            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 40px;
+            box-shadow:
+                0 12px 35px rgba(74, 157, 196, 0.20);
+            max-width: 700px;
+            width: 100%;
+            margin: auto;
+            padding: 45px 35px;
+            border: 3px solid rgba(255,255,255,0.9);
+            position: relative;
+            overflow: hidden;
         }
-
+        /* วงกลมตกแต่ง */
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            background: #e0f5ff;
+            border-radius: 50%;
+            top: -65px;
+            left: -50px;
+        }
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            background: #d5f1ff;
+            border-radius: 50%;
+            bottom: -55px;
+            right: -40px;
+        }
+        .decoration {
+            position: relative;
+            z-index: 2;
+            font-size: 25px;
+            margin-bottom: 10px;
+            letter-spacing: 8px;
+        }
         h1 {
-            font-size: 28px;
+            position: relative;
+            z-index: 2;
+            color: #2f91cc;
+            font-size: 34px;
+            line-height: 1.5;
+            margin: 0 0 28px;
+            font-weight: bold;
         }
-
-        h2 {
-            font-size: 21px;
-        }
-
         p {
-            font-size: 16px;
+            position: relative;
+            z-index: 2;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin: 18px 0;
         }
-
-        .button {
-            font-size: 16px;
-            padding: 12px 22px;
+        strong {
+            color: #2589c1;
         }
-
-    }
-
-</style>
-```
-
+        .btn {
+            position: relative;
+            z-index: 3;
+            display: inline-block;
+            margin-top: 18px;
+            padding: 14px 28px;
+            background: #55afe0;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow:
+                0 6px 16px rgba(65, 155, 200, 0.22);
+            transition: 0.25s;
+        }
+        .btn:hover {
+            background: #3d9ed2;
+            transform: translateY(-3px);
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 25px 15px;
+            }
+            .card {
+                padding: 35px 20px;
+                border-radius: 30px;
+            }
+            h1 {
+                font-size: 27px;
+            }
+            p {
+                font-size: 17px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 13px 22px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-```
-<div class="card">
-
-    <div class="emoji">
-        💙
+    <div class="card">
+        <div class="decoration">
+            ☁️ 🦋 ✨
+        </div>
+        <h1>
+            👑ยินดีต้อนรับสู่โปรไฟล์ของฉัน👑
+        </h1>
+        <p>
+            สวัสดีค่ะ!🦋 ฉันชื่อ
+            <strong>
+            🐷ดารัณ เผ่าสกุลทอง (Daran Phoasakulthong)🐷
+            </strong>
+        </p>
+        <p>
+           📍ขณะนี้กำลังศึกษาชั้นมัธยมศึกษาปีที่6 แผนการเรียน เตรียมวิศวกรรมศาสตร์👷‍♀️
+        </p>
+        <p>
+           🎯เป้าหมายในชีวิต สถาปัตยกรรมศาสตร์
+        </p>
+        <a href="portfolio.html" class="btn">
+          📚 🔎ดูแฟ้มสะสมงานของฉัน🔍📚
+        </a>
     </div>
-
-    <h1>
-        ยินดีต้อนรับสู่ Portfolio
-    </h1>
-
-    <h2>
-        เว็บไซต์แนะนำตัวของฉัน
-    </h2>
-
-    <p>
-        สวัสดีค่ะ หนูชื่อ
-        <strong>ดารัณ (Daran)</strong> 👋
-    </p>
-
-    <p>
-        หนูเป็นนักเรียนที่มีความสนใจด้าน
-        <strong>Computer Science & Engineering</strong>
-    </p>
-
-    <p>
-        เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวม
-        ประวัติส่วนตัว การศึกษา ผลงาน
-        โครงงาน และเป้าหมายในอนาคต
-    </p>
-
-    <p>
-        ยินดีต้อนรับเข้าสู่เว็บไซต์ Portfolio
-        ของหนูค่ะ ✨
-    </p>
-
-    <a href="portfolio.html" class="button">
-        👉 ดูแฟ้มสะสมผลงาน
-    </a>
-
-    <footer>
-        © 2026 Daran Portfolio
-    </footer>
-
-</div>
-```
-
 </body>
-
 </html>
