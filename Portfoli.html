@@ -1,12 +1,335 @@
-body {
-    background: #f7f9ff;
-    font-family: Arial, sans-serif;
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | นางสาว ดารัณ เผ่าสกุลทอง</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Tahoma", sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #F0F8FF, #E6F4FF);
+            color: #355C7D;
+            min-height: 100vh;
+        }
+        header {
+            background: #79BFE8;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        header p {
+            font-size: 16px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .page {
+            background: rgba(255,255,255,0.9);
+            border-radius: 25px;
+            padding: 45px 35px;
+            min-height: 520px;
+            box-shadow: 0 8px 25px rgba(70, 150, 200, 0.15);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .page h2 {
+            color: #3B8FC4;
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        .page h3 {
+            color: #a855f7;
+            margin: 20px 0 10px;
+        }
+        .page p,
+        .page li {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .page ul {
+            padding-left: 30px;
+        }
+        .profile {
+            text-align: center;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #A9DDF5;
+            margin-bottom: 20px;
+        }
+        .portfolio-card {
+            background: #F3FAFF;
+            border-left: 6px solid #c084fc;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        button {
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            background: #5AA9D6;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #3182B8;
+            transform: translateY(-2px);
+        }
+        button.back {
+            background: #d8b4fe;
+            color: #4a3158;
+        }
+        button.back:hover {
+            background: #79BFE8;
+        }
+        .page-number {
+            text-align: center;
+            margin-top: 15px;
+            color: #5798BC;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #527F9B;
+        }
+        /* ===== หน้า 3 มหาวิทยาลัยที่สนใจ ===== */
+.university {
+    text-align: center;
+}
+.university-title {
+    color: #3B8FC4;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+.university-image {
+    width: 100%;
+    max-width: 650px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid #BFE7FA;
+    box-shadow: 0 6px 18px rgba(90, 169, 214, 0.18);
+    margin-bottom: 25px;
+}
+.university-name {
+    background: #EAF8FF;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px 0;
+    border: 2px solid #BFE7FA;
+}
+.university-name h3 {
+    color: #3182B8;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.university-name p {
+    color: #4F7188;
+    font-size: 18px;
+}
+.reason-box {
+    background: #F5FCFF;
+    border-left: 6px solid #79BFE8;
+    border-radius: 15px;
+    padding: 20px 25px;
+    margin-top: 20px;
+    text-align: left;
+}
+.reason-box h3 {
+    color: #3B8FC4;
+    margin-bottom: 10px;
+}
+.reason-box p {
+    color: #4F7188;
+}
+.university-goal {
+    background: #EAF8FF;
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 20px;
+}
+.university-goal h3 {
+    color: #3182B8;
+}
+.university-goal p {
+    color: #4F7188;
+}
+        /* ===== หน้า 4 ผลงานและรางวัล ===== */
+
+.award-card {
+    background: #F5FCFF;
+    border: 2px solid #BFE7FA;
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(90,169,214,0.12);
 }
 
-h1 {
-    color: #6174d9;
+.award-card h3 {
+    color: #3182B8;
+    font-size: 23px;
+    margin: 0 0 8px;
 }
 
-.page-nav a {
-    color: #6174d9;
+.award-subtitle {
+    color: #5B8299;
+    font-size: 17px !important;
+    margin-bottom: 8px;
 }
+
+.award-result {
+    color: #3182B8;
+    font-weight: bold;
+    font-size: 18px !important;
+    margin-bottom: 18px;
+}
+
+/* รูปภาพ 2 รูป */
+.award-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 15px 0 20px;
+}
+
+.award-images img {
+    width: 48%;
+    height: 250px;
+    object-fit: contain;
+    background: white;
+    border-radius: 15px;
+    border: 4px solid #BFE7FA;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(90,169,214,0.15);
+}
+
+/* กล่องทักษะ */
+.award-description {
+    background: white;
+    border-left: 5px solid #79BFE8;
+    border-radius: 12px;
+    padding: 15px 18px;
+}
+
+.award-description h4 {
+    color: #3182B8;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.award-description p {
+    color: #4F7188;
+    font-size: 16px !important;
+    line-height: 1.7;
+}
+
+/* มือถือ */
+@media (max-width: 600px) {
+
+    .award-card {
+        padding: 16px;
+    }
+
+    .award-card h3 {
+        font-size: 19px;
+    }
+
+    .award-images {
+        gap: 8px;
+    }
+
+    .award-images img {
+        width: 50%;
+        height: 190px;
+    }
+
+    .award-description p {
+        font-size: 15px !important;
+    }
+
+}
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+            .page {
+                padding: 30px 20px;
+            }
+            .page h2 {
+                font-size: 26px;
+            }
+            .page p,
+            .page li {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>✨แฟ้มสะสมผลงาน (Portfolio)✨</h1>
+    <p>💫นางสาว ดารัณ เผ่าสกุลทอง💫</p>
+</header>
+<div class="container">
+    <!-- หน้า 1 : คำนำ -->
+    <section class="page active">
+        <h2>คำนำ</h2>
+        <p>
+            แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้จัดทำขึ้นเพื่อรวบรวม
+            ประวัติส่วนตัว ประวัติการศึกษา ผลงาน โครงงาน และกิจกรรมต่าง ๆ
+            ที่แสดงถึงความสามารถ ความสนใจ และความตั้งใจของข้าพเจ้า
+        </p>
+        <p style="margin-top:20px;">
+            ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานเล่มนี้จะช่วยให้ผู้อ่านได้รู้จักตัวตน
+            ความสามารถ และเป้าหมายในการศึกษาต่อของข้าพเจ้ามากยิ่งขึ้น 
+            และเป็นส่วนหนึ่งที่แสดงถึงความมุ่งมั่นในการพัฒนาตนเองเพื่อก้าวไปสู่ความสำเร็จในอนาคต
+        </p>
+        <p style="margin-top:20px; text-align:right;">
+            นางสาว ดารัณ เผ่าสกุลทอง
+        </p>
+        <div class="navigation">
+        <button onclick="nextPage()">หน้าถัดไป →</button>
+        </div>
+        <div class="page-number">หน้า 1 / 5</div>
+    </section>
