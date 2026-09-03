@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio | ดารัณ เผ่าสกุลทอง</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Arial", "Tahoma", sans-serif;
+            background: linear-gradient(135deg, #fff0f5, #ffe4ee);
+            color: #5a3a46;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #f5b6ca;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        header h1 {
+            color: white;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: white;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 35px auto;
+        }
+
+        .page {
+            display: none;
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            min-height: 500px;
+            border: 2px solid #f7c7d7;
+            box-shadow: 0 8px 25px rgba(214, 122, 151, 0.15);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page h2 {
+            color: #d96b91;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .page h3 {
+            color: #d96b91;
+            margin: 20px 0 10px;
+        }
+
+        .page p {
+            line-height: 1.9;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        .profile-circle {
+            width: 140px;
+            height: 140px;
+            background: #ffd6e3;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 65px;
+            border: 5px solid #f5b6ca;
+        }
+
+        .info-box {
+            background: #fff5f8;
+            border-left: 5px solid #e58aaa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+
+        .info-box strong {
+            color: #d45d86;
+        }
+
+        .card {
+            background: #fff6f9;
+            border: 1px solid #f3c4d4;
+            border-radius: 18px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .university {
+            text-align: center;
+            background: #fff0f5;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .university .emoji {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            gap: 10px;
+        }
+
+        button {
+            border: none;
+            background: #e58aaa;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d96b91;
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            background: #e5c4ce;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .home-btn {
+            background: #f2a7c0;
+        }
+
+        .page-number {
+            color: #c65f81;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #a96b7f;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            .page {
+                padding: 22px;
+            }
+
+            .page h2 {
+                font-size: 23px;
+            }
+
+            .page p {
+                font-size: 15px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .page-number {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ส่วนหัว -->
+    <header>
+        <h1>✨ แฟ้มสะสมผลงาน (Portfolio) ✨</h1>
+        <p>💗 นางสาว ดารัณ เผ่าสกุลทอง 💗</p>
+    </header>
+
+    <div class="container">
+
+        <!-- หน้า 1 -->
+        <section class="page active">
+
+            <div class="intro">
+
+                <div class="profile-circle">
+                    🐷
+                </div>
+
+                <h2>📖 คำนำ</h2>
+
+                <p>
+                    แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว
+                    ประวัติการศึกษา ผลงาน กิจกรรม โครงงาน และความสามารถต่าง ๆ
+                    ของข้าพเจ้า
+                </p>
+
+                <p>
+                    ข้าพเจ้าจัดทำแฟ้มสะสมผลงานนี้ขึ้นเพื่อใช้เป็นส่วนหนึ่งในการ
+                    แนะนำตัวและแสดงถึงความตั้งใจ ความสามารถ และความสนใจ
+                    ทางด้านการเรียนและการศึกษาต่อในระดับมหาวิทยาลัย
+                </p>
+
+                <p>
+                    ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานนี้จะช่วยให้ผู้อ่าน
+                    ได้รู้จักตัวตน ความสามารถ และเป้าหมายในอนาคตของข้าพเจ้ามากยิ่งขึ้น
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- หน้า 2 -->
+        <section class="page">
+
+            <h2>👩🏻‍🎓 แนะนำตัว</h2>
+
+            <div class="info-box">
+                <p><strong>ชื่อ:</strong> นางสาว ดารัณ เผ่าสกุลทอง</p>
+
+                <p><strong>ชื่อภาษาอังกฤษ:</strong> Daran Phoasakulthong</p>
+
+                <p><strong>ระดับการศึกษา:</strong> มัธยมศึกษาปีที่ 6</p>
+
+                <p><strong>แผนการเรียน:</strong> เตรียมวิศวกรรมศาสตร์</p>
+
+                <p><strong>ความสนใจ:</strong> การออกแบบ สถาปัตยกรรม และการสร้างสรรค์ผลงาน</p>
+
+                <p><strong>อาชีพในฝัน:</strong> สถาปนิก 🏛️</p>
+            </div>
+
+            <div class="card">
+
+                <h3>💗 สิ่งที่ฉันสนใจ</h3>
+
+                <p>
+                    ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
+                    ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
+                    รวมถึงต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🌷 เป้าหมายในอนาคต</h3>
+
+                <p>
+                    เป้าหมายของฉันคือการศึกษาต่อในคณะสถาปัตยกรรมศาสตร์
+                    และพัฒนาตนเองไปสู่การเป็นสถาปนิกที่สามารถออกแบบ
+                    อาคารและพื้นที่ที่สวยงาม มีประโยชน์ และตอบโจทย์ผู้ใช้งาน
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- หน้า 3 -->
+        <section class="page">
+
+            <h2>🏫 รายละเอียดการศึกษา</h2>
+
+            <div class="card">
+
+                <h3>🎓 ระดับมัธยมศึกษา</h3>
+
+                <p>
+                    กำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6
+                </p>
+
+                <p>
+                    แผนการเรียนเตรียมวิศวกรรมศาสตร์
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📚 วิชาที่สนใจ</h3>
+
+                <p>
+                    • คณิตศาสตร์<br>
+                    • วิทยาศาสตร์<br>
+                    • การออกแบบ<br>
+                    • เทคโนโลยี<br>
+                    • ศิลปะและความคิดสร้างสรรค์
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎯 เป้าหมายด้านการศึกษา</h3>
+
+                <p>
+                    ต้องการศึกษาต่อในระดับมหาวิทยาลัย
+                    โดยมุ่งเน้นไปทางด้านสถาปัตยกรรมศาสตร์
+                    และพัฒนาความรู้และทักษะให้สามารถนำไปประกอบอาชีพในอนาคต
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- หน้า 4 -->
+        <section class="page">
+
+            <h2>🏛️ มหาวิทยาลัยที่อยากเข้า</h2>
+
+            <div class="university">
+
+                <div class="emoji">
+                    🏛️
+                </div>
+
+                <h3>คณะสถาปัตยกรรมศาสตร์</h3>
+
+                <p>
+                    ฉันมีความตั้งใจที่จะศึกษาต่อในคณะสถาปัตยกรรมศาสตร์
+                    เพราะเป็นสาขาที่ตรงกับความสนใจและความฝัน
+                    ในการเป็นสถาปนิก
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💡 เหตุผลที่อยากเรียนสถาปัตยกรรม</h3>
+
+                <p>
+                    ฉันชอบการออกแบบ การวาดภาพ และการสร้างสรรค์สิ่งใหม่ ๆ
+                    จึงมองว่าสถาปัตยกรรมเป็นสาขาที่สามารถนำความคิดสร้างสรรค์
+                    มาผสมผสานกับความรู้ด้านวิทยาศาสตร์และคณิตศาสตร์ได้
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🌟 เป้าหมาย</h3>
+
+                <p>
+                    ต้องการพัฒนาความสามารถด้านการออกแบบ
+                    และนำความรู้ที่ได้รับไปสร้างผลงานที่มีคุณค่า
+                    และสามารถใช้ประโยชน์ได้จริง
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- หน้า 5 -->
+        <section class="page">
+
+            <h2>🏆 ผลงานที่ภาคภูมิใจ</h2>
+
+            <div class="card">
+
+                <h3>🎨 ผลงานที่ 1</h3>
+
+                <p>
+                    สามารถใส่ชื่อผลงานของตนเองได้ที่นี่
+                </p>
+
+                <p>
+                    รายละเอียด:
+                    ใส่รายละเอียดเกี่ยวกับผลงาน
+                    ขั้นตอนการทำ และสิ่งที่ได้รับจากการทำผลงาน
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🏅 ผลงานที่ 2</h3>
+
+                <p>
+                    สามารถใส่ชื่อผลงานหรือกิจกรรมที่ภาคภูมิใจได้ที่นี่
+                </p>
+
+                <p>
+                    รายละเอียด:
+                    ใส่รายละเอียดเกี่ยวกับผลงาน รางวัล
+                    หรือกิจกรรมที่เข้าร่วม
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💗 สิ่งที่ได้รับ</h3>
+
+                <p>
+                    ผลงานและกิจกรรมต่าง ๆ ช่วยให้ฉันได้ฝึกความรับผิดชอบ
+                    การทำงานร่วมกับผู้อื่น ความคิดสร้างสรรค์
+                    และการแก้ไขปัญหา
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- หน้า 6 -->
+        <section class="page">
+
+            <h2>💻 โครงงาน / ชิ้นงาน</h2>
+
+            <div class="card">
+
+                <h3>🔬 โครงงาน</h3>
+
+                <p>
+                    <strong>ชื่อโครงงาน:</strong>
+                    สามารถใส่ชื่อโครงงานของคุณได้ที่นี่
+                </p>
+
+                <p>
+                    <strong>รายละเอียด:</strong>
+                    ใส่รายละเอียดเกี่ยวกับโครงงาน
+                    แนวคิด วิธีการทำ และผลลัพธ์ของโครงงาน
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎨 ชิ้นงาน</h3>
+
+                <p>
+                    <strong>ชื่อชิ้นงาน:</strong>
+                    สามารถใส่ชื่อชิ้นงานของคุณได้ที่นี่
+                </p>
+
+                <p>
+                    <strong>รายละเอียด:</strong>
+                    ใส่รายละเอียดเกี่ยวกับชิ้นงาน
+                    แนวคิดและขั้นตอนการสร้างผลงาน
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🌷 สิ่งที่ได้เรียนรู้</h3>
+
+                <p>
+                    จากการทำโครงงานและชิ้นงานต่าง ๆ
+                    ทำให้ได้ฝึกการวางแผน การทำงานอย่างเป็นระบบ
+                    ความคิดสร้างสรรค์ และการแก้ไขปัญหา
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ปุ่มด้านล่าง -->
+        <div class="navigation">
+
+            <button id="prevBtn" onclick="previousPage()">
+                ⬅️ หน้าก่อนหน้า
+            </button>
+
+            <div class="page-number">
+                หน้า <span id="pageNumber">1</span> / 6
+            </div>
+
+            <button id="nextBtn" onclick="nextPage()">
+                หน้าถัดไป ➡️
+            </button>
+
+        </div>
+
+        <div style="text-align:center; margin-top:15px;">
+
+            <button class="home-btn" onclick="goHome()">
+                🏠 กลับหน้าหลัก
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        💗 Portfolio ของ ดารัณ เผ่าสกุลทอง 💗
+    </footer>
+
+
+    <script>
+
+        let currentPage = 0;
+
+        const pages = document.querySelectorAll(".page");
+
+        const pageNumber = document.getElementById("pageNumber");
+
+        const prevBtn = document.getElementById("prevBtn");
+
+        const nextBtn = document.getElementById("nextBtn");
+
+
+        function showPage(index) {
+
+            pages.forEach(function(page) {
+                page.classList.remove("active");
+            });
+
+            pages[index].classList.add("active");
+
+            currentPage = index;
+
+            pageNumber.textContent = currentPage + 1;
+
+            prevBtn.disabled = currentPage === 0;
+
+            nextBtn.disabled = currentPage === pages.length - 1;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        function nextPage() {
+
+            if (currentPage < pages.length - 1) {
+                showPage(currentPage + 1);
+            }
+
+        }
+
+
+        function previousPage() {
+
+            if (currentPage > 0) {
+                showPage(currentPage - 1);
+            }
+
+        }
+
+
+        function goHome() {
+
+            window.location.href = "index.html";
+
+        }
+
+
+        showPage(0);
+
+    </script>
+
+</body>
+</html>
