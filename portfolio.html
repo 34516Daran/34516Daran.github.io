@@ -94,7 +94,7 @@
             padding: 20px 10px;
         }
 
-        /* รูปโปรไฟล์ */
+        /* รูปโปรไฟล์หน้าแรก */
         .profile-img {
             width: 180px;
             height: 180px;
@@ -104,6 +104,18 @@
             box-shadow: 0 5px 20px rgba(214, 122, 151, 0.25);
             margin: 0 auto 25px;
             display: block;
+        }
+
+        /* รูปแนะนำตัวหน้าที่ 2 */
+        .about-profile {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #f5b6ca;
+            box-shadow: 0 5px 20px rgba(214, 122, 151, 0.25);
+            display: block;
+            margin: 0 auto 25px;
         }
 
         .info-box {
@@ -241,6 +253,11 @@
                 height: 150px;
             }
 
+            .about-profile {
+                width: 150px;
+                height: 150px;
+            }
+
             .navigation {
                 flex-direction: column;
             }
@@ -272,7 +289,11 @@
             <div class="intro">
 
                 <!-- รูปโปรไฟล์ -->
-                <img src="profile.jpg" class="profile.jpg" alt="รูปโปรไฟล์ ดารัณ"
+                <img
+                    src="IMG_6580.jpeg"
+                    class="profile-img"
+                    alt="รูปโปรไฟล์ ดารัณ"
+                >
 
                 <h2>📖 คำนำ</h2>
 
@@ -302,6 +323,13 @@
         <section class="page">
 
             <h2>👩🏻‍🎓 แนะนำตัว</h2>
+
+            <!-- รูปแนะนำตัววงกลมตรงกลาง -->
+            <img
+                src="IMG_6580.jpeg"
+                class="about-profile"
+                alt="รูปแนะนำตัว ดารัณ เผ่าสกุลทอง"
+            >
 
             <div class="info-box">
 
@@ -475,11 +503,11 @@
                     ระดับชั้นมัธยมศึกษาตอนปลาย
                 </p>
 
-                <!-- ถ้ามีรูปผลงาน ให้เปลี่ยนชื่อเป็นชื่อไฟล์รูปของเธอ -->
-                <!-- ตัวอย่าง: competition.jpg -->
-                <img src="competition.jpg"
-                     class="work-img"
-                     alt="ผลงานการแข่งขันศึกวัดเซียนปรากฏการณ์ธรรมชาติ">
+                <img
+                    src="competition.jpg"
+                    class="work-img"
+                    alt="ผลงานการแข่งขันศึกวัดเซียนปรากฏการณ์ธรรมชาติ"
+                >
 
                 <div class="award">
 
