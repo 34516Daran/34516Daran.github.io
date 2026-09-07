@@ -423,12 +423,6 @@
             z-index: 2;
         }
 
-        .section-title {
-            color: #744b7c;
-            font-size: 25px;
-            margin-bottom: 18px;
-        }
-
         .cute-line {
             width: 90px;
             height: 5px;
@@ -758,6 +752,7 @@
             padding: 10px 0;
             color: #806b87;
             border-bottom: 1px dashed #dfc8e0;
+            line-height: 1.6;
         }
 
         .education-card li:last-child {
@@ -792,6 +787,13 @@
             font-size: 13px;
 
             border: 1px solid rgba(255,255,255,.9);
+
+            transition: .3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 7px 15px rgba(120,80,150,.12);
         }
 
         .university-card {
@@ -1541,7 +1543,7 @@
         </section>
 
 
-        <!-- PAGE 2 -->
+        <!-- PAGE 2 : ABOUT ME -->
 
         <section class="page">
 
@@ -1576,8 +1578,6 @@
                             นางสาว ดารัณ เผ่าสกุลทอง
                         </div>
 
-                        <!-- เปลี่ยนชื่อเล่นแล้ว -->
-
                         <div class="nickname">
                             ✨ ชื่อเล่น : โฟกัส ✨
                         </div>
@@ -1588,7 +1588,7 @@
                     <div class="profile-details">
 
 
-                        <!-- เพิ่มอายุ -->
+                        <!-- อายุ -->
 
                         <div class="detail-card">
 
@@ -1609,6 +1609,8 @@
                         </div>
 
 
+                        <!-- ระดับการศึกษา -->
+
                         <div class="detail-card">
 
                             <div class="detail-icon">
@@ -1627,6 +1629,8 @@
 
                         </div>
 
+
+                        <!-- แผนการเรียน -->
 
                         <div class="detail-card">
 
@@ -1647,6 +1651,8 @@
                         </div>
 
 
+                        <!-- ความสนใจ -->
+
                         <div class="detail-card">
 
                             <div class="detail-icon">
@@ -1658,14 +1664,39 @@
                                 <strong>ความสนใจ</strong>
 
                                 <span>
-                                    การออกแบบ ศิลปะ สถาปัตยกรรม
-                                    และความคิดสร้างสรรค์
+                                    การวาดรูป ศิลปะ การออกแบบ
+                                    สถาปัตยกรรม และความคิดสร้างสรรค์
                                 </span>
 
                             </div>
 
                         </div>
 
+
+                        <!-- ทักษะ -->
+
+                        <div class="detail-card">
+
+                            <div class="detail-icon">
+                                ✏️
+                            </div>
+
+                            <div>
+
+                                <strong>ทักษะเด่น</strong>
+
+                                <span>
+                                    การวาดเส้น สเก็ตช์ภาพ
+                                    ลงสี การออกแบบ
+                                    และการจัดองค์ประกอบภาพ
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ความฝัน -->
 
                         <div class="detail-card">
 
@@ -1696,7 +1727,7 @@
         </section>
 
 
-        <!-- PAGE 3 -->
+        <!-- PAGE 3 : EDUCATION & SKILLS -->
 
         <section class="page">
 
@@ -1737,6 +1768,8 @@
                 <div class="education-grid">
 
 
+                    <!-- ข้อมูลการศึกษา -->
+
                     <div class="education-card">
 
                         <h3>
@@ -1766,17 +1799,78 @@
                     </div>
 
 
+                    <!-- ทักษะด้านศิลปะและการวาดรูป -->
+
                     <div class="education-card">
 
                         <h3>
-                            ✨ ทักษะที่มี
+                            🎨 ทักษะด้านศิลปะและการวาดรูป
                         </h3>
 
                         <div class="skills">
 
                             <div class="skill">
-                                🎨 การออกแบบ
+                                ✏️ การวาดเส้น
                             </div>
+
+                            <div class="skill">
+                                📝 การสเก็ตช์ภาพ
+                            </div>
+
+                            <div class="skill">
+                                👤 การวาดคน
+                            </div>
+
+                            <div class="skill">
+                                🏞️ การวาดภาพทิวทัศน์
+                            </div>
+
+                            <div class="skill">
+                                🏛️ การวาดอาคาร
+                            </div>
+
+                            <div class="skill">
+                                📐 Perspective
+                            </div>
+
+                            <div class="skill">
+                                🎨 การลงสี
+                            </div>
+
+                            <div class="skill">
+                                🌈 การเลือกใช้สี
+                            </div>
+
+                            <div class="skill">
+                                🖌️ การลงน้ำหนักแสงเงา
+                            </div>
+
+                            <div class="skill">
+                                💡 การออกแบบ
+                            </div>
+
+                            <div class="skill">
+                                🧩 องค์ประกอบศิลป์
+                            </div>
+
+                            <div class="skill">
+                                ✨ ความคิดสร้างสรรค์
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ทักษะทั่วไป -->
+
+                    <div class="education-card">
+
+                        <h3>
+                            🌟 ทักษะทั่วไป
+                        </h3>
+
+                        <div class="skills">
 
                             <div class="skill">
                                 💡 ความคิดสร้างสรรค์
@@ -1799,7 +1893,7 @@
                             </div>
 
                             <div class="skill">
-                                ✏️ การคิดไอเดีย
+                                ⏰ การบริหารเวลา
                             </div>
 
                             <div class="skill">
@@ -1811,13 +1905,51 @@
                     </div>
 
 
+                    <!-- ความสามารถด้านการออกแบบ -->
+
+                    <div class="education-card">
+
+                        <h3>
+                            🏛️ ความสามารถด้านการออกแบบ
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                ออกแบบแนวคิดและรูปแบบงาน
+                            </li>
+
+                            <li>
+                                จัดองค์ประกอบภาพให้เหมาะสม
+                            </li>
+
+                            <li>
+                                คิดและพัฒนารูปแบบงานอย่างสร้างสรรค์
+                            </li>
+
+                            <li>
+                                สามารถนำการวาดรูปมาประยุกต์กับงานออกแบบ
+                            </li>
+
+                            <li>
+                                สนใจการออกแบบสถาปัตยกรรม
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
                 </div>
 
 
                 <div class="quote">
 
-                    🌷 ฉันเชื่อว่าการเรียนรู้และการฝึกฝนอย่างต่อเนื่อง
-                    จะช่วยให้สามารถพัฒนาความสามารถของตัวเองได้ดีขึ้น 🌷
+                    🌷 ฉันชอบการวาดรูปและการออกแบบ
+                    เพราะเป็นวิธีที่ช่วยถ่ายทอดความคิด
+                    และจินตนาการออกมาเป็นผลงานที่มองเห็นได้
+                    และต้องการนำทักษะเหล่านี้ไปต่อยอด
+                    ในการเรียนด้านสถาปัตยกรรม 🌷
 
                 </div>
 
@@ -1826,7 +1958,7 @@
         </section>
 
 
-        <!-- PAGE 4 -->
+        <!-- PAGE 4 : UNIVERSITY -->
 
         <section class="page">
 
@@ -1924,7 +2056,7 @@
         </section>
 
 
-        <!-- PAGE 5 -->
+        <!-- PAGE 5 : ACHIEVEMENT -->
 
         <section class="page">
 
@@ -2007,7 +2139,7 @@
         </section>
 
 
-        <!-- PAGE 6 -->
+        <!-- PAGE 6 : PROJECT -->
 
         <section class="page">
 
