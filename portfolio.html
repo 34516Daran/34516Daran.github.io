@@ -1,300 +1,881 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio | ดารัณ เผ่าสกุลทอง</title>
+<title>Portfolio | ดารัณ เผ่าสกุลทอง</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        body {
-            font-family: "Arial", "Tahoma", sans-serif;
-            background: linear-gradient(135deg, #ffe4ee, #f8c8dc, #fbd9e7);
-            color: #5c3a48;
-            min-height: 100vh;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Prompt:wght@300;400;500;600;700&display=swap');
 
-        header {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        header h1 {
-            color: #d66b91;
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        header p {
-            color: #8b5c6e;
-            font-size: 16px;
-        }
+body{
+    font-family:"Prompt","Tahoma",sans-serif;
+    color:#654552;
+    min-height:100vh;
+    overflow-x:hidden;
 
-        .container {
-            max-width: 950px;
-            margin: 35px auto;
-            padding: 0 20px;
-        }
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.8), transparent 25%),
+        radial-gradient(circle at 90% 10%, rgba(255,196,220,.65), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(255,225,238,.8), transparent 30%),
+        linear-gradient(135deg,#fff0f6,#fbd4e4,#ffeaf2);
+}
 
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
 
-        .page.active {
-            display: block;
-        }
+/* =========================
+   พื้นหลังตกแต่ง
+========================= */
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+.bg-circle{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(2px);
+    opacity:.5;
+    pointer-events:none;
+    z-index:-1;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.circle1{
+    width:250px;
+    height:250px;
+    background:#ffd0e2;
+    top:10%;
+    left:-80px;
+    animation:float1 7s ease-in-out infinite;
+}
 
-        .card {
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 25px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 25px rgba(190, 100, 135, 0.15);
-        }
+.circle2{
+    width:180px;
+    height:180px;
+    background:#fff;
+    right:-50px;
+    top:40%;
+    animation:float2 8s ease-in-out infinite;
+}
 
-        h2 {
-            text-align: center;
-            color: #d45f88;
-            margin-bottom: 25px;
-            font-size: 28px;
-        }
+.circle3{
+    width:220px;
+    height:220px;
+    background:#f8b8d1;
+    bottom:-80px;
+    left:30%;
+    animation:float3 9s ease-in-out infinite;
+}
 
-        h3 {
-            color: #cf6b8d;
-            margin-bottom: 15px;
-            font-size: 21px;
-        }
+@keyframes float1{
+    0%,100%{transform:translateY(0) rotate(0);}
+    50%{transform:translateY(-35px) rotate(10deg);}
+}
 
-        p {
-            line-height: 1.9;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
+@keyframes float2{
+    0%,100%{transform:translate(0,0);}
+    50%{transform:translate(-30px,25px);}
+}
 
-        strong {
-            color: #c4587e;
-        }
+@keyframes float3{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-25px);}
+}
 
-        /* รูปโปรไฟล์ */
-        .about-profile {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto 25px;
-            border: 5px solid #f4bfd2;
-            box-shadow: 0 5px 18px rgba(180, 90, 120, 0.2);
-        }
 
-        /* รูปผลงาน */
-        .work-img {
-            width: 100%;
-            max-width: 600px;
-            max-height: 500px;
-            object-fit: contain;
-            display: block;
-            margin: 20px auto;
-            border-radius: 18px;
-            border: 3px solid #f3c4d4;
-            background: #fff;
-            padding: 5px;
-        }
+/* กลีบดอกไม้ */
 
-        .info-box {
-            background: #fff4f8;
-            border-left: 5px solid #e68aaa;
-            padding: 18px;
-            border-radius: 12px;
-            margin: 15px 0;
-        }
+.flower{
+    position:fixed;
+    font-size:25px;
+    opacity:.45;
+    pointer-events:none;
+    z-index:-1;
+    animation:flowerMove linear infinite;
+}
 
-        .university-box {
-            text-align: center;
-            background: #fff1f6;
-            border-radius: 20px;
-            padding: 25px;
-            margin-top: 20px;
-        }
+.flower:nth-child(1){
+    left:8%;
+    animation-duration:10s;
+}
 
-        .university-box h3 {
-            font-size: 23px;
-        }
+.flower:nth-child(2){
+    left:25%;
+    animation-duration:13s;
+    animation-delay:2s;
+}
 
-        .goal {
-            background: linear-gradient(135deg, #fff0f6, #ffe3ee);
-            border-radius: 18px;
-            padding: 20px;
-            margin-top: 20px;
-        }
+.flower:nth-child(3){
+    left:55%;
+    animation-duration:11s;
+    animation-delay:4s;
+}
 
-        /* ปุ่ม */
-        .navigation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin: 30px 0;
-        }
+.flower:nth-child(4){
+    left:80%;
+    animation-duration:14s;
+    animation-delay:1s;
+}
 
-        button {
-            border: none;
-            padding: 13px 24px;
-            border-radius: 30px;
-            background: #df7fa0;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(190, 90, 125, 0.2);
-        }
+@keyframes flowerMove{
+    0%{
+        transform:translateY(110vh) rotate(0deg);
+    }
+    100%{
+        transform:translateY(-120px) rotate(360deg);
+    }
+}
 
-        button:hover {
-            background: #ca6387;
-            transform: translateY(-2px);
-        }
 
-        button:disabled {
-            background: #d8b8c4;
-            cursor: not-allowed;
-            transform: none;
-        }
+/* =========================
+   Progress bar
+========================= */
 
-        .page-number {
-            color: #a95d78;
-            font-weight: bold;
-            min-width: 80px;
-            text-align: center;
-        }
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:5px;
+    width:0%;
+    background:linear-gradient(90deg,#d75c8a,#f19abb,#ffcae0);
+    z-index:9999;
+    box-shadow:0 0 12px rgba(215,92,138,.5);
+    transition:.5s;
+}
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #8e6170;
-            font-size: 14px;
-        }
 
-        ul {
-            padding-left: 25px;
-            line-height: 2;
-        }
+/* =========================
+   Header
+========================= */
 
-        li {
-            margin-bottom: 5px;
-        }
+header{
+    position:relative;
+    padding:55px 20px 45px;
+    text-align:center;
 
-        /* มือถือ */
-        @media (max-width: 600px) {
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(15px);
 
-            header h1 {
-                font-size: 24px;
-            }
+    border-bottom:1px solid rgba(255,255,255,.8);
 
-            header p {
-                font-size: 14px;
-            }
+    box-shadow:
+        0 10px 35px rgba(190,100,135,.12);
 
-            .card {
-                padding: 20px;
-                border-radius: 20px;
-            }
+    overflow:hidden;
+}
 
-            h2 {
-                font-size: 24px;
-            }
+header::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#ffd5e5;
+    border-radius:50%;
+    top:-140px;
+    left:-80px;
+    opacity:.55;
+}
 
-            h3 {
-                font-size: 19px;
-            }
+header::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:#fff;
+    border-radius:50%;
+    bottom:-140px;
+    right:-60px;
+    opacity:.7;
+}
 
-            p {
-                font-size: 15px;
-            }
+.header-content{
+    position:relative;
+    z-index:2;
+}
 
-            .about-profile {
-                width: 150px;
-                height: 150px;
-            }
+header h1{
+    font-family:"Itim",cursive;
+    color:#d45c87;
+    font-size:42px;
+    margin-bottom:8px;
 
-            button {
-                padding: 11px 18px;
-                font-size: 14px;
-            }
-        }
-    </style>
+    animation:titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+}
+
+header p{
+    color:#956477;
+    font-size:17px;
+}
+
+
+/* =========================
+   Container
+========================= */
+
+.container{
+    width:min(1000px,92%);
+    margin:45px auto;
+}
+
+
+/* =========================
+   Page
+========================= */
+
+.page{
+    display:none;
+    animation:pageIn .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.98);
+        filter:blur(4px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+    }
+}
+
+
+/* =========================
+   Heading
+========================= */
+
+.page-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.page-title h2{
+    font-family:"Itim",cursive;
+    font-size:38px;
+    color:#ce5b84;
+    margin-bottom:7px;
+}
+
+.page-title span{
+    display:block;
+    width:70px;
+    height:4px;
+    margin:auto;
+    border-radius:20px;
+    background:linear-gradient(90deg,#dc7297,#f4b3cb);
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.card{
+    position:relative;
+
+    background:rgba(255,255,255,.83);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+        0 15px 45px rgba(175,90,125,.12);
+
+    overflow:hidden;
+
+    transition:.4s ease;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:#ffe4ef;
+    top:-70px;
+    right:-40px;
+    opacity:.6;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 22px 50px rgba(175,90,125,.18);
+}
+
+
+/* =========================
+   Typography
+========================= */
+
+h2{
+    text-align:center;
+    color:#d45f88;
+    margin-bottom:25px;
+    font-size:28px;
+}
+
+h3{
+    color:#ce6287;
+    margin:25px 0 15px;
+    font-size:21px;
+}
+
+p{
+    line-height:2;
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+strong{
+    color:#c5527b;
+}
+
+ul{
+    padding-left:25px;
+    line-height:2;
+}
+
+li{
+    margin-bottom:6px;
+}
+
+
+/* =========================
+   คำนำ
+========================= */
+
+.intro-card{
+    text-align:center;
+    padding:55px 45px;
+}
+
+.intro-icon{
+    font-size:60px;
+    margin-bottom:15px;
+    display:inline-block;
+
+    animation:bounce 2.5s ease-in-out infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px) rotate(3deg);}
+}
+
+.intro-card p{
+    max-width:760px;
+    margin:0 auto 18px;
+}
+
+
+/* =========================
+   Profile
+========================= */
+
+.profile-wrap{
+    position:relative;
+    width:190px;
+    height:190px;
+    margin:5px auto 30px;
+}
+
+.profile-ring{
+    position:absolute;
+    inset:-8px;
+    border-radius:50%;
+
+    border:3px dashed #e58aaa;
+
+    animation:spin 12s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.about-profile{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid white;
+
+    box-shadow:
+        0 10px 30px rgba(180,80,120,.2);
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* =========================
+   Info box
+========================= */
+
+.info-box{
+    background:linear-gradient(
+        135deg,
+        rgba(255,244,249,.95),
+        rgba(255,232,241,.8)
+    );
+
+    border-left:5px solid #df7da0;
+
+    padding:20px 22px;
+
+    border-radius:16px;
+
+    margin:20px 0;
+
+    transition:.3s;
+}
+
+.info-box:hover{
+    transform:translateX(5px);
+}
+
+.info-box p:last-child{
+    margin-bottom:0;
+}
+
+
+/* =========================
+   University
+========================= */
+
+.university-box{
+    position:relative;
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,240,247,.95),
+            rgba(255,221,235,.9)
+        );
+
+    border-radius:25px;
+
+    padding:35px 25px;
+
+    margin-top:10px;
+
+    border:1px solid #f7cada;
+
+    overflow:hidden;
+}
+
+.university-icon{
+    font-size:65px;
+    display:block;
+    margin-bottom:10px;
+
+    animation:building 3s ease-in-out infinite;
+}
+
+@keyframes building{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+.university-box h3{
+    margin-top:5px;
+    font-size:25px;
+}
+
+.goal{
+    background:rgba(255,247,250,.9);
+    border-radius:22px;
+    padding:25px;
+    margin-top:25px;
+    border:1px solid #f4d0dd;
+}
+
+
+/* =========================
+   Works
+========================= */
+
+.work-img{
+    width:100%;
+    max-width:650px;
+    max-height:500px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:25px auto;
+
+    border-radius:22px;
+
+    border:5px solid white;
+
+    background:white;
+
+    padding:6px;
+
+    box-shadow:
+        0 12px 35px rgba(180,90,120,.18);
+
+    transition:.5s ease;
+}
+
+.work-img:hover{
+    transform:scale(1.025) rotate(.5deg);
+
+    box-shadow:
+        0 18px 45px rgba(180,90,120,.25);
+}
+
+
+/* =========================
+   Skill chips
+========================= */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+.skill{
+    background:white;
+    border:1px solid #f1c5d5;
+    color:#bd5c7f;
+
+    padding:9px 16px;
+
+    border-radius:50px;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-4px);
+    background:#fff0f6;
+}
+
+
+/* =========================
+   Navigation
+========================= */
+
+.navigation{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+    flex-wrap:wrap;
+
+    margin:35px 0;
+}
+
+button{
+    border:none;
+
+    padding:13px 23px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #dc7298,
+        #c95782
+    );
+
+    color:white;
+
+    font-family:"Prompt",sans-serif;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+        0 7px 18px rgba(190,80,120,.22);
+}
+
+button:hover{
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 12px 25px rgba(190,80,120,.3);
+}
+
+button:active{
+    transform:scale(.96);
+}
+
+button:disabled{
+    background:#d8c1ca;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+.page-number{
+    color:#a85b77;
+    font-weight:600;
+    min-width:90px;
+    text-align:center;
+}
+
+
+/* =========================
+   Top button
+========================= */
+
+.top-btn{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    width:48px;
+    height:48px;
+
+    padding:0;
+
+    border-radius:50%;
+
+    z-index:100;
+
+    font-size:20px;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:35px 20px;
+
+    color:#986477;
+
+    font-size:14px;
+}
+
+footer span{
+    color:#d45f88;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media(max-width:600px){
+
+    header{
+        padding:40px 15px 35px;
+    }
+
+    header h1{
+        font-size:32px;
+    }
+
+    header p{
+        font-size:15px;
+    }
+
+    .container{
+        width:94%;
+        margin:30px auto;
+    }
+
+    .card{
+        padding:23px;
+        border-radius:23px;
+    }
+
+    .intro-card{
+        padding:35px 22px;
+    }
+
+    .page-title h2{
+        font-size:31px;
+    }
+
+    h3{
+        font-size:19px;
+    }
+
+    p{
+        font-size:15px;
+        line-height:1.9;
+    }
+
+    .about-profile,
+    .profile-wrap{
+        width:155px;
+        height:155px;
+    }
+
+    .navigation{
+        gap:8px;
+    }
+
+    button{
+        padding:11px 16px;
+        font-size:13px;
+    }
+
+    .page-number{
+        min-width:70px;
+        font-size:14px;
+    }
+
+    .top-btn{
+        right:15px;
+        bottom:15px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
+
+<!-- พื้นหลัง -->
+
+<div class="progress" id="progress"></div>
+
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+<div class="bg-circle circle3"></div>
+
+<div class="flower">🌸</div>
+<div class="flower">🌷</div>
+<div class="flower">🌸</div>
+<div class="flower">🌷</div>
+
+
+<!-- ================= HEADER ================= -->
+
 <header>
-    <h1>🌷 Portfolio ของฉัน 🌷</h1>
-    <p>ดารัณ เผ่าสกุลทอง</p>
+
+    <div class="header-content">
+
+        <h1>🌷 Portfolio ของฉัน 🌷</h1>
+
+        <p>ดารัณ เผ่าสกุลทอง</p>
+
+    </div>
+
 </header>
+
 
 <div class="container">
 
-    <!-- ==================== หน้า 1 ==================== -->
-    <section class="page active">
 
-        <div class="card">
+<!-- ==================== หน้า 1 ==================== -->
 
-            <h2>📖 คำนำ</h2>
+<section class="page active">
 
-            <p>
-                แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติ
-                ความรู้ ความสามารถ กิจกรรม และผลงานต่าง ๆ
-                ที่ได้เรียนรู้และสร้างสรรค์ขึ้นในช่วงที่ผ่านมา
-            </p>
+    <div class="page-title">
 
-            <p>
-                ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
-                ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
-                รวมถึงต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
-            </p>
+        <h2>📖 คำนำ</h2>
 
-            <p>
-                ฉันหวังว่าแฟ้มสะสมผลงานนี้จะช่วยแสดงให้เห็นถึง
-                ความตั้งใจ ความสามารถ และพัฒนาการของฉัน
-                รวมถึงความสนใจที่มีต่อการเรียนด้านสถาปัตยกรรม
-            </p>
+        <span></span>
 
-            <p style="text-align:center; margin-top:25px;">
-                💗 ขอบคุณที่เข้ามาชม Portfolio ของฉัน 💗
-            </p>
+    </div>
 
+
+    <div class="card intro-card">
+
+        <div class="intro-icon">
+            📖
         </div>
 
-    </section>
+        <p>
+            แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติ
+            ความรู้ ความสามารถ กิจกรรม และผลงานต่าง ๆ
+            ที่ได้เรียนรู้และสร้างสรรค์ขึ้นในช่วงที่ผ่านมา
+        </p>
+
+        <p>
+            ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
+            ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
+            รวมถึงต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
+        </p>
+
+        <p>
+            ฉันหวังว่าแฟ้มสะสมผลงานนี้จะช่วยแสดงให้เห็นถึง
+            ความตั้งใจ ความสามารถ และพัฒนาการของฉัน
+            รวมถึงความสนใจที่มีต่อการเรียนด้านสถาปัตยกรรม
+        </p>
+
+        <p style="margin-top:30px;">
+            💗 ขอบคุณที่เข้ามาชม Portfolio ของฉัน 💗
+        </p>
+
+    </div>
+
+</section>
 
 
-    <!-- ==================== หน้า 2 ==================== -->
-    <section class="page">
+<!-- ==================== หน้า 2 ==================== -->
+
+<section class="page">
+
+    <div class="page-title">
 
         <h2>👩🏻‍🎨 แนะนำตัว</h2>
 
-        <div class="card">
+        <span></span>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="profile-wrap">
+
+            <div class="profile-ring"></div>
 
             <img
                 src="IMG_6580.jpeg"
@@ -302,181 +883,238 @@
                 alt="รูปแนะนำตัว ดารัณ เผ่าสกุลทอง"
             >
 
-            <div class="info-box">
+        </div>
 
-                <p>
-                    <strong>ชื่อ:</strong>
-                    นางสาว ดารัณ เผ่าสกุลทอง
-                </p>
 
-                <p>
-                    <strong>ชื่อเล่น:</strong>
-                    ดารัณ
-                </p>
-
-                <p>
-                    <strong>ระดับการศึกษา:</strong>
-                    มัธยมศึกษาปีที่ 6
-                </p>
-
-                <p>
-                    <strong>แผนการเรียน:</strong>
-                    เตรียมวิศวกรรมศาสตร์
-                </p>
-
-            </div>
-
-            <h3>💗 ความสนใจ</h3>
+        <div class="info-box">
 
             <p>
-                ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
-                ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
-                รวมถึงต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
+                <strong>ชื่อ:</strong>
+                นางสาว ดารัณ เผ่าสกุลทอง
             </p>
 
-            <h3>🎯 เป้าหมายของฉัน</h3>
+            <p>
+                <strong>ชื่อเล่น:</strong>
+                ดารัณ
+            </p>
 
             <p>
-                เป้าหมายของฉันคือการได้ศึกษาต่อในคณะสถาปัตยกรรมศาสตร์
-                และพัฒนาความรู้ความสามารถด้านการออกแบบ
-                เพื่อเติบโตไปเป็นสถาปนิกที่สามารถออกแบบอาคาร
-                และพื้นที่ต่าง ๆ ให้มีความสวยงาม ใช้งานได้จริง
-                และตอบโจทย์ความต้องการของผู้ใช้งาน
+                <strong>ระดับการศึกษา:</strong>
+                มัธยมศึกษาปีที่ 6
+            </p>
+
+            <p>
+                <strong>แผนการเรียน:</strong>
+                เตรียมวิศวกรรมศาสตร์
             </p>
 
         </div>
 
-    </section>
+
+        <h3>💗 ความสนใจ</h3>
+
+        <p>
+            ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
+            ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
+            รวมถึงต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
+        </p>
 
 
-    <!-- ==================== หน้า 3 ==================== -->
-    <section class="page">
+        <h3>🎯 เป้าหมายของฉัน</h3>
+
+        <p>
+            เป้าหมายของฉันคือการได้ศึกษาต่อในคณะสถาปัตยกรรมศาสตร์
+            และพัฒนาความรู้ความสามารถด้านการออกแบบ
+            เพื่อเติบโตไปเป็นสถาปนิกที่สามารถออกแบบอาคาร
+            และพื้นที่ต่าง ๆ ให้มีความสวยงาม ใช้งานได้จริง
+            และตอบโจทย์ความต้องการของผู้ใช้งาน
+        </p>
+
+
+        <h3>✨ สิ่งที่ฉันอยากพัฒนา</h3>
+
+        <div class="skills">
+
+            <div class="skill">🎨 การออกแบบ</div>
+            <div class="skill">💡 ความคิดสร้างสรรค์</div>
+            <div class="skill">📐 การคิดวิเคราะห์</div>
+            <div class="skill">✏️ การวาด</div>
+            <div class="skill">🏛️ สถาปัตยกรรม</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== หน้า 3 ==================== -->
+
+<section class="page">
+
+    <div class="page-title">
 
         <h2>🎓 รายละเอียดการศึกษา</h2>
 
-        <div class="card">
+        <span></span>
 
-            <h3>📚 การศึกษาปัจจุบัน</h3>
+    </div>
 
-            <div class="info-box">
 
-                <p>
-                    <strong>ระดับ:</strong>
-                    มัธยมศึกษาปีที่ 6
-                </p>
+    <div class="card">
 
-                <p>
-                    <strong>แผนการเรียน:</strong>
-                    เตรียมวิศวกรรมศาสตร์
-                </p>
+        <h3>📚 การศึกษาปัจจุบัน</h3>
 
-            </div>
-
-            <h3>💡 สิ่งที่ได้จากการเรียน</h3>
+        <div class="info-box">
 
             <p>
-                การเรียนในระดับมัธยมศึกษาทำให้ฉันได้ฝึกทั้งด้านความรู้
-                การคิดวิเคราะห์ การแก้ปัญหา และการทำงานอย่างเป็นระบบ
-                รวมถึงได้เรียนรู้การทำงานร่วมกับผู้อื่น
+                <strong>ระดับ:</strong>
+                มัธยมศึกษาปีที่ 6
             </p>
 
             <p>
-                นอกจากนี้ยังได้ฝึกความรับผิดชอบและการจัดการเวลา
-                ซึ่งเป็นสิ่งสำคัญสำหรับการเรียนต่อในระดับมหาวิทยาลัย
+                <strong>แผนการเรียน:</strong>
+                เตรียมวิศวกรรมศาสตร์
             </p>
-
-            <h3>🌷 ทักษะที่ต้องการพัฒนา</h3>
-
-            <ul>
-                <li>การออกแบบ</li>
-                <li>ความคิดสร้างสรรค์</li>
-                <li>การคิดวิเคราะห์</li>
-                <li>การแก้ไขปัญหา</li>
-                <li>การวางแผนการทำงาน</li>
-                <li>การทำงานร่วมกับผู้อื่น</li>
-            </ul>
 
         </div>
 
-    </section>
+
+        <h3>💡 สิ่งที่ได้จากการเรียน</h3>
+
+        <p>
+            การเรียนในระดับมัธยมศึกษาทำให้ฉันได้ฝึกทั้งด้านความรู้
+            การคิดวิเคราะห์ การแก้ปัญหา และการทำงานอย่างเป็นระบบ
+            รวมถึงได้เรียนรู้การทำงานร่วมกับผู้อื่น
+        </p>
+
+        <p>
+            นอกจากนี้ยังได้ฝึกความรับผิดชอบและการจัดการเวลา
+            ซึ่งเป็นสิ่งสำคัญสำหรับการเรียนต่อในระดับมหาวิทยาลัย
+        </p>
 
 
-    <!-- ==================== หน้า 4 ==================== -->
-    <section class="page">
+        <h3>🌷 ทักษะที่ต้องการพัฒนา</h3>
+
+        <div class="skills">
+
+            <div class="skill">🎨 การออกแบบ</div>
+            <div class="skill">💡 ความคิดสร้างสรรค์</div>
+            <div class="skill">📐 การคิดวิเคราะห์</div>
+            <div class="skill">🧠 การแก้ไขปัญหา</div>
+            <div class="skill">📋 การวางแผน</div>
+            <div class="skill">🤝 การทำงานร่วมกับผู้อื่น</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== หน้า 4 ==================== -->
+
+<section class="page">
+
+    <div class="page-title">
 
         <h2>🏛️ มหาวิทยาลัยที่อยากเข้า</h2>
 
-        <div class="card">
+        <span></span>
 
-            <div class="university-box">
+    </div>
 
-                <h3>🎓 คณะสถาปัตยกรรมศาสตร์</h3>
 
-                <p>
-                    ฉันมีความตั้งใจที่จะศึกษาต่อใน
-                    <strong>คณะสถาปัตยกรรมศาสตร์</strong>
-                </p>
+    <div class="card">
 
-                <p>
-                    เพราะเป็นสาขาที่ตรงกับความสนใจด้านการออกแบบ
-                    ความคิดสร้างสรรค์ และการสร้างสรรค์พื้นที่
-                    ที่สามารถนำไปใช้งานได้จริง
-                </p>
+        <div class="university-box">
 
-            </div>
+            <span class="university-icon">
+                🏛️
+            </span>
 
-            <div class="goal">
+            <h3>
+                คณะสถาปัตยกรรมศาสตร์
+            </h3>
 
-                <h3>💭 เหตุผลที่เลือกเรียนสถาปัตยกรรม</h3>
+            <p>
+                ฉันมีความตั้งใจที่จะศึกษาต่อใน
+                <strong>คณะสถาปัตยกรรมศาสตร์</strong>
+            </p>
 
-                <p>
-                    ฉันชอบการออกแบบและการคิดสิ่งใหม่ ๆ
-                    และรู้สึกว่าสถาปัตยกรรมเป็นศาสตร์ที่สามารถนำ
-                    ความคิดสร้างสรรค์มาผสมผสานกับความรู้ด้านการออกแบบ
-                    เพื่อสร้างผลงานที่มีประโยชน์ต่อผู้คน
-                </p>
-
-                <p>
-                    ฉันจึงอยากพัฒนาทักษะด้านการออกแบบ
-                    การวาด การคิดวิเคราะห์ และการสร้างสรรค์ผลงาน
-                    เพื่อนำไปต่อยอดในการเรียนระดับมหาวิทยาลัย
-                </p>
-
-            </div>
-
-            <div class="info-box">
-
-                <p>
-                    <strong>เป้าหมายในอนาคต:</strong>
-                </p>
-
-                <p>
-                    อยากนำความรู้ด้านสถาปัตยกรรมไปใช้ในการออกแบบ
-                    อาคารและพื้นที่ที่มีทั้งความสวยงาม ความเหมาะสม
-                    และสามารถตอบสนองการใช้งานของผู้คนได้
-                </p>
-
-            </div>
+            <p>
+                เพราะเป็นสาขาที่ตรงกับความสนใจด้านการออกแบบ
+                ความคิดสร้างสรรค์ และการสร้างสรรค์พื้นที่
+                ที่สามารถนำไปใช้งานได้จริง
+            </p>
 
         </div>
 
-    </section>
+
+        <div class="goal">
+
+            <h3>💭 เหตุผลที่เลือกเรียนสถาปัตยกรรม</h3>
+
+            <p>
+                ฉันชอบการออกแบบและการคิดสิ่งใหม่ ๆ
+                และรู้สึกว่าสถาปัตยกรรมเป็นศาสตร์ที่สามารถนำ
+                ความคิดสร้างสรรค์มาผสมผสานกับความรู้ด้านการออกแบบ
+                เพื่อสร้างผลงานที่มีประโยชน์ต่อผู้คน
+            </p>
+
+            <p>
+                ฉันจึงอยากพัฒนาทักษะด้านการออกแบบ
+                การวาด การคิดวิเคราะห์ และการสร้างสรรค์ผลงาน
+                เพื่อนำไปต่อยอดในการเรียนระดับมหาวิทยาลัย
+            </p>
+
+        </div>
 
 
-    <!-- ==================== หน้า 5 ==================== -->
-    <section class="page">
+        <div class="info-box">
+
+            <p>
+                <strong>🎯 เป้าหมายในอนาคต</strong>
+            </p>
+
+            <p>
+                อยากนำความรู้ด้านสถาปัตยกรรมไปใช้ในการออกแบบ
+                อาคารและพื้นที่ที่มีทั้งความสวยงาม ความเหมาะสม
+                และสามารถตอบสนองการใช้งานของผู้คนได้
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== หน้า 5 ==================== -->
+
+<section class="page">
+
+    <div class="page-title">
 
         <h2>🏆 ผลงานที่ภาคภูมิใจ</h2>
 
-        <div class="card">
+        <span></span>
 
-            <h3>🌿 ศึกวัดเซียนปรากฏการณ์ธรรมชาติ</h3>
+    </div>
 
-            <img
-                src="IMG_0906.jpeg"
-                class="work-img"
-                alt="ผลงานศึกวัดเซียนปรากฏการณ์ธรรมชาติ ระดับมัธยมศึกษาตอนปลาย"
-            >
+
+    <div class="card">
+
+        <h3>🌿 ศึกวัดเซียนปรากฏการณ์ธรรมชาติ</h3>
+
+        <img
+            src="IMG_0906.jpeg"
+            class="work-img"
+            alt="ผลงานศึกวัดเซียนปรากฏการณ์ธรรมชาติ"
+        >
+
+
+        <div class="info-box">
 
             <p>
                 <strong>ชื่อผลงาน:</strong>
@@ -491,224 +1129,314 @@
 
             <p>
                 <strong>รางวัล:</strong>
-                รองชนะเลิศอันดับ 1
-            </p>
-
-            <p>
-                <strong>รายละเอียด:</strong>
-                เป็นผลงานจากการแข่งขันศึกวัดเซียนปรากฏการณ์ธรรมชาติ
-                ระดับมัธยมศึกษาตอนปลาย ซึ่งเป็นกิจกรรมที่ทำให้ฉัน
-                ได้ฝึกความรู้เกี่ยวกับปรากฏการณ์ทางธรรมชาติ
-                รวมถึงการคิดวิเคราะห์และการนำความรู้มาใช้ในการแข่งขัน
-            </p>
-
-            <p>
-                การเข้าร่วมการแข่งขันครั้งนี้ทำให้ฉันได้ฝึกการเตรียมตัว
-                การวางแผน การแบ่งหน้าที่ และการทำงานร่วมกับผู้อื่น
-                รวมถึงได้ฝึกการแก้ไขปัญหาเฉพาะหน้า
-                และการทำงานภายใต้เวลาที่กำหนด
-            </p>
-
-            <h3>💗 สิ่งที่ได้รับจากผลงาน</h3>
-
-            <p>
-                ฉันรู้สึกภูมิใจกับผลงานนี้ เพราะนอกจากจะได้รับ
-                ประสบการณ์จากการแข่งขันแล้ว ยังได้พัฒนาความรู้
-                ความมั่นใจ ความรับผิดชอบ และทักษะการทำงานเป็นทีม
-                ซึ่งสามารถนำไปพัฒนาตนเองต่อไปในอนาคตได้
+                🥇 รองชนะเลิศอันดับ 1
             </p>
 
         </div>
 
-    </section>
+
+        <h3>📝 รายละเอียด</h3>
+
+        <p>
+            เป็นผลงานจากการแข่งขันศึกวัดเซียนปรากฏการณ์ธรรมชาติ
+            ระดับมัธยมศึกษาตอนปลาย ซึ่งเป็นกิจกรรมที่ทำให้ฉัน
+            ได้ฝึกความรู้เกี่ยวกับปรากฏการณ์ทางธรรมชาติ
+            รวมถึงการคิดวิเคราะห์และการนำความรู้มาใช้ในการแข่งขัน
+        </p>
+
+        <p>
+            การเข้าร่วมการแข่งขันครั้งนี้ทำให้ฉันได้ฝึกการเตรียมตัว
+            การวางแผน การแบ่งหน้าที่ และการทำงานร่วมกับผู้อื่น
+            รวมถึงได้ฝึกการแก้ไขปัญหาเฉพาะหน้า
+            และการทำงานภายใต้เวลาที่กำหนด
+        </p>
 
 
-    <!-- ==================== หน้า 6 ==================== -->
-    <section class="page">
+        <h3>💗 สิ่งที่ได้รับ</h3>
+
+        <p>
+            ฉันรู้สึกภูมิใจกับผลงานนี้ เพราะนอกจากจะได้รับ
+            ประสบการณ์จากการแข่งขันแล้ว ยังได้พัฒนาความรู้
+            ความมั่นใจ ความรับผิดชอบ และทักษะการทำงานเป็นทีม
+            ซึ่งสามารถนำไปพัฒนาตนเองต่อไปในอนาคตได้
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== หน้า 6 ==================== -->
+
+<section class="page">
+
+    <div class="page-title">
 
         <h2>💻 โครงงาน / ชิ้นงาน</h2>
 
-        <div class="card">
+        <span></span>
 
-            <h3>🎨 ชิ้นงานของฉัน</h3>
+    </div>
 
-            <img
-                src="IMG_0905.jpeg"
-                class="work-img"
-                alt="ผลงานชิ้นงานของดารัณ"
-            >
+
+    <div class="card">
+
+        <h3>🎨 ชิ้นงานของฉัน</h3>
+
+        <img
+            src="IMG_0905.jpeg"
+            class="work-img"
+            alt="ผลงานชิ้นงานของดารัณ"
+        >
+
+
+        <div class="info-box">
 
             <p>
                 <strong>ชื่อชิ้นงาน:</strong>
                 ผลงานการออกแบบและสร้างสรรค์
             </p>
 
-            <p>
-                <strong>แนวคิดของชิ้นงาน:</strong>
-                ชิ้นงานนี้เกิดจากความสนใจในการออกแบบ
-                และการสร้างสรรค์ โดยพยายามนำความคิดของตนเอง
-                มาถ่ายทอดออกมาเป็นผลงาน
-                และให้ความสำคัญกับความสวยงาม ความเหมาะสม
-                และรายละเอียดของงาน
-            </p>
-
-            <p>
-                <strong>รายละเอียด:</strong>
-                ในการทำชิ้นงานได้มีการวางแผนและออกแบบก่อนลงมือทำ
-                พร้อมทั้งปรับแก้รายละเอียดต่าง ๆ ให้ผลงานออกมา
-                ตรงกับแนวคิด และมีความเรียบร้อยมากที่สุด
-            </p>
-
-            <p>
-                <strong>ขั้นตอนการทำ:</strong>
-                เริ่มจากการคิดแนวทางและออกแบบชิ้นงาน
-                จากนั้นจึงลงมือสร้างผลงานตามแบบ
-                และตรวจสอบพร้อมปรับปรุงรายละเอียด
-                จนได้ผลงานที่ต้องการ
-            </p>
-
-            <p>
-                <strong>สิ่งที่ได้รับจากการทำชิ้นงาน:</strong>
-                ได้ฝึกความคิดสร้างสรรค์ การออกแบบ การวางแผน
-                ความละเอียดรอบคอบ และการแก้ไขปัญหา
-                รวมถึงได้เรียนรู้ว่าการสร้างผลงานที่ดี
-                ต้องอาศัยทั้งความคิดและความพยายาม
-                ในการพัฒนาผลงานอย่างต่อเนื่อง
-            </p>
-
         </div>
 
 
-        <div class="card">
+        <h3>💡 แนวคิดของชิ้นงาน</h3>
 
-            <h3>🌷 สิ่งที่ได้เรียนรู้</h3>
-
-            <p>
-                จากการทำโครงงานและชิ้นงานต่าง ๆ
-                ทำให้ฉันได้พัฒนาทักษะด้านการออกแบบ
-                และความคิดสร้างสรรค์
-                รวมถึงได้ฝึกการทำงานอย่างเป็นขั้นตอน
-                การแก้ไขข้อผิดพลาด และการพัฒนาผลงานให้ดีขึ้น
-            </p>
-
-            <p>
-                ประสบการณ์เหล่านี้สามารถนำไปต่อยอด
-                ในการเรียนด้านสถาปัตยกรรมในอนาคตได้
-            </p>
-
-        </div>
-
-    </section>
+        <p>
+            ชิ้นงานนี้เกิดจากความสนใจในการออกแบบ
+            และการสร้างสรรค์ โดยพยายามนำความคิดของตนเอง
+            มาถ่ายทอดออกมาเป็นผลงาน
+            และให้ความสำคัญกับความสวยงาม ความเหมาะสม
+            และรายละเอียดของงาน
+        </p>
 
 
-    <!-- ==================== ปุ่มเปลี่ยนหน้า ==================== -->
+        <h3>📝 รายละเอียด</h3>
 
-    <div class="navigation">
+        <p>
+            ในการทำชิ้นงานได้มีการวางแผนและออกแบบก่อนลงมือทำ
+            พร้อมทั้งปรับแก้รายละเอียดต่าง ๆ ให้ผลงานออกมา
+            ตรงกับแนวคิด และมีความเรียบร้อยมากที่สุด
+        </p>
 
-        <button id="prevBtn" onclick="previousPage()">
-            ← ย้อนกลับ
-        </button>
 
-        <span class="page-number" id="pageNumber">
-            หน้า 1 / 6
-        </span>
+        <h3>🔨 ขั้นตอนการทำ</h3>
 
-        <button id="nextBtn" onclick="nextPage()">
-            หน้าถัดไป →
-        </button>
+        <p>
+            เริ่มจากการคิดแนวทางและออกแบบชิ้นงาน
+            จากนั้นจึงลงมือสร้างผลงานตามแบบ
+            และตรวจสอบพร้อมปรับปรุงรายละเอียด
+            จนได้ผลงานที่ต้องการ
+        </p>
 
-        <button onclick="goHome()">
-            🏠 หน้าแรก
-        </button>
+
+        <h3>🌷 สิ่งที่ได้รับจากการทำชิ้นงาน</h3>
+
+        <p>
+            ได้ฝึกความคิดสร้างสรรค์ การออกแบบ การวางแผน
+            ความละเอียดรอบคอบ และการแก้ไขปัญหา
+            รวมถึงได้เรียนรู้ว่าการสร้างผลงานที่ดี
+            ต้องอาศัยทั้งความคิดและความพยายาม
+            ในการพัฒนาผลงานอย่างต่อเนื่อง
+        </p>
 
     </div>
+
+
+    <div class="card">
+
+        <h3>✨ สิ่งที่ได้เรียนรู้</h3>
+
+        <p>
+            จากการทำโครงงานและชิ้นงานต่าง ๆ
+            ทำให้ฉันได้พัฒนาทักษะด้านการออกแบบ
+            และความคิดสร้างสรรค์
+            รวมถึงได้ฝึกการทำงานอย่างเป็นขั้นตอน
+            การแก้ไขข้อผิดพลาด และการพัฒนาผลงานให้ดีขึ้น
+        </p>
+
+        <p>
+            ประสบการณ์เหล่านี้สามารถนำไปต่อยอด
+            ในการเรียนด้านสถาปัตยกรรมในอนาคตได้
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== Navigation ==================== -->
+
+<div class="navigation">
+
+    <button id="prevBtn" onclick="previousPage()">
+        ← ย้อนกลับ
+    </button>
+
+    <span class="page-number" id="pageNumber">
+        หน้า 1 / 6
+    </span>
+
+    <button id="nextBtn" onclick="nextPage()">
+        หน้าถัดไป →
+    </button>
+
+    <button onclick="goHome()">
+        🏠 หน้าแรก
+    </button>
 
 </div>
 
 
+</div>
+
+
+<!-- ==================== TOP BUTTON ==================== -->
+
+<button class="top-btn" onclick="scrollTopPage()">
+    ↑
+</button>
+
+
 <footer>
-    <p>💗 Portfolio | ดารัณ เผ่าสกุลทอง 💗</p>
+
+    <p>
+        💗 Portfolio | <span>ดารัณ เผ่าสกุลทอง</span> 💗
+    </p>
+
 </footer>
 
 
 <script>
 
-    let currentPage = 0;
+let currentPage = 0;
 
-    const pages = document.querySelectorAll(".page");
+const pages = document.querySelectorAll(".page");
 
-    const prevBtn = document.getElementById("prevBtn");
+const prevBtn = document.getElementById("prevBtn");
 
-    const nextBtn = document.getElementById("nextBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-    const pageNumber = document.getElementById("pageNumber");
+const pageNumber = document.getElementById("pageNumber");
 
-
-    function showPage(page) {
-
-        pages.forEach(function(item, index) {
-
-            item.classList.remove("active");
-
-            if (index === page) {
-                item.classList.add("active");
-            }
-
-        });
-
-        pageNumber.textContent =
-            "หน้า " + (page + 1) + " / " + pages.length;
-
-        prevBtn.disabled = page === 0;
-
-        nextBtn.disabled = page === pages.length - 1;
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
+const progress = document.getElementById("progress");
 
 
-    function nextPage() {
+function showPage(page){
 
-        if (currentPage < pages.length - 1) {
+    pages.forEach(function(item,index){
 
-            currentPage++;
+        item.classList.remove("active");
 
-            showPage(currentPage);
+        if(index === page){
+
+            item.classList.add("active");
 
         }
 
-    }
+    });
 
 
-    function previousPage() {
-
-        if (currentPage > 0) {
-
-            currentPage--;
-
-            showPage(currentPage);
-
-        }
-
-    }
+    pageNumber.textContent =
+        "หน้า " + (page + 1) + " / " + pages.length;
 
 
-    function goHome() {
+    prevBtn.disabled = page === 0;
 
-        currentPage = 0;
+    nextBtn.disabled = page === pages.length - 1;
+
+
+    /* Progress */
+
+    let percent =
+        ((page + 1) / pages.length) * 100;
+
+    progress.style.width = percent + "%";
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+function nextPage(){
+
+    if(currentPage < pages.length - 1){
+
+        currentPage++;
 
         showPage(currentPage);
 
     }
 
+}
+
+
+function previousPage(){
+
+    if(currentPage > 0){
+
+        currentPage--;
+
+        showPage(currentPage);
+
+    }
+
+}
+
+
+function goHome(){
+
+    currentPage = 0;
 
     showPage(currentPage);
 
+}
+
+
+function scrollTopPage(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* Keyboard */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "ArrowRight"){
+
+        nextPage();
+
+    }
+
+    if(event.key === "ArrowLeft"){
+
+        previousPage();
+
+    }
+
+});
+
+
+showPage(currentPage);
+
 </script>
+
 
 </body>
 </html>
+```
