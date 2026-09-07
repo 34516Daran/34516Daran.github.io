@@ -1,2276 +1,1212 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portfolio | Daran</title>
+<title>Portfolio | ดารัณ เผ่าสกุลทอง</title>
 
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-
-    font-family:"Kanit","Tahoma",sans-serif;
-
-    color:#654552;
-
-    min-height:100vh;
-
-    overflow-x:hidden;
-
+body {
+    font-family: "Kanit", sans-serif;
+    min-height: 100vh;
     background:
-
-        radial-gradient(
-            circle at 10% 10%,
-            #ffffff 0%,
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 90% 15%,
-            #ffd0e2 0%,
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 80% 90%,
-            #ffe1ed 0%,
-            transparent 30%
-        ),
-
-        linear-gradient(
-            135deg,
-            #fff5f9,
-            #f9d7e6,
-            #ffeaf2
-        );
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.8), transparent 25%),
+        radial-gradient(circle at 90% 10%, rgba(255,180,215,.5), transparent 25%),
+        radial-gradient(circle at 80% 90%, rgba(180,220,255,.5), transparent 25%),
+        linear-gradient(135deg, #ffd9ea, #fbc4df, #d9ecff);
+    color: #49333f;
+    overflow-x: hidden;
 }
 
+/* =========================
+   LOADING
+========================= */
 
-/* =====================================================
-   LOADING SCREEN
-===================================================== */
-
-.loading{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#fff3f8;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:99999;
-
-    animation:hideLoading 1s ease 1.5s forwards;
+.loading {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ffb8d8, #d9c4ff, #bce8ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: hideLoading 1s ease 1.8s forwards;
 }
 
-.loading-content{
-
-    text-align:center;
+.loading-box {
+    text-align: center;
 }
 
-.loading-heart{
-
-    font-size:65px;
-
-    animation:heartBeat 1s infinite;
+.loading-icon {
+    font-size: 65px;
+    animation: bounce 1s infinite;
 }
 
-.loading p{
-
-    margin-top:15px;
-
-    color:#c85b82;
-
-    font-size:18px;
+.loading-text {
+    font-family: "Itim";
+    font-size: 28px;
+    color: white;
+    margin-top: 15px;
 }
 
-@keyframes heartBeat{
+.loading-line {
+    width: 180px;
+    height: 6px;
+    background: rgba(255,255,255,.4);
+    border-radius: 20px;
+    margin: 20px auto;
+    overflow: hidden;
+}
 
-    0%,100%{
-        transform:scale(1);
-    }
+.loading-line::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 100%;
+    background: white;
+    border-radius: 20px;
+    animation: loading 1.5s infinite;
+}
 
-    50%{
-        transform:scale(1.2);
+@keyframes loading {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(180%); }
+}
+
+@keyframes hideLoading {
+    to {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
-@keyframes hideLoading{
-
-    to{
-        opacity:0;
-        visibility:hidden;
+@keyframes bounce {
+    50% {
+        transform: translateY(-15px);
     }
 }
 
+/* =========================
+   BACKGROUND DECORATION
+========================= */
 
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-.progress{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    height:6px;
-
-    width:0%;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #c94f7c,
-            #e983a8,
-            #ffc4dc,
-            #d85c88
-        );
-
-    box-shadow:
-
-        0 0 10px #e986aa,
-        0 0 25px rgba(225,100,145,.5);
-
-    z-index:10000;
-
-    transition:.5s;
+.bg-circle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -2;
+    filter: blur(2px);
 }
 
-
-/* =====================================================
-   DECORATIONS
-===================================================== */
-
-.decor{
-
-    position:fixed;
-
-    pointer-events:none;
-
-    z-index:-1;
+.circle1 {
+    width: 260px;
+    height: 260px;
+    background: rgba(255,255,255,.25);
+    top: 10%;
+    left: -100px;
+    animation: float 7s ease-in-out infinite;
 }
 
-
-/* circles */
-
-.circle{
-
-    border-radius:50%;
-
-    filter:blur(1px);
-
-    opacity:.5;
+.circle2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(255,150,200,.18);
+    right: -130px;
+    top: 40%;
+    animation: float 9s ease-in-out infinite reverse;
 }
 
-.circle.one{
-
-    width:300px;
-    height:300px;
-
-    background:#ffc9df;
-
-    top:-100px;
-    left:-100px;
-
-    animation:moveCircle1 9s ease-in-out infinite;
+.circle3 {
+    width: 200px;
+    height: 200px;
+    background: rgba(160,210,255,.2);
+    left: 20%;
+    bottom: -80px;
+    animation: float 8s ease-in-out infinite;
 }
 
-.circle.two{
-
-    width:220px;
-    height:220px;
-
-    background:#ffffff;
-
-    top:35%;
-    right:-90px;
-
-    animation:moveCircle2 11s ease-in-out infinite;
-}
-
-.circle.three{
-
-    width:280px;
-    height:280px;
-
-    background:#f4b4cf;
-
-    bottom:-130px;
-    left:25%;
-
-    animation:moveCircle3 12s ease-in-out infinite;
-}
-
-@keyframes moveCircle1{
-
-    0%,100%{
-        transform:translate(0,0);
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
     }
-
-    50%{
-        transform:translate(50px,70px);
+    50% {
+        transform: translateY(-35px);
     }
 }
 
-@keyframes moveCircle2{
+/* =========================
+   FLOWERS
+========================= */
 
-    0%,100%{
-        transform:translate(0,0);
+.flower {
+    position: fixed;
+    font-size: 30px;
+    opacity: .65;
+    pointer-events: none;
+    z-index: -1;
+    animation: flowerFloat 8s ease-in-out infinite;
+}
+
+.flower1 {
+    top: 18%;
+    left: 5%;
+}
+
+.flower2 {
+    top: 70%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+.flower3 {
+    top: 45%;
+    left: 92%;
+    animation-delay: 4s;
+}
+
+.flower4 {
+    bottom: 10%;
+    left: 8%;
+    animation-delay: 1s;
+}
+
+@keyframes flowerFloat {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
     }
-
-    50%{
-        transform:translate(-50px,40px);
-    }
-}
-
-@keyframes moveCircle3{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-60px);
-    }
-}
-
-
-/* =====================================================
-   FLOATING FLOWERS
-===================================================== */
-
-.floating{
-
-    position:fixed;
-
-    bottom:-50px;
-
-    opacity:.5;
-
-    pointer-events:none;
-
-    animation:floatUp linear infinite;
-
-    z-index:-1;
-}
-
-.f1{
-    left:5%;
-    font-size:25px;
-    animation-duration:12s;
-}
-
-.f2{
-    left:18%;
-    font-size:18px;
-    animation-duration:15s;
-    animation-delay:3s;
-}
-
-.f3{
-    left:35%;
-    font-size:28px;
-    animation-duration:11s;
-    animation-delay:2s;
-}
-
-.f4{
-    left:60%;
-    font-size:20px;
-    animation-duration:16s;
-    animation-delay:4s;
-}
-
-.f5{
-    left:80%;
-    font-size:30px;
-    animation-duration:13s;
-}
-
-.f6{
-    left:92%;
-    font-size:17px;
-    animation-duration:17s;
-    animation-delay:5s;
-}
-
-@keyframes floatUp{
-
-    0%{
-
-        transform:
-        translateY(0)
-        rotate(0deg);
-
-        opacity:0;
-    }
-
-    15%{
-        opacity:.6;
-    }
-
-    85%{
-        opacity:.5;
-    }
-
-    100%{
-
-        transform:
-        translateY(-115vh)
-        rotate(360deg);
-
-        opacity:0;
+    50% {
+        transform: translateY(-25px) rotate(15deg);
     }
 }
 
-
-/* =====================================================
-   SPARKLES
-===================================================== */
-
-.sparkle{
-
-    position:fixed;
-
-    color:#e784a7;
-
-    pointer-events:none;
-
-    animation:sparkle 2s ease-in-out infinite;
-
-    z-index:-1;
-}
-
-.s1{
-    top:20%;
-    left:12%;
-}
-
-.s2{
-    top:60%;
-    left:88%;
-    animation-delay:.7s;
-}
-
-.s3{
-    top:80%;
-    left:18%;
-    animation-delay:1.2s;
-}
-
-.s4{
-    top:30%;
-    right:18%;
-    animation-delay:1.7s;
-}
-
-@keyframes sparkle{
-
-    0%,100%{
-        opacity:.15;
-        transform:scale(.7) rotate(0);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.5) rotate(180deg);
-    }
-}
-
-
-/* =====================================================
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
-header{
-
-    position:relative;
-
-    min-height:330px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.86),
-            rgba(255,226,238,.72)
-        );
-
-    backdrop-filter:blur(20px);
-
-    border-bottom:
-
-        1px solid
-        rgba(255,255,255,.8);
-
-    box-shadow:
-
-        0 15px 50px
-        rgba(170,75,115,.12);
+header {
+    width: 100%;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,.38);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.6);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ff8fbd, #a9d8ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    box-shadow: 0 8px 25px rgba(220,120,170,.25);
+}
+
+.logo-text h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    color: #593c4d;
+}
+
+.logo-text p {
+    font-size: 12px;
+    color: #8d687c;
+}
+
+.header-decoration {
+    display: flex;
+    gap: 10px;
+}
+
+.header-decoration span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f58fba;
+    animation: pulse 2s infinite;
+}
+
+.header-decoration span:nth-child(2) {
+    background: #a7d9ff;
+    animation-delay: .3s;
+}
+
+.header-decoration span:nth-child(3) {
+    background: #c9a8ff;
+    animation-delay: .6s;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.5);
+        opacity: .5;
+    }
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-container {
+    position: fixed;
+    top: 96px;
+    left: 7%;
+    right: 7%;
+    height: 5px;
+    background: rgba(255,255,255,.35);
+    border-radius: 20px;
+    z-index: 900;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 16.66%;
+    background: linear-gradient(90deg, #f28bb9, #9ed8ff);
+    border-radius: 20px;
+    transition: .5s ease;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 90px 25px 60px;
+}
+
+.page {
+    display: none;
+    min-height: 72vh;
+    animation: pageIn .7s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-number {
+    display: inline-block;
+    padding: 7px 18px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.6);
+    color: #e36e9f;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(200,100,150,.1);
+}
+
+.section-title h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px, 5vw, 52px);
+    margin-top: 12px;
+    color: #593b4d;
+}
+
+.section-title p {
+    color: #8d687c;
+    margin-top: 7px;
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass-card {
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 35px;
+    padding: 45px;
+    box-shadow:
+        0 25px 60px rgba(120,80,110,.12),
+        inset 0 1px 0 rgba(255,255,255,.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255,160,200,.13);
+    right: -70px;
+    top: -70px;
+}
+
+.glass-card::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(170,210,255,.15);
+    left: -50px;
+    bottom: -50px;
+}
+
+/* =========================
+   PAGE 1
+========================= */
+
+.preface {
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.preface-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.preface h3 {
+    font-size: 30px;
+    color: #e16c9c;
+    margin-bottom: 25px;
+}
+
+.preface p {
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 18px;
+    color: #674d5b;
+}
+
+.quote {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 25px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,190,220,.5),
+        rgba(190,225,255,.45)
+    );
+    font-family: "Itim";
+    font-size: 23px;
+    color: #71465e;
+}
+
+/* =========================
+   PAGE 2 PROFILE
+========================= */
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.profile-photo-box {
+    text-align: center;
+}
+
+.profile-frame {
+    width: 280px;
+    height: 280px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #f58dbb,
+        #c6a9ff,
+        #9edcff
+    );
+    box-shadow:
+        0 20px 45px rgba(210,100,160,.25),
+        0 0 0 10px rgba(255,255,255,.35);
+    animation: photoFloat 5s ease-in-out infinite;
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid white;
+}
+
+@keyframes photoFloat {
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+.profile-name {
+    margin-top: 25px;
+}
+
+.profile-name h3 {
+    font-size: 25px;
+    color: #593b4d;
+}
+
+.profile-name p {
+    color: #df719f;
+}
+
+.profile-info h3 {
+    font-size: 35px;
+    color: #df719f;
+    margin-bottom: 25px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 16px;
+}
+
+.info-item {
+    padding: 20px;
+    border-radius: 22px;
+    background: rgba(255,255,255,.6);
+    border: 1px solid rgba(255,255,255,.7);
+    transition: .3s;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(200,100,160,.15);
+}
+
+.info-item span {
+    font-size: 25px;
+}
+
+.info-item small {
+    display: block;
+    color: #987284;
+    margin-top: 5px;
+}
+
+.info-item strong {
+    display: block;
+    color: #59404d;
+    margin-top: 3px;
+}
+
+/* =========================
+   PAGE 3 EDUCATION
+========================= */
+
+.education-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.education-main {
+    padding: 35px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.7);
+}
+
+.education-main .big-icon {
+    font-size: 55px;
+}
+
+.education-main h3 {
+    color: #df709f;
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+.education-main p {
+    line-height: 1.9;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(#f18dbb,#a8d9ff);
+    border-radius: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0 0 28px 25px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 3px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: white;
+    border: 5px solid #ed8db8;
+}
+
+.timeline-item h4 {
+    color: #654653;
+    font-size: 20px;
+}
+
+.timeline-item p {
+    color: #876c79;
+    margin-top: 5px;
+}
+
+.skills {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    padding: 9px 17px;
+    background: linear-gradient(135deg,#ffd1e5,#d9ecff);
+    border-radius: 30px;
+    color: #674557;
+    font-size: 14px;
+}
+
+/* =========================
+   PAGE 4 UNIVERSITY
+========================= */
+
+.university-card {
+    position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.72),
+            rgba(255,225,240,.65),
+            rgba(215,237,255,.7)
+        );
+    border-radius: 40px;
+    padding: 55px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.8);
+    box-shadow: 0 30px 70px rgba(100,80,120,.15);
+}
 
 /* blueprint grid */
-
-header::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
+.university-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image:
+        linear-gradient(rgba(180,160,200,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180,160,200,.08) 1px, transparent 1px);
+    background-size: 35px 35px;
+    pointer-events: none;
+}
+
+.university-icon {
+    width: 115px;
+    height: 115px;
+    margin: auto;
+    border-radius: 35px;
+    background: linear-gradient(135deg,#f58dbb,#c0a6ff,#9fdcff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    box-shadow: 0 20px 40px rgba(180,100,170,.25);
+    animation: float 4s ease-in-out infinite;
+}
+
+.university-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.university-label {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 8px 20px;
+    background: rgba(255,255,255,.7);
+    border-radius: 30px;
+    color: #df719f;
+    font-size: 14px;
+}
+
+.university-content h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px,5vw,55px);
+    line-height: 1.3;
+    color: #543b4b;
+    margin: 20px 0 10px;
+}
+
+.university-content h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #987184;
+    margin-bottom: 30px;
+}
 
-        linear-gradient(
-            rgba(210,100,140,.07) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(210,100,140,.07) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        35px 35px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent
-        );
-}
-
-
-/* decorative rings */
-
-header::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    border:
-
-        1px solid
-        rgba(214,92,137,.18);
-
-    border-radius:50%;
-
-    right:-150px;
-    top:-150px;
-
-    box-shadow:
-
-        0 0 0 30px rgba(214,92,137,.04),
-        0 0 0 70px rgba(214,92,137,.03);
-
-    animation:rotateRing 25s linear infinite;
-}
-
-@keyframes rotateRing{
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.header-content{
-
-    position:relative;
-
-    z-index:2;
-
-    animation:heroIn 1.2s ease;
-}
-
-@keyframes heroIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(30px)
-        scale(.9);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-    }
-}
-
-
-.logo{
-
-    width:110px;
-    height:110px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #ffe1ed
-        );
-
-    border:4px solid white;
-
-    box-shadow:
-
-        0 10px 40px
-        rgba(190,80,120,.2);
-
-    font-size:50px;
-
-    animation:
-        logoFloat 3s ease-in-out infinite;
-}
-
-@keyframes logoFloat{
-
-    0%,100%{
-        transform:translateY(0) rotate(0);
-    }
-
-    50%{
-        transform:translateY(-10px) rotate(3deg);
-    }
-}
-
-
-header h1{
-
-    font-family:"Itim",cursive;
-
-    color:#c94f7c;
-
-    font-size:48px;
-
-    margin-top:20px;
-
-    text-shadow:
-
-        2px 3px 0 #fff,
-        0 5px 20px rgba(190,70,115,.15);
-}
-
-header p{
-
-    color:#956477;
-
-    font-size:18px;
-
-    letter-spacing:2px;
-}
-
-.arch-text{
-
-    margin-top:15px;
-
-    font-size:13px;
-
-    color:#c06a89;
-
-    letter-spacing:4px;
-}
-
-
-/* =====================================================
-   NAVIGATION TOP
-===================================================== */
-
-.top-nav{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:500;
-
-    padding:10px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:8px;
-
-    background:
-
-        rgba(255,255,255,.72);
-
-    backdrop-filter:blur(15px);
-
-    border-bottom:
-
-        1px solid
-        rgba(220,120,155,.12);
-}
-
-.nav-dot{
-
-    width:13px;
-    height:13px;
-
-    border-radius:50%;
-
-    background:#e6bdcc;
-
-    transition:.4s;
-
-    cursor:pointer;
-}
-
-.nav-dot.active{
-
-    width:38px;
-
-    border-radius:20px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #d65d87,
-            #ee9ab7
-        );
-
-    box-shadow:
-        0 0 15px
-        rgba(214,93,135,.35);
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-.container{
-
-    width:min(1050px,92%);
-
-    margin:50px auto 80px;
-
-    position:relative;
-}
-
-
-/* =====================================================
-   PAGE
-===================================================== */
-
-.page{
-
-    display:none;
-
-    position:relative;
-
-    animation:
-        pageEnter
-        .8s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-.page.active{
-    display:block;
-}
-
-@keyframes pageEnter{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(50px)
-        scale(.96);
-
-        filter:blur(7px);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-
-        filter:blur(0);
-    }
-}
-
-
-/* =====================================================
-   PAGE NUMBER BACKGROUND
-===================================================== */
-
-.page::before{
-
-    content:
-
-        "0"
-        counter(page);
-
-    position:absolute;
-
-    top:-80px;
-
-    right:0;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:180px;
-
-    font-weight:bold;
-
-    color:
-
-        rgba(205,85,125,.035);
-
-    pointer-events:none;
-}
-
-
-/* =====================================================
-   SECTION TITLE
-===================================================== */
-
-.title{
-
-    text-align:center;
-
-    margin-bottom:35px;
-
-    position:relative;
-}
-
-.title .small{
-
-    display:block;
-
-    font-size:13px;
-
-    letter-spacing:5px;
-
-    color:#bf7691;
-
-    margin-bottom:8px;
-}
-
-.title h2{
-
-    font-family:"Itim",cursive;
-
-    font-size:42px;
-
-    color:#c9507d;
-
-    text-shadow:
-
-        0 5px 20px
-        rgba(200,70,120,.12);
-}
-
-.title-line{
-
-    width:100px;
-    height:5px;
-
-    margin:13px auto 0;
-
-    border-radius:50px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            #df7298,
-            #f4b8cd,
-            transparent
-        );
-
-    position:relative;
-}
-
-.title-line::after{
-
-    content:"✦";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    color:#d45c85;
-
-    background:#fff0f6;
-
-    padding:0 8px;
-}
-
-
-/* =====================================================
-   GLASS CARD
-===================================================== */
-
-.card{
-
-    position:relative;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.9),
-            rgba(255,244,248,.78)
-        );
-
-    backdrop-filter:blur(20px);
-
-    border:
-
-        1px solid
-        rgba(255,255,255,.95);
-
-    border-radius:35px;
-
-    padding:42px;
-
-    margin-bottom:30px;
-
-    box-shadow:
-
-        0 20px 60px
-        rgba(170,70,110,.12),
-
-        inset 0 1px 0 white;
-
-    overflow:hidden;
-
-    transition:.5s;
-}
-
-.card:hover{
-
-    transform:
-        translateY(-8px);
-
-    box-shadow:
-
-        0 30px 70px
-        rgba(170,70,110,.18);
-}
-
-
-/* card shine */
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:200px;
-    height:200px;
-
-    border-radius:50%;
-
-    background:
-
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.9),
-            transparent 70%
-        );
-
-    top:-120px;
-    right:-80px;
-}
-
-.card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:120px;
-    height:120px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(220,100,140,.12);
-
-    bottom:-60px;
-    left:-40px;
-}
-
-
-/* =====================================================
-   TEXT
-===================================================== */
-
-p{
-
-    font-size:16px;
-
-    line-height:2;
-
-    margin-bottom:18px;
-}
-
-strong{
-    color:#c14f78;
-}
-
-h3{
-
-    color:#ca5d82;
-
-    font-size:22px;
-
-    margin:
-        28px 0 15px;
-}
-
-
-/* =====================================================
-   INTRO
-===================================================== */
-
-.intro{
-
-    text-align:center;
-
-    padding:
-        60px 45px;
-}
-
-.intro-symbol{
-
-    width:120px;
-    height:120px;
-
-    margin:
-        0 auto 25px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:35%;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #fff,
-            #ffe0ec
-        );
-
-    font-size:60px;
-
-    box-shadow:
-
-        0 15px 35px
-        rgba(190,80,120,.15);
-
-    animation:
-        symbolFloat
-        3s ease-in-out infinite;
-}
-
-@keyframes symbolFloat{
-
-    0%,100%{
-        transform:
-            translateY(0)
-            rotate(-3deg);
-    }
-
-    50%{
-        transform:
-            translateY(-10px)
-            rotate(3deg);
-    }
-}
-
-.quote{
-
-    position:relative;
-
-    max-width:750px;
-
-    margin:35px auto 0;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    background:#fff5f9;
-
-    border:1px solid #f4d1df;
-
-    color:#9b6175;
-}
-
-.quote::before{
-
-    content:"“";
-
-    position:absolute;
-
-    top:-25px;
-    left:20px;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:70px;
-
-    color:#df87a5;
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-.profile-area{
-
-    text-align:center;
-
-    margin-bottom:30px;
-}
-
-.profile-ring{
-
-    width:225px;
-    height:225px;
-
-    margin:auto;
-
-    padding:9px;
-
-    border-radius:50%;
-
-    background:
-
-        conic-gradient(
-            #d85d88,
-            #ffd1e2,
-            #ffffff,
-            #e783a6,
-            #d85d88
-        );
-
-    animation:
-        rotateRing2
-        8s linear infinite;
-}
-
-@keyframes rotateRing2{
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.profile-inner{
-
-    width:100%;
-    height:100%;
-
-    padding:7px;
-
-    background:white;
-
-    border-radius:50%;
-
-    animation:
-        counterRotate
-        8s linear infinite;
-}
-
-@keyframes counterRotate{
-
-    to{
-        transform:rotate(-360deg);
-    }
-}
-
-.about-profile{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    display:block;
-}
-
-
-/* =====================================================
-   INFO
-===================================================== */
-
-.info-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:15px;
-
-    margin:30px 0;
-}
-
-.info-item{
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #fff7fa,
-            #ffe8f0
-        );
-
-    padding:20px;
-
-    border-radius:20px;
-
-    border:
-        1px solid
-        #f4d1df;
-
-    transition:.35s;
-}
-
-.info-item:hover{
-
-    transform:
-        translateY(-5px)
-        scale(1.02);
-
-    box-shadow:
-        0 10px 25px
-        rgba(190,80,120,.12);
-}
-
-.info-icon{
-
-    font-size:27px;
-
-    margin-bottom:8px;
-}
-
-.info-label{
-
-    font-size:12px;
-
-    color:#b87a8f;
-}
-
-.info-value{
-
-    font-size:16px;
-
-    color:#704b59;
-}
-
-
-/* =====================================================
-   SKILLS
-===================================================== */
-
-.skills{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:20px;
-}
-
-.skill{
-
-    padding:11px 18px;
-
-    border-radius:50px;
-
-    background:#fff;
-
-    color:#bc5b7d;
-
-    border:
-        1px solid
-        #f0c3d4;
-
-    box-shadow:
-        0 5px 15px
-        rgba(180,70,110,.07);
-
-    transition:.35s;
-}
-
-.skill:hover{
-
-    transform:
-        translateY(-6px)
-        rotate(-2deg);
-
-    background:#fff0f6;
-
-    box-shadow:
-        0 10px 25px
-        rgba(180,70,110,.15);
+.dream-faculty,
+.dream-major {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 700px;
+    margin: 15px auto;
+    text-align: left;
+    padding: 20px 25px;
+    background: rgba(255,255,255,.65);
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,.8);
+    transition: .3s;
 }
-
-
-/* =====================================================
-   TIMELINE
-===================================================== */
-
-.timeline{
 
-    position:relative;
-
-    margin:35px 0;
+.dream-faculty:hover,
+.dream-major:hover {
+    transform: translateX(8px);
 }
-
-.timeline::before{
-
-    content:"";
-
-    position:absolute;
 
-    left:22px;
-
-    top:0;
-    bottom:0;
-
-    width:3px;
-
-    background:
-
-        linear-gradient(
-            #df769b,
-            #f7c8d9,
-            transparent
-        );
+.dream-faculty > span,
+.dream-major > span {
+    font-size: 35px;
+}
+
+.dream-faculty small,
+.dream-major small {
+    display: block;
+    color: #a08090;
 }
-
-.timeline-item{
-
-    position:relative;
-
-    padding-left:65px;
-
-    margin-bottom:35px;
+
+.dream-faculty strong,
+.dream-major strong {
+    display: block;
+    font-size: 18px;
+    color: #5d4350;
+    margin-top: 3px;
 }
-
-.timeline-dot{
-
-    position:absolute;
-
-    left:10px;
-
-    top:3px;
-
-    width:27px;
-    height:27px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    border:6px solid #df7a9d;
-
-    box-shadow:
-        0 0 0 6px #ffe4ee;
+
+.university-description {
+    max-width: 850px;
+    margin: 25px auto;
+    line-height: 2;
+    color: #684f5d;
+    font-size: 16px;
 }
-
-.timeline-content{
-
-    background:#fff8fb;
-
-    border:
-        1px solid
-        #f3d3df;
 
-    padding:20px;
-
-    border-radius:20px;
-
-    transition:.35s;
+.future-goal {
+    max-width: 800px;
+    margin: 30px auto 0;
+    padding: 25px;
+    display: flex;
+    gap: 18px;
+    text-align: left;
+    border-radius: 28px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,188,218,.65),
+        rgba(186,225,255,.6)
+    );
 }
-
-.timeline-content:hover{
-
-    transform:
-        translateX(8px);
 
-    box-shadow:
-        0 10px 30px
-        rgba(180,70,110,.12);
+.future-goal > span {
+    font-size: 35px;
 }
-
-
-/* =====================================================
-   UNIVERSITY
-===================================================== */
-
-.uni-hero{
-
-    position:relative;
-
-    text-align:center;
-
-    padding:50px 30px;
-
-    border-radius:30px;
-
-    background:
 
-        linear-gradient(
-            135deg,
-            #fff,
-            #ffe1ed
-        );
-
-    border:
-        1px solid
-        #f4cbd9;
-
-    overflow:hidden;
+.future-goal strong {
+    font-size: 20px;
+    color: #d56598;
 }
-
-.uni-hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(210,90,130,.15);
 
-    top:-180px;
-    left:-120px;
+.future-goal p {
+    line-height: 1.8;
+    margin-top: 5px;
 }
 
-.uni-hero::after{
+/* =========================
+   PAGE 5 ACHIEVEMENT
+========================= */
 
-    content:"";
-
-    position:absolute;
-
-    width:300px;
-    height:300px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(210,90,130,.15);
-
-    bottom:-160px;
-    right:-100px;
+.achievement-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
 }
-
-.uni-icon{
-
-    width:130px;
-    height:130px;
-
-    margin:auto;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:35px;
-
-    background:white;
-
-    font-size:65px;
-
-    box-shadow:
-        0 15px 35px
-        rgba(180,70,110,.13);
-
-    animation:
-        buildingFloat
-        3s ease-in-out infinite;
+.image-card {
+    background: rgba(255,255,255,.55);
+    padding: 15px;
+    border-radius: 35px;
+    box-shadow: 0 25px 55px rgba(120,80,110,.15);
+    transform: rotate(-2deg);
+    transition: .4s;
 }
-
-@keyframes buildingFloat{
 
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
+.image-card:hover {
+    transform: rotate(0deg) scale(1.03);
 }
-
-.uni-hero h3{
-
-    position:relative;
-
-    z-index:2;
 
-    font-size:28px;
-
-    margin-top:25px;
+.image-card img {
+    width: 100%;
+    display: block;
+    border-radius: 25px;
+    max-height: 450px;
+    object-fit: cover;
 }
-
-.uni-tag{
-
-    display:inline-block;
-
-    margin-top:10px;
 
-    padding:8px 18px;
-
-    border-radius:50px;
-
-    background:#fff;
-
-    color:#c35a7e;
-
-    border:1px solid #f0c3d4;
+.achievement-info h3 {
+    font-size: 34px;
+    color: #dc6c9b;
+    margin-bottom: 15px;
 }
-
-
-/* =====================================================
-   BLUEPRINT
-===================================================== */
-
-.blueprint{
-
-    margin-top:30px;
-
-    padding:30px;
-
-    border-radius:25px;
-
-    background-color:#fff4f8;
-
-    background-image:
-
-        linear-gradient(
-            rgba(210,100,140,.08) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(210,100,140,.08) 1px,
-            transparent 1px
-        );
-
-    background-size:25px 25px;
-
-    border:
-        2px dashed
-        #e5a0b9;
 
-    text-align:center;
+.award {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border-radius: 30px;
+    background: linear-gradient(135deg,#ffd76e,#ffb7d6);
+    color: #704e35;
+    font-weight: 600;
+    margin: 15px 0;
+    box-shadow: 0 10px 25px rgba(230,170,80,.2);
 }
 
-.blueprint h3{
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    letter-spacing:3px;
+.achievement-info p {
+    line-height: 1.9;
+    margin-bottom: 15px;
+    color: #6c5260;
 }
-
-
-/* =====================================================
-   WORK
-===================================================== */
-
-.work-header{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
 
-    margin-bottom:20px;
+.learn-box {
+    padding: 22px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.6);
+    margin-top: 20px;
 }
-
-.work-number{
-
-    width:55px;
-    height:55px;
-
-    flex-shrink:0;
-
-    border-radius:18px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #d85e87,
-            #ee9ab7
-        );
 
-    color:white;
-
-    font-size:20px;
-
-    box-shadow:
-        0 10px 20px
-        rgba(190,70,110,.2);
+.learn-box h4 {
+    color: #d96999;
+    margin-bottom: 10px;
 }
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.image-frame{
-
-    position:relative;
-
-    max-width:700px;
-
-    margin:30px auto;
 
-    padding:10px;
-
-    background:white;
-
-    border-radius:27px;
-
-    box-shadow:
-
-        0 20px 50px
-        rgba(170,70,110,.17);
-
-    overflow:hidden;
+.learn-box p {
+    margin: 0;
 }
-
-.image-frame::before{
-
-    content:"";
-
-    position:absolute;
 
-    width:200%;
+/* =========================
+   PAGE 6 PROJECT
+========================= */
 
-    height:200%;
-
-    top:-100%;
-    left:-100%;
-
-    background:
-
-        linear-gradient(
-            120deg,
-            transparent 40%,
-            rgba(255,255,255,.65),
-            transparent 60%
-        );
-
-    transform:rotate(10deg);
-
-    transition:.8s;
+.project-card {
+    background: rgba(255,255,255,.55);
+    border-radius: 38px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,.75);
+    box-shadow: 0 25px 60px rgba(100,80,110,.12);
 }
-
-.image-frame:hover::before{
 
-    transform:
-        translate(50%,50%)
-        rotate(10deg);
+.project-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
-
-.work-img{
-
-    width:100%;
 
-    max-height:520px;
-
-    object-fit:contain;
-
-    display:block;
-
-    border-radius:19px;
-
-    position:relative;
-
-    z-index:2;
-
-    transition:.6s;
+.project-header h3 {
+    font-size: 35px;
+    color: #dc709e;
 }
 
-.image-frame:hover .work-img{
-
-    transform:scale(1.025);
+.project-header p {
+    color: #8b6c7b;
+    margin-top: 5px;
 }
-
 
-/* =====================================================
-   ACHIEVEMENT
-===================================================== */
-
-.award{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding:22px;
-
-    margin:25px 0;
-
-    border-radius:22px;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #fff7fa,
-            #ffe8f0
-        );
-
-    border:
-        1px solid
-        #f0cad8;
+.project-image {
+    max-width: 850px;
+    margin: auto;
+    padding: 12px;
+    background: linear-gradient(135deg,#ffb7d5,#c7b2ff,#a9dcff);
+    border-radius: 30px;
 }
-
-.award-icon{
-
-    font-size:50px;
 
-    animation:
-        awardFloat
-        2s ease-in-out infinite;
+.project-image img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    max-height: 450px;
+    object-fit: cover;
 }
 
-@keyframes awardFloat{
-
-    0%,100%{
-        transform:rotate(-5deg);
-    }
-
-    50%{
-        transform:rotate(5deg) scale(1.08);
-    }
+.process {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+    margin-top: 35px;
 }
-
-.award strong{
-
-    display:block;
 
-    font-size:19px;
+.process-item {
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.65);
+    text-align: center;
+    transition: .3s;
 }
 
-
-/* =====================================================
-   PROCESS
-===================================================== */
-
-.process{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-
-    margin-top:25px;
+.process-item:hover {
+    transform: translateY(-8px);
 }
-
-.process-box{
-
-    text-align:center;
 
-    padding:25px 15px;
-
-    border-radius:22px;
-
-    background:white;
-
-    border:
-        1px solid
-        #f1cfdb;
-
-    transition:.35s;
+.process-item .icon {
+    font-size: 40px;
 }
 
-.process-box:hover{
-
-    transform:
-        translateY(-8px);
-
-    box-shadow:
-        0 15px 30px
-        rgba(180,70,110,.12);
+.process-item h4 {
+    color: #d86c9b;
+    margin: 10px 0;
 }
-
-.process-icon{
-
-    font-size:40px;
 
-    margin-bottom:10px;
+.process-item p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #765c69;
 }
 
+/* =========================
+   NAVIGATION
+========================= */
 
-/* =====================================================
-   NAV BUTTON
-===================================================== */
-
-.navigation{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
-    margin-top:40px;
+.navigation {
+    max-width: 900px;
+    margin: 35px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
-
-button{
-
-    border:none;
-
-    padding:14px 24px;
-
-    border-radius:50px;
-
-    color:white;
-
-    font-family:"Kanit",sans-serif;
-
-    font-size:15px;
-
-    cursor:pointer;
-
-    background:
 
-        linear-gradient(
-            135deg,
-            #d45a84,
-            #eb91b0
-        );
-
-    box-shadow:
-
-        0 10px 25px
-        rgba(190,70,110,.22);
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:.35s;
+.nav-btn {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-family: "Kanit";
+    font-size: 15px;
+    cursor: pointer;
+    background: rgba(255,255,255,.65);
+    color: #654653;
+    border: 1px solid rgba(255,255,255,.8);
+    transition: .3s;
+    box-shadow: 0 8px 25px rgba(100,70,100,.1);
 }
-
-button::before{
-
-    content:"";
-
-    position:absolute;
 
-    top:0;
-    left:-100%;
-
-    width:70%;
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.45),
-            transparent
-        );
-
-    transition:.5s;
+.nav-btn:hover {
+    transform: translateY(-4px);
+    background: white;
+    box-shadow: 0 12px 30px rgba(210,100,160,.18);
 }
-
-button:hover::before{
 
-    left:130%;
+.nav-btn.main {
+    background: linear-gradient(135deg,#f38ab8,#b5dfff);
+    color: white;
+    font-weight: 600;
 }
 
-button:hover{
-
-    transform:
-        translateY(-5px)
-        scale(1.03);
-
-    box-shadow:
-
-        0 15px 30px
-        rgba(190,70,110,.3);
+.page-counter {
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.55);
+    color: #765566;
+    font-size: 14px;
 }
-
-button:disabled{
 
-    background:#d8c5cd;
+/* =========================
+   PAGE DOTS
+========================= */
 
-    cursor:not-allowed;
-
-    transform:none;
-
-    box-shadow:none;
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 20px;
 }
-
-.page-number{
-
-    min-width:100px;
 
-    text-align:center;
-
-    color:#a65d78;
-
-    font-weight:600;
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.6);
+    cursor: pointer;
+    transition: .3s;
 }
-
-
-/* =====================================================
-   TOP BUTTON
-===================================================== */
 
-.top-button{
-
-    position:fixed;
-
-    right:22px;
-    bottom:22px;
-
-    width:55px;
-    height:55px;
-
-    padding:0;
-
-    border-radius:50%;
-
-    z-index:999;
-
-    font-size:22px;
-
-    box-shadow:
-        0 10px 30px
-        rgba(180,70,110,.25);
+.dot.active {
+    width: 30px;
+    border-radius: 20px;
+    background: linear-gradient(90deg,#f18bb9,#a8d9ff);
 }
-
 
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
-footer{
-
-    position:relative;
-
-    text-align:center;
-
-    padding:50px 20px;
-
-    background:
-        rgba(255,255,255,.55);
-
-    border-top:
-        1px solid
-        rgba(220,100,140,.12);
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: #846678;
+    font-size: 14px;
 }
 
-.footer-logo{
-
-    font-family:"Itim",cursive;
-
-    font-size:30px;
-
-    color:#c9547d;
-
-    margin-bottom:10px;
+footer strong {
+    color: #d96b9b;
 }
 
-footer p{
-
-    font-size:14px;
-
-    color:#9a6979;
+.footer-line {
+    width: 120px;
+    height: 3px;
+    margin: 15px auto;
+    border-radius: 20px;
+    background: linear-gradient(90deg,#f18bb9,#a9dcff);
 }
 
-
-/* =====================================================
+/* =========================
    RESPONSIVE
-===================================================== */
+========================= */
 
-@media(max-width:700px){
+@media (max-width: 850px) {
 
-    header{
-        min-height:280px;
+    header {
+        padding: 15px 20px;
     }
 
-    header h1{
-        font-size:36px;
+    .header-decoration {
+        display: none;
     }
 
-    .logo{
-        width:85px;
-        height:85px;
-        font-size:40px;
+    .progress-container {
+        left: 20px;
+        right: 20px;
+        top: 82px;
     }
 
-    .container{
-        width:94%;
-        margin-top:35px;
+    .container {
+        padding: 65px 15px 40px;
     }
 
-    .card{
-        padding:25px 20px;
-        border-radius:25px;
+    .glass-card {
+        padding: 25px 18px;
     }
 
-    .title h2{
-        font-size:34px;
+    .profile-layout,
+    .education-card,
+    .achievement-layout {
+        grid-template-columns: 1fr;
     }
 
-    .info-grid{
-        grid-template-columns:1fr;
+    .profile-frame {
+        width: 230px;
+        height: 230px;
     }
 
-    .process{
-        grid-template-columns:1fr;
+    .info-grid {
+        grid-template-columns: 1fr;
     }
 
-    .profile-ring{
-        width:180px;
-        height:180px;
+    .university-card {
+        padding: 30px 18px;
     }
 
-    .award{
-        flex-direction:column;
-        text-align:center;
+    .university-content h1 {
+        font-size: 32px;
     }
 
-    .navigation{
-        gap:8px;
+    .university-content h2 {
+        font-size: 14px;
     }
 
-    button{
-        padding:11px 17px;
-        font-size:13px;
+    .process {
+        grid-template-columns: 1fr;
     }
 
-    .page::before{
-        font-size:100px;
+    .navigation {
+        flex-wrap: wrap;
     }
 
+    .nav-btn {
+        padding: 11px 17px;
+    }
+
+    .flower {
+        display: none;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     LOADING
-===================================================== -->
-
+<!-- Loading -->
 <div class="loading">
-
-    <div class="loading-content">
-
-        <div class="loading-heart">
-            🌷
-        </div>
-
-        <p>
-            กำลังเปิด Portfolio...
-        </p>
-
+    <div class="loading-box">
+        <div class="loading-icon">🏛️</div>
+        <div class="loading-text">Welcome to Daran's Portfolio</div>
+        <div class="loading-line"></div>
     </div>
-
 </div>
 
+<!-- Background -->
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+<div class="bg-circle circle3"></div>
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+<div class="flower flower1">🌸</div>
+<div class="flower flower2">🌷</div>
+<div class="flower flower3">✨</div>
+<div class="flower flower4">🩷</div>
 
-<div class="progress" id="progress"></div>
-
-<div class="decor circle one"></div>
-<div class="decor circle two"></div>
-<div class="decor circle three"></div>
-
-
-<div class="floating f1">🌸</div>
-<div class="floating f2">✦</div>
-<div class="floating f3">🌷</div>
-<div class="floating f4">♡</div>
-<div class="floating f5">🌸</div>
-<div class="floating f6">✦</div>
-
-
-<div class="sparkle s1">✦</div>
-<div class="sparkle s2">✧</div>
-<div class="sparkle s3">✦</div>
-<div class="sparkle s4">✧</div>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
+<!-- Header -->
 <header>
 
-    <div class="header-content">
+    <div class="logo">
 
-        <div class="logo">
+        <div class="logo-icon">
             🏛️
         </div>
 
-        <h1>
-            Portfolio ของฉัน
-        </h1>
-
-        <p>
-            ดารัณ เผ่าสกุลทอง
-        </p>
-
-        <div class="arch-text">
-            ARCHITECTURE • DESIGN • CREATIVE
+        <div class="logo-text">
+            <h1>Portfolio</h1>
+            <p>ดารัณ เผ่าสกุลทอง</p>
         </div>
 
+    </div>
+
+    <div class="header-decoration">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
 
 </header>
 
-
-<!-- =====================================================
-     TOP NAV
-===================================================== -->
-
-<div class="top-nav">
-
-    <div class="nav-dot active" onclick="goToPage(0)"></div>
-
-    <div class="nav-dot" onclick="goToPage(1)"></div>
-
-    <div class="nav-dot" onclick="goToPage(2)"></div>
-
-    <div class="nav-dot" onclick="goToPage(3)"></div>
-
-    <div class="nav-dot" onclick="goToPage(4)"></div>
-
-    <div class="nav-dot" onclick="goToPage(5)"></div>
-
+<!-- Progress -->
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
 </div>
 
 
-<!-- =====================================================
-     CONTENT
-===================================================== -->
-
-<div class="container">
+<main class="container">
 
 
 <!-- =====================================================
-     PAGE 1
+     PAGE 1 : คำนำ
 ===================================================== -->
 
 <section class="page active">
 
-    <div class="title">
+    <div class="section-title">
+        <span class="section-number">01</span>
 
-        <span class="small">
-            WELCOME TO MY PORTFOLIO
-        </span>
+        <h2>คำนำ</h2>
 
-        <h2>
-            📖 คำนำ
-        </h2>
-
-        <div class="title-line"></div>
-
+        <p>Preface ♡</p>
     </div>
 
 
-    <div class="card intro">
+    <div class="glass-card preface">
 
-        <div class="intro-symbol">
-            📖
+        <div class="preface-icon">
+            🌷
         </div>
 
+        <h3>
+            ยินดีต้อนรับสู่ Portfolio ของฉัน
+        </h3>
+
         <p>
-
-            แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติ
-            ความรู้ ความสามารถ กิจกรรม และผลงานต่าง ๆ
-            ที่ได้เรียนรู้และสร้างสรรค์ขึ้นในช่วงที่ผ่านมา
-
+            แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวม
+            ประวัติ ความรู้ ความสามารถ กิจกรรม
+            และผลงานต่าง ๆ ที่ได้เรียนรู้และสร้างสรรค์ขึ้น
+            ในช่วงที่ผ่านมา
         </p>
 
         <p>
-
             ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
             ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
             รวมถึงต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
-
         </p>
 
         <p>
-
             ฉันหวังว่าแฟ้มสะสมผลงานนี้จะช่วยแสดงให้เห็นถึง
             ความตั้งใจ ความสามารถ และพัฒนาการของฉัน
             รวมถึงความสนใจที่มีต่อการเรียนด้านสถาปัตยกรรม
-
         </p>
-
 
         <div class="quote">
-
-            💗
-            ขอบคุณที่เข้ามาชม Portfolio ของฉัน
-            💗
-
-        </div>
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>
-            ✨ MY INTEREST
-        </h3>
-
-        <div class="skills">
-
-            <div class="skill">
-                🏛️ Architecture
-            </div>
-
-            <div class="skill">
-                🎨 Design
-            </div>
-
-            <div class="skill">
-                💡 Creativity
-            </div>
-
-            <div class="skill">
-                ✏️ Drawing
-            </div>
-
-            <div class="skill">
-                🌷 Development
-            </div>
-
+            💗 “ทุกการออกแบบเริ่มต้นจากความคิดเล็ก ๆ
+            และฉันอยากทำให้ความคิดนั้นกลายเป็นสิ่งที่มีความหมาย” 💗
         </div>
 
     </div>
@@ -2278,219 +1214,356 @@ footer p{
 </section>
 
 
+
 <!-- =====================================================
-     PAGE 2
+     PAGE 2 : แนะนำตัว
 ===================================================== -->
 
 <section class="page">
 
-    <div class="title">
+    <div class="section-title">
 
-        <span class="small">
-            GET TO KNOW ME
-        </span>
+        <span class="section-number">02</span>
 
-        <h2>
-            👩🏻‍🎨 แนะนำตัว
-        </h2>
+        <h2>แนะนำตัว</h2>
 
-        <div class="title-line"></div>
+        <p>About Me 🌷</p>
 
     </div>
 
 
-    <div class="card">
+    <div class="glass-card">
+
+        <div class="profile-layout">
 
 
-        <div class="profile-area">
+            <!-- รูปโปรไฟล์ -->
 
-            <div class="profile-ring">
+            <div class="profile-photo-box">
 
-                <div class="profile-inner">
+                <div class="profile-frame">
 
-                    <img
-                        src="IMG_6580.jpeg"
-                        class="about-profile"
-                        alt="ดารัณ เผ่าสกุลทอง"
-                    >
+                    <img src="IMG_6580.jpeg"
+                         alt="รูปโปรไฟล์ ดารัณ">
 
                 </div>
 
-            </div>
 
-        </div>
-
-
-        <div class="info-grid">
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    👩🏻
-                </div>
-
-                <div class="info-label">
-                    NAME
-                </div>
-
-                <div class="info-value">
-                    นางสาว ดารัณ เผ่าสกุลทอง
-                </div>
-
-            </div>
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    🌷
-                </div>
-
-                <div class="info-label">
-                    NICKNAME
-                </div>
-
-                <div class="info-value">
-                    ดารัณ
-                </div>
-
-            </div>
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    🎓
-                </div>
-
-                <div class="info-label">
-                    EDUCATION
-                </div>
-
-                <div class="info-value">
-                    มัธยมศึกษาปีที่ 6
-                </div>
-
-            </div>
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    📐
-                </div>
-
-                <div class="info-label">
-                    STUDY PLAN
-                </div>
-
-                <div class="info-value">
-                    เตรียมวิศวกรรมศาสตร์
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <h3>
-            💗 ความสนใจของฉัน
-        </h3>
-
-        <p>
-
-            ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
-            ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
-            รวมถึงต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
-
-        </p>
-
-
-        <h3>
-            🎯 เป้าหมายของฉัน
-        </h3>
-
-        <p>
-
-            เป้าหมายของฉันคือการได้ศึกษาต่อในคณะสถาปัตยกรรมศาสตร์
-            และพัฒนาความรู้ความสามารถด้านการออกแบบ
-            เพื่อเติบโตไปเป็นสถาปนิกที่สามารถออกแบบอาคาร
-            และพื้นที่ต่าง ๆ ให้มีความสวยงาม ใช้งานได้จริง
-            และตอบโจทย์ความต้องการของผู้ใช้งาน
-
-        </p>
-
-
-        <h3>
-            ✨ SKILLS I WANT TO DEVELOP
-        </h3>
-
-        <div class="skills">
-
-            <div class="skill">🎨 การออกแบบ</div>
-
-            <div class="skill">💡 ความคิดสร้างสรรค์</div>
-
-            <div class="skill">📐 การคิดวิเคราะห์</div>
-
-            <div class="skill">✏️ การวาด</div>
-
-            <div class="skill">🏛️ สถาปัตยกรรม</div>
-
-            <div class="skill">🧠 การแก้ปัญหา</div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PAGE 3
-===================================================== -->
-
-<section class="page">
-
-    <div class="title">
-
-        <span class="small">
-            MY EDUCATION
-        </span>
-
-        <h2>
-            🎓 รายละเอียดการศึกษา
-        </h2>
-
-        <div class="title-line"></div>
-
-    </div>
-
-
-    <div class="card">
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-content">
+                <div class="profile-name">
 
                     <h3>
-                        📚 มัธยมศึกษาปีที่ 6
+                        นางสาว ดารัณ เผ่าสกุลทอง
                     </h3>
 
                     <p>
-                        ระดับการศึกษาปัจจุบัน
+                        Daran Phoasakulthong
                     </p>
 
+                </div>
+
+            </div>
+
+
+            <!-- ข้อมูล -->
+
+            <div class="profile-info">
+
+                <h3>
+                    สวัสดีค่ะ 👋
+                </h3>
+
+                <div class="info-grid">
+
+
+                    <div class="info-item">
+
+                        <span>👩🏻</span>
+
+                        <small>ชื่อ</small>
+
+                        <strong>
+                            ดารัณ เผ่าสกุลทอง
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>🎀</span>
+
+                        <small>ชื่อเล่น</small>
+
+                        <strong>
+                            ดารัณ
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>🎓</span>
+
+                        <small>ระดับการศึกษา</small>
+
+                        <strong>
+                            มัธยมศึกษาปีที่ 6
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>📐</span>
+
+                        <small>แผนการเรียน</small>
+
+                        <strong>
+                            เตรียมวิศวกรรมศาสตร์
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>🏛️</span>
+
+                        <small>ความสนใจ</small>
+
+                        <strong>
+                            การออกแบบและสถาปัตยกรรม
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>✨</span>
+
+                        <small>เป้าหมาย</small>
+
+                        <strong>
+                            ศึกษาต่อด้านสถาปัตยกรรม
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 3 : รายละเอียดการศึกษา
+===================================================== -->
+
+<section class="page">
+
+    <div class="section-title">
+
+        <span class="section-number">03</span>
+
+        <h2>รายละเอียดการศึกษา</h2>
+
+        <p>Education & Skills 📚</p>
+
+    </div>
+
+
+    <div class="glass-card">
+
+        <div class="education-card">
+
+
+            <div class="education-main">
+
+                <div class="big-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    การศึกษาปัจจุบัน
+                </h3>
+
+                <p>
+                    ปัจจุบันกำลังศึกษาอยู่ในระดับ
+                    มัธยมศึกษาปีที่ 6
+                    แผนการเรียนเตรียมวิศวกรรมศาสตร์
+                </p>
+
+                <br>
+
+                <p>
+                    นอกจากการเรียนในห้องเรียนแล้ว
+                    ฉันยังสนใจการออกแบบ
+                    การสร้างสรรค์ผลงาน
+                    และการพัฒนาทักษะต่าง ๆ
+                    ที่สามารถนำไปต่อยอดในการเรียน
+                    ด้านสถาปัตยกรรมในอนาคต
+                </p>
+
+
+                <div class="skills">
+
+                    <span class="skill">🎨 การออกแบบ</span>
+
+                    <span class="skill">💡 ความคิดสร้างสรรค์</span>
+
+                    <span class="skill">🧠 การวิเคราะห์</span>
+
+                    <span class="skill">🧩 การแก้ปัญหา</span>
+
+                    <span class="skill">📋 การวางแผน</span>
+
+                    <span class="skill">🤝 การทำงานเป็นทีม</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="education-main">
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item">
+
+                        <h4>
+                            📖 มัธยมศึกษาตอนปลาย
+                        </h4>
+
+                        <p>
+                            ศึกษาในระดับมัธยมศึกษาปีที่ 6
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <h4>
+                            🔧 แผนการเรียน
+                        </h4>
+
+                        <p>
+                            เตรียมวิศวกรรมศาสตร์
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <h4>
+                            🎨 ความสนใจ
+                        </h4>
+
+                        <p>
+                            การออกแบบ สถาปัตยกรรม
+                            และการสร้างสรรค์
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <h4>
+                            🏛️ เป้าหมาย
+                        </h4>
+
+                        <p>
+                            ศึกษาต่อคณะสถาปัตยกรรม
+                            และพัฒนาตนเองสู่การเป็นสถาปนิก
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 4 : มหาวิทยาลัยที่อยากเข้า
+===================================================== -->
+
+<section class="page">
+
+    <div class="section-title">
+
+        <span class="section-number">04</span>
+
+        <h2>มหาวิทยาลัยที่อยากเข้า</h2>
+
+        <p>My Dream University 🎓</p>
+
+    </div>
+
+
+    <div class="university-card">
+
+
+        <div class="university-icon">
+            🏛️
+        </div>
+
+
+        <div class="university-content">
+
+
+            <span class="university-label">
+                🎓 มหาวิทยาลัยในฝันของฉัน
+            </span>
+
+
+            <h1>
+                สถาบันเทคโนโลยี<br>
+                พระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+            </h1>
+
+
+            <h2>
+                King Mongkut's Institute of Technology Ladkrabang
+                <br>
+                KMITL
+            </h2>
+
+
+
+            <div class="dream-faculty">
+
+                <span>🏛️</span>
+
+                <div>
+
+                    <small>
+                        คณะที่ต้องการเข้าศึกษา
+                    </small>
+
                     <strong>
-                        แผนการเรียนเตรียมวิศวกรรมศาสตร์
+                        คณะสถาปัตยกรรม ศิลปะและการออกแบบ
                     </strong>
 
                 </div>
@@ -2498,21 +1571,69 @@ footer p{
             </div>
 
 
-            <div class="timeline-item">
 
-                <div class="timeline-dot"></div>
+            <div class="dream-major">
 
-                <div class="timeline-content">
+                <span>📐</span>
 
-                    <h3>
-                        💡 สิ่งที่ได้จากการเรียน
-                    </h3>
+                <div>
+
+                    <small>
+                        สาขาที่สนใจ
+                    </small>
+
+                    <strong>
+                        สถาปัตยกรรม
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <p class="university-description">
+
+                มหาวิทยาลัยที่ฉันตั้งใจอยากเข้าศึกษาต่อคือ
+                สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+                หรือ สจล. เพราะฉันมีความสนใจด้านการออกแบบ
+                และสถาปัตยกรรม
+                และต้องการพัฒนาความรู้และทักษะด้านการออกแบบ
+                เพื่อนำไปต่อยอดสู่การเป็นสถาปนิกในอนาคต
+
+            </p>
+
+
+
+            <p class="university-description">
+
+                ฉันชื่นชอบการออกแบบ การคิดสร้างสรรค์
+                และการสร้างพื้นที่ที่มีทั้งความสวยงาม
+                และสามารถใช้งานได้จริง
+                จึงอยากเรียนรู้กระบวนการออกแบบอย่างจริงจัง
+                และพัฒนาตนเองให้สามารถสร้างผลงาน
+                ที่มีคุณค่าและตอบโจทย์ผู้ใช้งานได้
+
+            </p>
+
+
+
+            <div class="future-goal">
+
+                <span>✨</span>
+
+                <div>
+
+                    <strong>
+                        เป้าหมายในอนาคต
+                    </strong>
 
                     <p>
 
-                        การเรียนในระดับมัธยมศึกษาทำให้ฉันได้ฝึกทั้งด้านความรู้
-                        การคิดวิเคราะห์ การแก้ปัญหา และการทำงานอย่างเป็นระบบ
-                        รวมถึงได้เรียนรู้การทำงานร่วมกับผู้อื่น
+                        อยากเติบโตเป็นสถาปนิก
+                        ที่สามารถออกแบบอาคารและพื้นที่
+                        ที่สวยงาม ใช้งานได้จริง
+                        และเหมาะสมกับผู้คนและสภาพแวดล้อม
 
                     </p>
 
@@ -2521,188 +1642,6 @@ footer p{
             </div>
 
 
-            <div class="timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        🌷 ทักษะที่ได้รับ
-                    </h3>
-
-                    <p>
-
-                        นอกจากนี้ยังได้ฝึกความรับผิดชอบ
-                        การจัดการเวลา และการวางแผน
-                        ซึ่งเป็นสิ่งสำคัญสำหรับการเรียนต่อ
-                        ในระดับมหาวิทยาลัย
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <h3>
-            📐 SKILLS
-        </h3>
-
-        <div class="skills">
-
-            <div class="skill">
-                🎨 การออกแบบ
-            </div>
-
-            <div class="skill">
-                💡 ความคิดสร้างสรรค์
-            </div>
-
-            <div class="skill">
-                📐 การคิดวิเคราะห์
-            </div>
-
-            <div class="skill">
-                🧠 การแก้ไขปัญหา
-            </div>
-
-            <div class="skill">
-                📋 การวางแผน
-            </div>
-
-            <div class="skill">
-                🤝 การทำงานร่วมกับผู้อื่น
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PAGE 4
-===================================================== -->
-
-<section class="page">
-
-    <div class="title">
-
-        <span class="small">
-            MY DREAM UNIVERSITY
-        </span>
-
-        <h2>
-            🏛️ มหาวิทยาลัยที่อยากเข้า
-        </h2>
-
-        <div class="title-line"></div>
-
-    </div>
-
-
-    <div class="card">
-
-
-        <div class="uni-hero">
-
-            <div class="uni-icon">
-                🏛️
-            </div>
-
-            <h3>
-                คณะสถาปัตยกรรมศาสตร์
-            </h3>
-
-            <span class="uni-tag">
-                MY DREAM FACULTY
-            </span>
-
-            <p style="margin-top:25px;">
-
-                ฉันมีความตั้งใจที่จะศึกษาต่อใน
-                <strong>
-                    คณะสถาปัตยกรรมศาสตร์
-                </strong>
-
-            </p>
-
-            <p>
-
-                เพราะเป็นสาขาที่ตรงกับความสนใจด้านการออกแบบ
-                ความคิดสร้างสรรค์ และการสร้างสรรค์พื้นที่
-                ที่สามารถนำไปใช้งานได้จริง
-
-            </p>
-
-        </div>
-
-
-        <div class="blueprint">
-
-            <h3>
-                ARCHITECTURE
-            </h3>
-
-            <p>
-
-                DESIGN • SPACE • CREATIVITY
-
-            </p>
-
-            <div style="font-size:45px;margin-top:15px;">
-                📐 ✏️ 🏛️ 📏
-            </div>
-
-        </div>
-
-
-        <div class="goal">
-
-            <h3>
-                💭 เหตุผลที่เลือกเรียนสถาปัตยกรรม
-            </h3>
-
-            <p>
-
-                ฉันชอบการออกแบบและการคิดสิ่งใหม่ ๆ
-                และรู้สึกว่าสถาปัตยกรรมเป็นศาสตร์ที่สามารถนำ
-                ความคิดสร้างสรรค์มาผสมผสานกับความรู้ด้านการออกแบบ
-                เพื่อสร้างผลงานที่มีประโยชน์ต่อผู้คน
-
-            </p>
-
-            <p>
-
-                ฉันจึงอยากพัฒนาทักษะด้านการออกแบบ
-                การวาด การคิดวิเคราะห์ และการสร้างสรรค์ผลงาน
-                เพื่อนำไปต่อยอดในการเรียนระดับมหาวิทยาลัย
-
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>
-                🎯 เป้าหมายในอนาคต
-            </h3>
-
-            <p>
-
-                อยากนำความรู้ด้านสถาปัตยกรรมไปใช้ในการออกแบบ
-                อาคารและพื้นที่ที่มีทั้งความสวยงาม ความเหมาะสม
-                และสามารถตอบสนองการใช้งานของผู้คนได้
-
-            </p>
-
         </div>
 
     </div>
@@ -2710,252 +1649,221 @@ footer p{
 </section>
 
 
+
 <!-- =====================================================
-     PAGE 5
+     PAGE 5 : ผลงานที่ภาคภูมิใจ
 ===================================================== -->
 
 <section class="page">
 
-    <div class="title">
+    <div class="section-title">
 
-        <span class="small">
-            MY PROUD ACHIEVEMENT
-        </span>
+        <span class="section-number">05</span>
 
-        <h2>
-            🏆 ผลงานที่ภาคภูมิใจ
-        </h2>
+        <h2>ผลงานที่ภาคภูมิใจ</h2>
 
-        <div class="title-line"></div>
+        <p>My Achievement 🏆</p>
 
     </div>
 
 
-    <div class="card">
+    <div class="glass-card">
+
+        <div class="achievement-layout">
 
 
-        <div class="work-header">
+            <div class="image-card">
 
-            <div class="work-number">
-                01
+                <img src="IMG_0906.jpeg"
+                     alt="ผลงานศึกวัดเซียนปรากฏการณ์ธรรมชาติ">
+
             </div>
 
-            <div>
 
-                <h3 style="margin:0;">
-                    🌿 ศึกวัดเซียน
-                </h3>
 
-                <p style="margin:0;">
+            <div class="achievement-info">
+
+                <h3>
+                    ศึกวัดเซียน<br>
                     ปรากฏการณ์ธรรมชาติ
+                </h3>
+
+
+                <div class="award">
+                    🏆 รองชนะเลิศอันดับ 1
+                </div>
+
+
+                <p>
+                    ผลงานการแข่งขันในระดับ
+                    มัธยมศึกษาตอนปลาย
+                    ซึ่งเป็นกิจกรรมที่ทำให้ฉันได้เรียนรู้
+                    เกี่ยวกับปรากฏการณ์ทางธรรมชาติ
+                    และการนำความรู้มาใช้ในการวิเคราะห์
+                    และแก้ไขปัญหา
                 </p>
 
-            </div>
 
-        </div>
-
-
-        <div class="image-frame">
-
-            <img
-                src="IMG_0906.jpeg"
-                class="work-img"
-                alt="ศึกวัดเซียนปรากฏการณ์ธรรมชาติ"
-            >
-
-        </div>
-
-
-        <div class="award">
-
-            <div class="award-icon">
-                🏆
-            </div>
-
-            <div>
-
-                <strong>
-                    รองชนะเลิศอันดับ 1
-                </strong>
-
-                <p style="margin:0;">
-                    ระดับมัธยมศึกษาตอนปลาย
+                <p>
+                    ในการทำงานครั้งนี้
+                    ได้มีการวางแผน แบ่งหน้าที่
+                    และทำงานร่วมกับสมาชิกในทีม
+                    ทำให้ได้ฝึกการทำงานอย่างเป็นระบบ
+                    และเรียนรู้การรับผิดชอบหน้าที่ของตนเอง
                 </p>
 
+
+                <div class="learn-box">
+
+                    <h4>
+                        💡 สิ่งที่ได้รับจากผลงาน
+                    </h4>
+
+                    <p>
+
+                        ได้ฝึกการคิดวิเคราะห์
+                        การวางแผน การแก้ไขปัญหา
+                        การทำงานเป็นทีม
+                        ความรับผิดชอบ
+                        และความมั่นใจในการนำเสนอผลงาน
+
+                    </p>
+
+                </div>
+
             </div>
 
         </div>
-
-
-        <h3>
-            📝 รายละเอียดผลงาน
-        </h3>
-
-        <p>
-
-            เป็นผลงานจากการแข่งขันศึกวัดเซียนปรากฏการณ์ธรรมชาติ
-            ระดับมัธยมศึกษาตอนปลาย ซึ่งเป็นกิจกรรมที่ทำให้ฉัน
-            ได้ฝึกความรู้เกี่ยวกับปรากฏการณ์ทางธรรมชาติ
-            รวมถึงการคิดวิเคราะห์และการนำความรู้มาใช้ในการแข่งขัน
-
-        </p>
-
-        <p>
-
-            การเข้าร่วมการแข่งขันครั้งนี้ทำให้ฉันได้ฝึกการเตรียมตัว
-            การวางแผน การแบ่งหน้าที่ และการทำงานร่วมกับผู้อื่น
-            รวมถึงได้ฝึกการแก้ไขปัญหาเฉพาะหน้า
-            และการทำงานภายใต้เวลาที่กำหนด
-
-        </p>
-
-
-        <h3>
-            💗 สิ่งที่ได้รับ
-        </h3>
-
-        <p>
-
-            ฉันรู้สึกภูมิใจกับผลงานนี้
-            เพราะนอกจากจะได้รับประสบการณ์จากการแข่งขันแล้ว
-            ยังได้พัฒนาความรู้ ความมั่นใจ ความรับผิดชอบ
-            และทักษะการทำงานเป็นทีม
-
-        </p>
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     PAGE 6
+     PAGE 6 : โครงงาน / ชิ้นงาน
 ===================================================== -->
 
 <section class="page">
 
-    <div class="title">
+    <div class="section-title">
 
-        <span class="small">
-            MY PROJECT
-        </span>
+        <span class="section-number">06</span>
 
-        <h2>
-            💻 โครงงาน / ชิ้นงาน
-        </h2>
+        <h2>โครงงาน / ชิ้นงาน</h2>
 
-        <div class="title-line"></div>
+        <p>My Project 🎨</p>
 
     </div>
 
 
-    <div class="card">
+    <div class="project-card">
 
 
-        <div class="work-header">
+        <div class="project-header">
 
-            <div class="work-number">
-                02
-            </div>
+            <h3>
+                ผลงานการออกแบบและสร้างสรรค์
+            </h3>
 
-            <div>
-
-                <h3 style="margin:0;">
-                    🎨 ชิ้นงานของฉัน
-                </h3>
-
-                <p style="margin:0;">
-                    ผลงานการออกแบบและสร้างสรรค์
-                </p>
-
-            </div>
+            <p>
+                Design & Creative Project
+            </p>
 
         </div>
 
 
-        <div class="image-frame">
 
-            <img
-                src="IMG_0905.jpeg"
-                class="work-img"
-                alt="ผลงานการออกแบบและสร้างสรรค์"
-            >
+        <div class="project-image">
+
+            <img src="IMG_0905.jpeg"
+                 alt="ผลงานการออกแบบและสร้างสรรค์">
 
         </div>
 
 
-        <h3>
-            💡 แนวคิดของชิ้นงาน
-        </h3>
 
-        <p>
+        <div class="glass-card" style="margin-top:30px;">
 
-            ชิ้นงานนี้เกิดจากความสนใจในการออกแบบ
-            และการสร้างสรรค์ โดยพยายามนำความคิดของตนเอง
-            มาถ่ายทอดออกมาเป็นผลงาน
-            และให้ความสำคัญกับความสวยงาม ความเหมาะสม
-            และรายละเอียดของงาน
+            <p style="
+                text-align:center;
+                line-height:2;
+                color:#6b5260;
+                max-width:850px;
+                margin:auto;
+            ">
 
-        </p>
+                ผลงานชิ้นนี้เกิดจากความสนใจด้านการออกแบบ
+                และความคิดสร้างสรรค์
+                โดยฉันได้วางแนวคิดและออกแบบก่อนลงมือทำ
+                พร้อมทั้งปรับแก้รายละเอียดต่าง ๆ
+                เพื่อให้ผลงานมีความสวยงาม
+                และเหมาะสมกับแนวคิดที่ต้องการนำเสนอ
 
+            </p>
 
-        <h3>
-            🔨 ขั้นตอนการทำ
-        </h3>
+        </div>
+
 
 
         <div class="process">
 
 
-            <div class="process-box">
+            <div class="process-item">
 
-                <div class="process-icon">
+                <div class="icon">
                     💭
                 </div>
 
-                <strong>
-                    STEP 01
-                </strong>
+                <h4>
+                    คิดและออกแบบ
+                </h4>
 
                 <p>
-                    คิดแนวทาง
-                    และออกแบบ
+                    เริ่มจากการคิดแนวคิด
+                    วางแผน และออกแบบ
+                    ก่อนเริ่มสร้างผลงาน
                 </p>
 
             </div>
 
 
-            <div class="process-box">
 
-                <div class="process-icon">
-                    ✏️
+            <div class="process-item">
+
+                <div class="icon">
+                    🎨
                 </div>
 
-                <strong>
-                    STEP 02
-                </strong>
+                <h4>
+                    สร้างสรรค์
+                </h4>
 
                 <p>
-                    ลงมือสร้าง
-                    ผลงาน
+                    ลงมือทำตามแบบ
+                    และนำความคิดสร้างสรรค์
+                    มาพัฒนาเป็นผลงานจริง
                 </p>
 
             </div>
 
 
-            <div class="process-box">
 
-                <div class="process-icon">
-                    ✨
+            <div class="process-item">
+
+                <div class="icon">
+                    🔍
                 </div>
 
-                <strong>
-                    STEP 03
-                </strong>
+                <h4>
+                    ตรวจสอบและปรับปรุง
+                </h4>
 
                 <p>
-                    ปรับปรุง
-                    และพัฒนา
+                    ตรวจสอบรายละเอียด
+                    และปรับปรุงผลงาน
+                    ให้มีความเหมาะสมมากยิ่งขึ้น
                 </p>
 
             </div>
@@ -2964,334 +1872,218 @@ footer p{
         </div>
 
 
-        <h3>
-            📝 รายละเอียด
-        </h3>
 
-        <p>
+        <div class="learn-box" style="margin-top:30px;">
 
-            ในการทำชิ้นงานได้มีการวางแผนและออกแบบก่อนลงมือทำ
-            พร้อมทั้งปรับแก้รายละเอียดต่าง ๆ ให้ผลงานออกมา
-            ตรงกับแนวคิด และมีความเรียบร้อยมากที่สุด
+            <h4>
+                🌷 สิ่งที่ได้รับจากการทำผลงาน
+            </h4>
 
-        </p>
+            <p>
 
+                ได้ฝึกความคิดสร้างสรรค์
+                การออกแบบ การวางแผน
+                การใส่ใจรายละเอียด
+                การแก้ไขปัญหา
+                และการพัฒนาผลงานของตนเองอย่างต่อเนื่อง
 
-        <h3>
-            🌷 สิ่งที่ได้รับจากการทำชิ้นงาน
-        </h3>
+            </p>
 
-        <p>
+        </div>
 
-            ได้ฝึกความคิดสร้างสรรค์ การออกแบบ การวางแผน
-            ความละเอียดรอบคอบ และการแก้ไขปัญหา
-            รวมถึงได้เรียนรู้ว่าการสร้างผลงานที่ดี
-            ต้องอาศัยทั้งความคิดและความพยายาม
-            ในการพัฒนาผลงานอย่างต่อเนื่อง
-
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>
-            ✨ สิ่งที่ได้เรียนรู้
-        </h3>
-
-        <p>
-
-            จากการทำโครงงานและชิ้นงานต่าง ๆ
-            ทำให้ฉันได้พัฒนาทักษะด้านการออกแบบ
-            และความคิดสร้างสรรค์
-            รวมถึงได้ฝึกการทำงานอย่างเป็นขั้นตอน
-            การแก้ไขข้อผิดพลาด และการพัฒนาผลงานให้ดีขึ้น
-
-        </p>
-
-        <p>
-
-            ประสบการณ์เหล่านี้สามารถนำไปต่อยอด
-            ในการเรียนด้านสถาปัตยกรรมในอนาคตได้
-
-        </p>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+<!-- Navigation -->
 
 <div class="navigation">
 
-    <button
-        id="prevBtn"
-        onclick="previousPage()">
-
+    <button class="nav-btn"
+            onclick="previousPage()">
         ← ย้อนกลับ
-
     </button>
 
 
-    <span
-        class="page-number"
-        id="pageNumber">
-
-        หน้า 1 / 6
-
-    </span>
-
-
-    <button
-        id="nextBtn"
-        onclick="nextPage()">
-
-        หน้าถัดไป →
-
-    </button>
-
-
-    <button
-        onclick="goHome()">
-
+    <button class="nav-btn main"
+            onclick="goHome()">
         🏠 หน้าแรก
+    </button>
 
+
+    <div class="page-counter"
+         id="pageCounter">
+        1 / 6
+    </div>
+
+
+    <button class="nav-btn"
+            onclick="nextPage()">
+        หน้าถัดไป →
     </button>
 
 </div>
 
 
+<!-- Dots -->
+
+<div class="dots">
+
+    <span class="dot active"
+          onclick="showPage(0)"></span>
+
+    <span class="dot"
+          onclick="showPage(1)"></span>
+
+    <span class="dot"
+          onclick="showPage(2)"></span>
+
+    <span class="dot"
+          onclick="showPage(3)"></span>
+
+    <span class="dot"
+          onclick="showPage(4)"></span>
+
+    <span class="dot"
+          onclick="showPage(5)"></span>
+
 </div>
 
 
-<!-- =====================================================
-     TOP
-===================================================== -->
-
-<button
-    class="top-button"
-    onclick="scrollTopPage()">
-
-    ↑
-
-</button>
+</main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- Footer -->
 
 <footer>
 
-    <div class="footer-logo">
+    <div class="footer-line"></div>
 
-        🌷 Daran Portfolio 🌷
-
-    </div>
+    <p>
+        🌷 Portfolio ของ
+        <strong>ดารัณ เผ่าสกุลทอง</strong>
+        🌷
+    </p>
 
     <p>
         Architecture • Design • Creativity
     </p>
 
-    <p>
-        💗 ดารัณ เผ่าสกุลทอง 💗
+    <p style="margin-top:8px;">
+        Made with 💗
     </p>
 
 </footer>
 
 
+
 <script>
-
-
-/* =====================================================
-   PAGE SYSTEM
-===================================================== */
 
 let currentPage = 0;
 
-const pages =
-    document.querySelectorAll(".page");
+const pages = document.querySelectorAll(".page");
+const dots = document.querySelectorAll(".dot");
 
-const prevBtn =
-    document.getElementById("prevBtn");
+const pageCounter =
+    document.getElementById("pageCounter");
 
-const nextBtn =
-    document.getElementById("nextBtn");
-
-const pageNumber =
-    document.getElementById("pageNumber");
-
-const progress =
-    document.getElementById("progress");
-
-const dots =
-    document.querySelectorAll(".nav-dot");
+const progressBar =
+    document.getElementById("progressBar");
 
 
-function showPage(page){
+function showPage(index) {
 
-    pages.forEach(
-        (item,index)=>{
+    if (index < 0) {
+        index = 0;
+    }
 
-            item.classList.remove("active");
+    if (index >= pages.length) {
+        index = pages.length - 1;
+    }
 
-            if(index === page){
-
-                item.classList.add("active");
-
-            }
-
-        }
-    );
+    currentPage = index;
 
 
-    pageNumber.textContent =
-        "หน้า " +
-        (page + 1) +
-        " / " +
-        pages.length;
+    pages.forEach((page, i) => {
+
+        page.classList.toggle(
+            "active",
+            i === currentPage
+        );
+
+    });
 
 
-    prevBtn.disabled =
-        page === 0;
+    dots.forEach((dot, i) => {
+
+        dot.classList.toggle(
+            "active",
+            i === currentPage
+        );
+
+    });
 
 
-    nextBtn.disabled =
-        page === pages.length - 1;
+    pageCounter.textContent =
+        `${currentPage + 1} / ${pages.length}`;
 
 
-    dots.forEach(
-        (dot,index)=>{
-
-            dot.classList.toggle(
-                "active",
-                index === page
-            );
-
-        }
-    );
-
-
-    const percent =
-        ((page + 1) /
-        pages.length) * 100;
-
-
-    progress.style.width =
-        percent + "%";
+    progressBar.style.width =
+        `${((currentPage + 1) / pages.length) * 100}%`;
 
 
     window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
+        top: 0,
+        behavior: "smooth"
     });
 
 }
 
 
-function nextPage(){
+function nextPage() {
 
-    if(
-        currentPage <
-        pages.length - 1
-    ){
+    if (currentPage < pages.length - 1) {
 
-        currentPage++;
-
-        showPage(
-            currentPage
-        );
+        showPage(currentPage + 1);
 
     }
 
 }
 
 
-function previousPage(){
+function previousPage() {
 
-    if(currentPage > 0){
+    if (currentPage > 0) {
 
-        currentPage--;
-
-        showPage(
-            currentPage
-        );
+        showPage(currentPage - 1);
 
     }
 
 }
 
 
-function goHome(){
+function goHome() {
 
-    currentPage = 0;
-
-    showPage(
-        currentPage
-    );
+    showPage(0);
 
 }
 
 
-function goToPage(page){
-
-    if(
-        page >= 0 &&
-        page < pages.length
-    ){
-
-        currentPage = page;
-
-        showPage(
-            currentPage
-        );
-
-    }
-
-}
-
-
-function scrollTopPage(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-/* =====================================================
-   KEYBOARD
-===================================================== */
+/* Keyboard */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    function(event) {
 
-        if(
-            event.key ===
-            "ArrowRight"
-        ){
+        if (event.key === "ArrowRight") {
 
             nextPage();
 
         }
 
-        if(
-            event.key ===
-            "ArrowLeft"
-        ){
+        if (event.key === "ArrowLeft") {
 
             previousPage();
 
@@ -3301,14 +2093,64 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   START
-===================================================== */
+/* Touch swipe */
 
-showPage(
-    currentPage
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+document.addEventListener(
+    "touchstart",
+    function(event) {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    }
 );
 
+
+document.addEventListener(
+    "touchend",
+    function(event) {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        handleSwipe();
+
+    }
+);
+
+
+function handleSwipe() {
+
+    const distance =
+        touchEndX - touchStartX;
+
+
+    if (Math.abs(distance) < 50) {
+        return;
+    }
+
+
+    if (distance < 0) {
+
+        nextPage();
+
+    } else {
+
+        previousPage();
+
+    }
+
+}
+
+
+/* Start */
+
+showPage(0);
 
 </script>
 
