@@ -8,9 +8,6 @@
 
     <style>
 
-        /* =========================
-           RESET
-        ========================= */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,6 +24,7 @@
         /* =========================
            HEADER
         ========================= */
+
         header {
             width: 100%;
             background: #ffffff;
@@ -55,6 +53,7 @@
         /* =========================
            MAIN
         ========================= */
+
         main {
             width: 100%;
             min-height: calc(100vh - 75px);
@@ -64,7 +63,7 @@
             display: none;
             width: 100%;
             min-height: calc(100vh - 75px);
-            padding: 70px 8% 100px;
+            padding: 70px 8% 110px;
             animation: fadeIn 0.4s ease;
         }
 
@@ -73,6 +72,7 @@
         }
 
         @keyframes fadeIn {
+
             from {
                 opacity: 0;
                 transform: translateY(10px);
@@ -82,11 +82,13 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
         /* =========================
            PAGE HEADER
         ========================= */
+
         .page-header {
             max-width: 1100px;
             margin: 0 auto 50px;
@@ -114,8 +116,9 @@
         }
 
         /* =========================
-           CONTENT BOX
+           CARD
         ========================= */
+
         .content {
             max-width: 1100px;
             margin: 0 auto;
@@ -138,11 +141,13 @@
         .card p {
             color: #555;
             font-size: 16px;
+            margin-bottom: 12px;
         }
 
         /* =========================
-           PAGE 1
+           PAGE 1 : PREFACE
         ========================= */
+
         .preface {
             max-width: 850px;
             margin: 0 auto;
@@ -168,8 +173,9 @@
         }
 
         /* =========================
-           PAGE 2
+           PAGE 2 : ABOUT ME
         ========================= */
+
         .about-grid {
             max-width: 1100px;
             margin: 0 auto;
@@ -225,8 +231,9 @@
         }
 
         /* =========================
-           PAGE 3
+           PAGE 3 : EDUCATION
         ========================= */
+
         .education-grid {
             max-width: 1100px;
             margin: 0 auto;
@@ -248,18 +255,15 @@
             margin-bottom: 15px;
         }
 
-        .education-card ul {
-            padding-left: 20px;
+        .education-card p {
             color: #555;
-        }
-
-        .education-card li {
             margin-bottom: 8px;
         }
 
         /* =========================
-           PAGE 4
+           PAGE 4 : UNIVERSITY
         ========================= */
+
         .university-card {
             max-width: 900px;
             margin: 0 auto;
@@ -288,6 +292,7 @@
 
         .university-detail p {
             margin-bottom: 15px;
+            color: #555;
         }
 
         .university-detail strong {
@@ -302,8 +307,9 @@
         }
 
         /* =========================
-           PAGE 5
+           PAGE 5 : ACHIEVEMENT
         ========================= */
+
         .achievement-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -351,7 +357,8 @@
             font-size: 15px;
         }
 
-        /* รูป 2 รูปในหน้าเดียวกัน */
+        /* รูปผลงาน + เกียรติบัตร */
+
         .achievement-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -382,8 +389,9 @@
         }
 
         /* =========================
-           PAGE 6
+           PAGE 6 : PROJECT
         ========================= */
+
         .project-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -434,11 +442,17 @@
             color: #444;
         }
 
+        .process-item p {
+            font-size: 14px;
+            margin: 0;
+        }
+
         .project-image {
             background: #fff;
             border: 1px solid #e8e1e4;
             border-radius: 12px;
             padding: 15px;
+            margin-bottom: 30px;
         }
 
         .project-image img {
@@ -460,6 +474,7 @@
         /* =========================
            NAVIGATION
         ========================= */
+
         .navigation {
             position: fixed;
             bottom: 0;
@@ -516,8 +531,9 @@
         }
 
         /* =========================
-           RESPONSIVE
+           MOBILE
         ========================= */
+
         @media (max-width: 768px) {
 
             header {
@@ -529,7 +545,7 @@
             }
 
             .page {
-                padding: 45px 5% 100px;
+                padding: 45px 5% 105px;
             }
 
             .page-header {
@@ -586,39 +602,68 @@
             button {
                 padding: 8px 18px;
             }
+
+            .page-number {
+                font-size: 12px;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
+
 
     <!-- =========================
          HEADER
     ========================= -->
+
     <header>
-        <div class="logo">PORTFOLIO</div>
-        <div class="header-name">ดารัณ เผ่าสกุลทอง</div>
+
+        <div class="logo">
+            PORTFOLIO
+        </div>
+
+        <div class="header-name">
+            ดารัณ เผ่าสกุลทอง
+        </div>
+
     </header>
 
 
     <main>
 
-        <!-- =========================
-             PAGE 1 : คำนำ
-        ========================= -->
+
+        <!-- ==================================================
+             PAGE 1
+        ================================================== -->
+
         <section class="page active" id="page1">
 
             <div class="page-header">
+
                 <span>01</span>
-                <h1>คำนำ</h1>
-                <p>Preface</p>
+
+                <h1>
+                    คำนำ
+                </h1>
+
+                <p>
+                    Preface
+                </p>
+
             </div>
+
 
             <div class="preface">
 
                 <div class="card">
-                    <h2>แฟ้มสะสมผลงาน</h2>
+
+                    <h2>
+                        แฟ้มสะสมผลงาน
+                    </h2>
 
                     <p class="intro-text">
                         แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติ
@@ -628,28 +673,38 @@
 
                     <p>
                         ดิฉันมีความสนใจด้านการออกแบบ สถาปัตยกรรม
-                        ศิลปะ และการคิดสร้างสรรค์ ชอบการออกแบบสิ่งต่าง ๆ
+                        ศิลปะ และการคิดสร้างสรรค์
+                        ชอบการออกแบบสิ่งต่าง ๆ
                         และการถ่ายทอดความคิดออกมาเป็นผลงาน
                     </p>
 
                     <p>
                         นอกจากนี้ยังต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
-                        พร้อมเรียนรู้สิ่งใหม่ ๆ เพื่อนำความรู้และประสบการณ์
+                        พร้อมเรียนรู้สิ่งใหม่ ๆ
+                        เพื่อนำความรู้และประสบการณ์
                         ไปต่อยอดในการศึกษาต่อด้านสถาปัตยกรรม
                     </p>
+
                 </div>
 
+
                 <div class="goal-box">
-                    <h3>เป้าหมายในอนาคต</h3>
+
+                    <h3>
+                        เป้าหมายในอนาคต
+                    </h3>
 
                     <p>
                         ต้องการศึกษาต่อในคณะสถาปัตยกรรม ศิลปะและการออกแบบ
-                        และพัฒนาตนเองไปสู่การเป็นสถาปนิกที่สามารถ
-                        ออกแบบผลงานที่มีความสวยงาม เหมาะสม และสามารถใช้งานได้จริง
+                        และพัฒนาตนเองไปสู่การเป็นสถาปนิก
+                        ที่สามารถออกแบบผลงานที่มีความสวยงาม
+                        เหมาะสม และสามารถใช้งานได้จริง
                     </p>
+
                 </div>
 
             </div>
+
 
             <div class="navigation">
 
@@ -658,8 +713,17 @@
                 </div>
 
                 <div class="nav-buttons">
-                    <button disabled>ย้อนกลับ</button>
-                    <button class="next-btn" onclick="nextPage()">ถัดไป</button>
+
+                    <button disabled>
+                        ย้อนกลับ
+                    </button>
+
+                    <button
+                        class="next-btn"
+                        onclick="nextPage()">
+                        ถัดไป
+                    </button>
+
                 </div>
 
             </div>
@@ -667,67 +731,134 @@
         </section>
 
 
-        <!-- =========================
-             PAGE 2 : แนะนำตัว
-        ========================= -->
+
+        <!-- ==================================================
+             PAGE 2
+        ================================================== -->
+
         <section class="page" id="page2">
 
             <div class="page-header">
+
                 <span>02</span>
-                <h1>แนะนำตัว</h1>
-                <p>About Me</p>
+
+                <h1>
+                    แนะนำตัว
+                </h1>
+
+                <p>
+                    About Me
+                </p>
+
             </div>
+
 
             <div class="about-grid">
 
+
                 <div class="profile-image">
-                    <img src="IMG_6580.jpeg" alt="รูปโปรไฟล์ ดารัณ">
+
+                    <img
+                        src="IMG_6580.jpeg"
+                        alt="รูปโปรไฟล์ ดารัณ"
+                    >
+
                 </div>
+
 
                 <div class="about-info">
 
-                    <h2>นางสาว ดารัณ เผ่าสกุลทอง</h2>
+                    <h2>
+                        นางสาว ดารัณ เผ่าสกุลทอง
+                    </h2>
+
 
                     <div class="info-row">
-                        <div class="info-title">ชื่อเล่น</div>
-                        <div class="info-value">โฟกัส</div>
-                    </div>
 
-                    <div class="info-row">
-                        <div class="info-title">อายุ</div>
-                        <div class="info-value">18 ปี</div>
-                    </div>
-
-                    <div class="info-row">
-                        <div class="info-title">ระดับการศึกษา</div>
-                        <div class="info-value">มัธยมศึกษาปีที่ 6</div>
-                    </div>
-
-                    <div class="info-row">
-                        <div class="info-title">ความสนใจ</div>
-                        <div class="info-value">
-                            การวาดภาพ ศิลปะ การออกแบบ และสถาปัตยกรรม
+                        <div class="info-title">
+                            ชื่อเล่น
                         </div>
+
+                        <div class="info-value">
+                            โฟกัส
+                        </div>
+
                     </div>
 
-                    <div class="info-row">
-                        <div class="info-title">ทักษะ</div>
-                        <div class="info-value">
-                            การวาดเส้น การสเก็ตช์ การลงสี
-                            การออกแบบ และการจัดองค์ประกอบ
-                        </div>
-                    </div>
 
                     <div class="info-row">
-                        <div class="info-title">ความฝัน</div>
-                        <div class="info-value">
-                            ศึกษาต่อด้านสถาปัตยกรรมและประกอบอาชีพสถาปนิก
+
+                        <div class="info-title">
+                            อายุ
                         </div>
+
+                        <div class="info-value">
+                            18 ปี
+                        </div>
+
                     </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            ระดับการศึกษา
+                        </div>
+
+                        <div class="info-value">
+                            มัธยมศึกษาปีที่ 6
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            ความสนใจ
+                        </div>
+
+                        <div class="info-value">
+                            การวาดรูป การออกแบบ
+                            และสถาปัตยกรรม
+                        </div>
+
+                    </div>
+
+
+                    <!-- เหลือเฉพาะทักษะวาดรูปและออกแบบ -->
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            ทักษะ
+                        </div>
+
+                        <div class="info-value">
+                            การวาดรูปและการออกแบบ
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            ความฝัน
+                        </div>
+
+                        <div class="info-value">
+                            ศึกษาต่อด้านสถาปัตยกรรม
+                            และประกอบอาชีพสถาปนิก
+                        </div>
+
+                    </div>
+
 
                 </div>
 
             </div>
+
 
             <div class="navigation">
 
@@ -736,8 +867,17 @@
                 </div>
 
                 <div class="nav-buttons">
-                    <button onclick="prevPage()">ย้อนกลับ</button>
-                    <button class="next-btn" onclick="nextPage()">ถัดไป</button>
+
+                    <button onclick="prevPage()">
+                        ย้อนกลับ
+                    </button>
+
+                    <button
+                        class="next-btn"
+                        onclick="nextPage()">
+                        ถัดไป
+                    </button>
+
                 </div>
 
             </div>
@@ -745,32 +885,46 @@
         </section>
 
 
-        <!-- =========================
-             PAGE 3 : การศึกษา
-        ========================= -->
+
+        <!-- ==================================================
+             PAGE 3
+        ================================================== -->
+
         <section class="page" id="page3">
 
             <div class="page-header">
+
                 <span>03</span>
-                <h1>รายละเอียดการศึกษา</h1>
-                <p>Education</p>
+
+                <h1>
+                    รายละเอียดการศึกษา
+                </h1>
+
+                <p>
+                    Education
+                </p>
+
             </div>
+
 
             <div class="education-grid">
 
+
                 <div class="education-card">
 
-                    <h2>สถานศึกษา</h2>
+                    <h2>
+                        สถานศึกษา
+                    </h2>
 
                     <p>
                         <strong>
-                            โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์”
+                            โรงเรียนบ้านบึง
+                            “อุตสาหกรรมนุเคราะห์”
                         </strong>
                     </p>
 
                     <p>
-                        กำลังศึกษาอยู่ในระดับ
-                        มัธยมศึกษาปีที่ 6
+                        ระดับชั้นมัธยมศึกษาปีที่ 6
                     </p>
 
                 </div>
@@ -778,48 +932,54 @@
 
                 <div class="education-card">
 
-                    <h2>ความสนใจด้านการเรียน</h2>
+                    <h2>
+                        ความสนใจ
+                    </h2>
 
-                    <ul>
-                        <li>การออกแบบ</li>
-                        <li>สถาปัตยกรรม</li>
-                        <li>ศิลปะและความคิดสร้างสรรค์</li>
-                        <li>การวาดเส้นและการสเก็ตช์</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="education-card">
-
-                    <h2>ทักษะด้านการออกแบบ</h2>
-
-                    <ul>
-                        <li>การวาดเส้นและสเก็ตช์</li>
-                        <li>การวาดบุคคล ทิวทัศน์ และอาคาร</li>
-                        <li>การวาดภาพแบบ Perspective</li>
-                        <li>การลงสีและเลือกใช้สี</li>
-                        <li>การจัดองค์ประกอบภาพ</li>
-                    </ul>
+                    <p>
+                        มีความสนใจด้านการวาดรูป
+                        การออกแบบ
+                        ศิลปะ และสถาปัตยกรรม
+                    </p>
 
                 </div>
 
 
                 <div class="education-card">
 
-                    <h2>ทักษะทั่วไป</h2>
+                    <h2>
+                        ทักษะการวาดรูป
+                    </h2>
 
-                    <ul>
-                        <li>ความคิดสร้างสรรค์</li>
-                        <li>การวิเคราะห์และแก้ไขปัญหา</li>
-                        <li>การวางแผนและจัดการเวลา</li>
-                        <li>การทำงานร่วมกับผู้อื่น</li>
-                        <li>การพัฒนาตนเองอย่างต่อเนื่อง</li>
-                    </ul>
+                    <p>
+                        สนใจการวาดรูปและการถ่ายทอด
+                        ความคิดผ่านภาพวาด
+                        รวมถึงการฝึกวาดรูป
+                        เพื่อพัฒนาความสามารถของตนเอง
+                    </p>
 
                 </div>
+
+
+                <div class="education-card">
+
+                    <h2>
+                        ทักษะการออกแบบ
+                    </h2>
+
+                    <p>
+                        สนใจการออกแบบและการจัดองค์ประกอบ
+                        โดยนำความคิดสร้างสรรค์
+                        มาพัฒนาเป็นผลงาน
+                        และต้องการต่อยอดทักษะ
+                        ไปสู่ด้านสถาปัตยกรรม
+                    </p>
+
+                </div>
+
 
             </div>
+
 
             <div class="navigation">
 
@@ -828,8 +988,17 @@
                 </div>
 
                 <div class="nav-buttons">
-                    <button onclick="prevPage()">ย้อนกลับ</button>
-                    <button class="next-btn" onclick="nextPage()">ถัดไป</button>
+
+                    <button onclick="prevPage()">
+                        ย้อนกลับ
+                    </button>
+
+                    <button
+                        class="next-btn"
+                        onclick="nextPage()">
+                        ถัดไป
+                    </button>
+
                 </div>
 
             </div>
@@ -837,16 +1006,27 @@
         </section>
 
 
-        <!-- =========================
-             PAGE 4 : มหาวิทยาลัย
-        ========================= -->
+
+        <!-- ==================================================
+             PAGE 4
+        ================================================== -->
+
         <section class="page" id="page4">
 
             <div class="page-header">
+
                 <span>04</span>
-                <h1>มหาวิทยาลัยที่อยากเข้า</h1>
-                <p>Dream University</p>
+
+                <h1>
+                    มหาวิทยาลัยที่อยากเข้า
+                </h1>
+
+                <p>
+                    Dream University
+                </p>
+
             </div>
+
 
             <div class="university-card">
 
@@ -858,50 +1038,78 @@
                     King Mongkut's Institute of Technology Ladkrabang
                 </p>
 
+
                 <div class="university-detail">
 
+
                     <p>
-                        <strong>ชื่อย่อ:</strong>
+                        <strong>
+                            ชื่อย่อ:
+                        </strong>
+
                         KMITL
                     </p>
 
+
                     <p>
-                        <strong>คณะที่ต้องการสมัคร:</strong>
+                        <strong>
+                            คณะที่ต้องการสมัคร:
+                        </strong>
+
                         คณะสถาปัตยกรรม ศิลปะและการออกแบบ
                     </p>
 
+
                     <p>
-                        <strong>สาขาที่สนใจ:</strong>
+                        <strong>
+                            สาขาที่สนใจ:
+                        </strong>
+
                         สถาปัตยกรรม
                     </p>
 
-                    <p>
-                        <strong>เหตุผลที่สนใจ:</strong>
-                    </p>
 
                     <p>
-                        มีความสนใจด้านการออกแบบและสถาปัตยกรรม
-                        ชอบการคิดสร้างสรรค์และการออกแบบสิ่งต่าง ๆ
-                        จึงต้องการศึกษาต่อในสาขาที่สามารถพัฒนาความสามารถ
-                        และนำความคิดสร้างสรรค์ไปใช้ในการออกแบบได้
+                        <strong>
+                            เหตุผลที่สนใจ:
+                        </strong>
                     </p>
+
+
+                    <p>
+                        มีความสนใจด้านการออกแบบ
+                        และสถาปัตยกรรม
+                        ชอบการคิดสร้างสรรค์
+                        และการออกแบบสิ่งต่าง ๆ
+                        จึงต้องการศึกษาต่อในสาขา
+                        ที่สามารถพัฒนาความสามารถ
+                        และนำความคิดสร้างสรรค์
+                        ไปใช้ในการออกแบบได้
+                    </p>
+
 
                     <div class="dream-goal">
 
-                        <strong>เป้าหมาย</strong>
+                        <strong>
+                            เป้าหมาย
+                        </strong>
 
                         <p>
                             ต้องการนำความรู้ด้านสถาปัตยกรรม
-                            มาพัฒนาตนเองและสร้างสรรค์ผลงาน
-                            ที่มีทั้งความสวยงาม ความเหมาะสม
+                            มาพัฒนาตนเอง
+                            และสร้างสรรค์ผลงาน
+                            ที่มีทั้งความสวยงาม
+                            ความเหมาะสม
                             และสามารถใช้งานได้จริง
                         </p>
 
                     </div>
 
+
                 </div>
 
             </div>
+
 
             <div class="navigation">
 
@@ -910,8 +1118,17 @@
                 </div>
 
                 <div class="nav-buttons">
-                    <button onclick="prevPage()">ย้อนกลับ</button>
-                    <button class="next-btn" onclick="nextPage()">ถัดไป</button>
+
+                    <button onclick="prevPage()">
+                        ย้อนกลับ
+                    </button>
+
+                    <button
+                        class="next-btn"
+                        onclick="nextPage()">
+                        ถัดไป
+                    </button>
+
                 </div>
 
             </div>
@@ -919,19 +1136,30 @@
         </section>
 
 
-        <!-- =========================
-             PAGE 5 : ผลงานที่ภาคภูมิใจ
-        ========================= -->
+
+        <!-- ==================================================
+             PAGE 5
+        ================================================== -->
+
         <section class="page" id="page5">
 
             <div class="page-header">
+
                 <span>05</span>
-                <h1>ผลงานที่ภาคภูมิใจ</h1>
-                <p>Proud Achievement</p>
+
+                <h1>
+                    ผลงานที่ภาคภูมิใจ
+                </h1>
+
+                <p>
+                    Proud Achievement
+                </p>
+
             </div>
 
 
             <div class="achievement-content">
+
 
                 <div class="achievement-text">
 
@@ -939,42 +1167,63 @@
                         ศึกวัดเซียน ปรากฏการณ์ธรรมชาติ
                     </h2>
 
+
                     <p>
                         ผลงานการแข่งขันในระดับมัธยมศึกษา
                         ซึ่งเป็นกิจกรรมที่ได้ทำงานร่วมกับเพื่อน
                         และได้เรียนรู้เกี่ยวกับปรากฏการณ์ทางธรรมชาติ
                     </p>
 
+
                     <div class="achievement-info">
 
+
                         <div>
-                            <strong>รางวัล</strong>
+
+                            <strong>
+                                รางวัล
+                            </strong>
 
                             <span>
                                 รองชนะเลิศอันดับ 1
                             </span>
+
                         </div>
+
 
                         <div>
-                            <strong>สิ่งที่ได้รับ</strong>
+
+                            <strong>
+                                สิ่งที่ได้รับ
+                            </strong>
 
                             <span>
-                                การวางแผน การแบ่งหน้าที่
-                                การทำงานเป็นทีม
-                                การแก้ไขปัญหา
-                                และความมั่นใจในการทำงาน
+                                ได้เรียนรู้การทำงานร่วมกับผู้อื่น
+                                การวางแผน
+                                การแบ่งหน้าที่
+                                และการแก้ไขปัญหา
                             </span>
+
                         </div>
+
 
                     </div>
 
                 </div>
 
 
-                <!-- รูป 2 รูปในหน้าเดียวกัน -->
+
+                <!-- ==========================================
+                     รูป 2 รูปในหน้าเดียวกัน
+                     IMG_0918 = ผลงาน
+                     IMG_0906 = เกียรติบัตร
+                =========================================== -->
+
                 <div class="achievement-images">
 
+
                     <!-- รูปผลงาน -->
+
                     <div class="image-box">
 
                         <img
@@ -990,11 +1239,12 @@
 
 
                     <!-- รูปเกียรติบัตร -->
+
                     <div class="image-box">
 
                         <img
-                            src="certificate.jpeg"
-                            alt="เกียรติบัตร"
+                            src="IMG_0906.jpeg"
+                            alt="เกียรติบัตรศึกวัดเซียน ปรากฏการณ์ธรรมชาติ"
                         >
 
                         <p>
@@ -1002,6 +1252,7 @@
                         </p>
 
                     </div>
+
 
                 </div>
 
@@ -1015,8 +1266,17 @@
                 </div>
 
                 <div class="nav-buttons">
-                    <button onclick="prevPage()">ย้อนกลับ</button>
-                    <button class="next-btn" onclick="nextPage()">ถัดไป</button>
+
+                    <button onclick="prevPage()">
+                        ย้อนกลับ
+                    </button>
+
+                    <button
+                        class="next-btn"
+                        onclick="nextPage()">
+                        ถัดไป
+                    </button>
+
                 </div>
 
             </div>
@@ -1024,19 +1284,30 @@
         </section>
 
 
-        <!-- =========================
-             PAGE 6 : โครงงาน / ชิ้นงาน
-        ========================= -->
+
+        <!-- ==================================================
+             PAGE 6
+        ================================================== -->
+
         <section class="page" id="page6">
 
             <div class="page-header">
+
                 <span>06</span>
-                <h1>โครงงาน / ชิ้นงาน</h1>
-                <p>Project & Creative Work</p>
+
+                <h1>
+                    โครงงาน / ชิ้นงาน
+                </h1>
+
+                <p>
+                    Project & Creative Work
+                </p>
+
             </div>
 
 
             <div class="project-content">
+
 
                 <div class="project-card">
 
@@ -1044,32 +1315,40 @@
                         ผลงานการออกแบบและสร้างสรรค์
                     </h2>
 
-                    <p>
-                        ผลงานชิ้นนี้เกิดจากความสนใจด้านการออกแบบ
-                        และความคิดสร้างสรรค์ โดยให้ความสำคัญกับ
-                        ความสวยงาม ความเหมาะสม และรายละเอียดของผลงาน
-                    </p>
 
                     <p>
-                        ก่อนลงมือสร้างผลงาน ได้มีการวางแผนรูปแบบ
-                        และออกแบบรายละเอียดต่าง ๆ เพื่อให้ผลงาน
-                        ออกมาตรงตามแนวคิดที่ต้องการมากที่สุด
+                        ผลงานชิ้นนี้เกิดจากความสนใจ
+                        ด้านการออกแบบและความคิดสร้างสรรค์
+                        โดยให้ความสำคัญกับความสวยงาม
+                        ความเหมาะสม และรายละเอียดของผลงาน
+                    </p>
+
+
+                    <p>
+                        ก่อนลงมือสร้างผลงาน
+                        ได้มีการวางแผนรูปแบบ
+                        และออกแบบรายละเอียดต่าง ๆ
+                        เพื่อให้ผลงานออกมาตรงตามแนวคิด
+                        ที่ต้องการมากที่สุด
                     </p>
 
 
                     <div class="process">
 
+
                         <div class="process-item">
 
-                            <span>01</span>
+                            <span>
+                                01
+                            </span>
 
                             <h3>
                                 คิดและออกแบบ
                             </h3>
 
                             <p>
-                                กำหนดแนวคิดและรูปแบบ
-                                ของผลงาน
+                                กำหนดแนวคิด
+                                และรูปแบบของผลงาน
                             </p>
 
                         </div>
@@ -1077,15 +1356,17 @@
 
                         <div class="process-item">
 
-                            <span>02</span>
+                            <span>
+                                02
+                            </span>
 
                             <h3>
                                 วางแผนและสร้าง
                             </h3>
 
                             <p>
-                                วางแผนขั้นตอนและลงมือ
-                                สร้างสรรค์ผลงาน
+                                วางแผนขั้นตอน
+                                และลงมือสร้างสรรค์ผลงาน
                             </p>
 
                         </div>
@@ -1093,7 +1374,9 @@
 
                         <div class="process-item">
 
-                            <span>03</span>
+                            <span>
+                                03
+                            </span>
 
                             <h3>
                                 ตรวจสอบและปรับปรุง
@@ -1106,17 +1389,23 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
 
 
-                <!-- รูปโครงงาน -->
+
+                <!-- ==========================================
+                     รูปโครงงาน / ชิ้นงาน
+                     IMG_0905.jpeg
+                =========================================== -->
+
                 <div class="project-image">
 
                     <img
-                        src="IMG_2052.jpeg"
-                        alt="ผลงานการออกแบบและสร้างสรรค์"
+                        src="IMG_0905.jpeg"
+                        alt="โครงงานและชิ้นงาน"
                     >
 
                     <p>
@@ -1124,6 +1413,7 @@
                     </p>
 
                 </div>
+
 
 
                 <div class="card">
@@ -1134,14 +1424,13 @@
 
                     <p>
                         ได้พัฒนาความคิดสร้างสรรค์
-                        ทักษะด้านการออกแบบ
-                        การวางแผน การใส่ใจในรายละเอียด
-                        และการแก้ไขปัญหา
-                        รวมถึงได้เรียนรู้ว่าการทำงานที่ดี
-                        ต้องผ่านการคิดและปรับปรุงหลายครั้ง
+                        ทักษะการวาดรูปและการออกแบบ
+                        รวมถึงการวางแผนและการใส่ใจ
+                        ในรายละเอียดของผลงาน
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -1153,45 +1442,67 @@
                 </div>
 
                 <div class="nav-buttons">
-                    <button onclick="prevPage()">ย้อนกลับ</button>
-                    <button class="next-btn" onclick="goFirstPage()">หน้าแรก</button>
+
+                    <button onclick="prevPage()">
+                        ย้อนกลับ
+                    </button>
+
+                    <button
+                        class="next-btn"
+                        onclick="goFirstPage()">
+                        หน้าแรก
+                    </button>
+
                 </div>
 
             </div>
 
         </section>
 
+
     </main>
 
 
-    <!-- =========================
+
+    <!-- ==================================================
          JAVASCRIPT
-    ========================= -->
+    ================================================== -->
+
     <script>
 
         let currentPage = 1;
+
         const totalPages = 6;
+
 
         function showPage(pageNumber) {
 
             for (let i = 1; i <= totalPages; i++) {
 
-                const page = document.getElementById("page" + i);
+                const page =
+                    document.getElementById("page" + i);
 
                 if (i === pageNumber) {
+
                     page.classList.add("active");
+
                 } else {
+
                     page.classList.remove("active");
+
                 }
 
             }
 
+
             currentPage = pageNumber;
+
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
+
         }
 
 
@@ -1224,6 +1535,7 @@
         }
 
     </script>
+
 
 </body>
 </html>
