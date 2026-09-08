@@ -1,2542 +1,1896 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Portfolio | ดารัณ เผ่าสกุลทอง</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Arial", "Tahoma", sans-serif;
-            min-height: 100vh;
-            color: #4a3150;
-            overflow-x: hidden;
-
-            background:
-                radial-gradient(circle at 10% 10%, rgba(255,255,255,.9), transparent 25%),
-                radial-gradient(circle at 90% 20%, rgba(255,190,235,.55), transparent 30%),
-                radial-gradient(circle at 20% 90%, rgba(190,220,255,.55), transparent 30%),
-                linear-gradient(
-                    135deg,
-                    #ffd6ed 0%,
-                    #f6d4ff 35%,
-                    #ddd9ff 65%,
-                    #ccecff 100%
-                );
-        }
-
-        .background-shape {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(2px);
-            opacity: .45;
-            z-index: -5;
-            animation: floatShape 8s ease-in-out infinite;
-        }
-
-        .shape1 {
-            width: 180px;
-            height: 180px;
-            background: #ffb6df;
-            top: 10%;
-            left: -70px;
-        }
-
-        .shape2 {
-            width: 230px;
-            height: 230px;
-            background: #c8c5ff;
-            right: -90px;
-            top: 35%;
-            animation-delay: 2s;
-        }
-
-        .shape3 {
-            width: 140px;
-            height: 140px;
-            background: #b9e8ff;
-            left: 10%;
-            bottom: -50px;
-            animation-delay: 4s;
-        }
-
-        @keyframes floatShape {
-            0%,100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-25px) rotate(10deg);
-            }
-        }
-
-        .floating {
-            position: fixed;
-            pointer-events: none;
-            z-index: -1;
-            animation: floating 5s ease-in-out infinite;
-        }
-
-        .flower1 {
-            top: 12%;
-            left: 5%;
-            font-size: 28px;
-        }
-
-        .flower2 {
-            top: 70%;
-            right: 6%;
-            font-size: 32px;
-            animation-delay: 1s;
-        }
-
-        .flower3 {
-            bottom: 8%;
-            left: 7%;
-            font-size: 25px;
-            animation-delay: 2s;
-        }
-
-        .sparkle1 {
-            top: 25%;
-            right: 10%;
-            font-size: 22px;
-            animation-delay: 1.5s;
-        }
-
-        .sparkle2 {
-            top: 55%;
-            left: 4%;
-            font-size: 18px;
-            animation-delay: 3s;
-        }
-
-        .heart {
-            top: 15%;
-            right: 25%;
-            font-size: 20px;
-            animation-delay: 2.5s;
-        }
-
-        @keyframes floating {
-            0%,100% {
-                transform: translateY(0) rotate(-5deg);
-            }
-
-            50% {
-                transform: translateY(-18px) rotate(8deg);
-            }
-        }
-
-        #loading {
-            position: fixed;
-            inset: 0;
-
-            background: linear-gradient(
-                135deg,
-                #f7cce8,
-                #ddd2ff,
-                #cceaff
-            );
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
-            z-index: 9999;
-
-            animation: hideLoading 1s ease 1.5s forwards;
-        }
-
-        #loading .loading-icon {
-            font-size: 65px;
-            animation: loadingBounce 1s infinite alternate;
-        }
-
-        #loading h2 {
-            margin-top: 15px;
-            color: #714f79;
-            letter-spacing: 2px;
-        }
-
-        #loading p {
-            margin-top: 8px;
-            color: #866b91;
-        }
-
-        @keyframes loadingBounce {
-            from {
-                transform: translateY(0) rotate(-5deg);
-            }
-
-            to {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        @keyframes hideLoading {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            padding: 17px 25px;
-
-            background: rgba(255,255,255,.68);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid rgba(255,255,255,.8);
-
-            box-shadow:
-                0 8px 25px rgba(120,80,140,.12);
-        }
-
-        .header-content {
-            max-width: 1150px;
-            margin: auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 15px;
-
-            background: linear-gradient(
-                135deg,
-                #ff9dcc,
-                #b7b2ff
-            );
-
-            color: white;
-            font-size: 24px;
-
-            box-shadow:
-                0 8px 20px rgba(188,120,190,.25);
-        }
-
-        .logo-text h1 {
-            font-size: 20px;
-            color: #65446d;
-        }
-
-        .logo-text p {
-            font-size: 12px;
-            color: #9a7ba1;
-            margin-top: 3px;
-        }
-
-        .page-counter {
-            padding: 8px 15px;
-
-            background: rgba(255,255,255,.65);
-            border: 1px solid rgba(255,255,255,.8);
-
-            border-radius: 30px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio | ดารัณ เผ่าสกุลทอง</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Arial", "Tahoma", sans-serif;
+    background: #f8f7f5;
+    color: #333;
+    line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e5e2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-mark {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f4dce8;
+    color: #8f506d;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+}
+
+.logo-text h1 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #333;
+}
+
+.logo-text p {
+    font-size: 12px;
+    color: #999;
+}
+
+.page-number {
+    font-size: 13px;
+    color: #777;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #eee;
+    z-index: 2000;
+}
+
+.progress-bar {
+    width: 16.66%;
+    height: 100%;
+    background: #c98aa8;
 
-            color: #7a5d82;
-            font-size: 13px;
-        }
+    transition: width .3s ease;
+}
 
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
+/* =========================
+   MAIN
+========================= */
 
-            width: 100%;
-            height: 4px;
+main {
+    max-width: 1100px;
+    margin: auto;
 
-            z-index: 2000;
+    padding: 60px 25px 120px;
+}
 
-            background: rgba(255,255,255,.3);
-        }
+.page {
+    display: none;
+}
 
-        #progressBar {
-            height: 100%;
-            width: 16.66%;
+.page.active {
+    display: block;
+    animation: fadeIn .45s ease;
+}
 
-            background: linear-gradient(
-                90deg,
-                #ff82be,
-                #b28cff,
-                #7fcfff
-            );
+@keyframes fadeIn {
 
-            transition: width .4s ease;
-        }
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
 
-        main {
-            width: 100%;
-            min-height: calc(100vh - 82px);
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-            display: flex;
-            justify-content: center;
+}
 
-            padding: 45px 20px 120px;
-        }
+/* =========================
+   PAGE TITLE
+========================= */
 
-        .page {
-            display: none;
+.page-heading {
+    margin-bottom: 45px;
+}
 
-            width: 100%;
-            max-width: 1050px;
+.page-label {
+    color: #b26b8d;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 
-            animation: pageIn .6s ease;
-        }
+    margin-bottom: 8px;
+}
 
-        .page.active {
-            display: block;
-        }
+.page-title {
+    font-size: 42px;
+    color: #292929;
+    font-weight: 700;
+}
 
-        @keyframes pageIn {
-            from {
-                opacity: 0;
-                transform: translateY(25px) scale(.98);
-            }
+.page-description {
+    margin-top: 8px;
+    color: #888;
+    font-size: 15px;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
+/* =========================
+   CARD
+========================= */
 
-        .glass-card {
-            position: relative;
+.card {
+    background: #fff;
 
-            background: rgba(255,255,255,.72);
+    border: 1px solid #e9e5e2;
 
-            border: 1px solid rgba(255,255,255,.85);
+    border-radius: 14px;
 
-            border-radius: 32px;
+    padding: 40px;
 
-            padding: 45px;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.04);
+}
 
-            box-shadow:
-                0 20px 55px rgba(100,70,120,.13),
-                inset 0 1px 0 rgba(255,255,255,.8);
+/* =========================
+   PAGE 1
+========================= */
 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+.preface {
+    max-width: 850px;
+    margin: auto;
+}
 
-            overflow: hidden;
-        }
+.preface-main {
+    text-align: center;
+    padding: 30px 10px 40px;
+}
 
-        .glass-card::before {
-            content: "";
+.preface-icon {
+    width: 70px;
+    height: 70px;
 
-            position: absolute;
+    margin: 0 auto 25px;
 
-            width: 180px;
-            height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            border-radius: 50%;
+    border-radius: 50%;
 
-            background: rgba(255,170,220,.18);
+    background: #f6e3eb;
+    color: #a35f7e;
 
-            right: -70px;
-            top: -70px;
-        }
+    font-size: 30px;
+}
 
-        .glass-card::after {
-            content: "";
+.preface-main h2 {
+    font-size: 25px;
+    margin-bottom: 18px;
+    color: #333;
+}
 
-            position: absolute;
+.preface-main p {
+    max-width: 700px;
+    margin: auto;
 
-            width: 130px;
-            height: 130px;
+    color: #666;
+    line-height: 2;
+}
 
-            border-radius: 50%;
+.three-columns {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
 
-            background: rgba(170,180,255,.18);
+.simple-box {
+    background: #faf9f8;
 
-            left: -60px;
-            bottom: -50px;
-        }
+    border: 1px solid #eee;
 
-        .page-title {
-            text-align: center;
-            position: relative;
-            z-index: 2;
+    border-radius: 10px;
 
-            margin-bottom: 12px;
+    padding: 25px;
+}
 
-            font-size: clamp(30px, 5vw, 52px);
+.simple-box h3 {
+    font-size: 17px;
+    color: #8f506d;
 
-            background: linear-gradient(
-                90deg,
-                #d95f9f,
-                #9365d8,
-                #5e9fd5
-            );
+    margin-bottom: 10px;
+}
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+.simple-box p {
+    color: #777;
+    font-size: 14px;
+}
 
-            font-weight: 800;
-        }
+/* =========================
+   PAGE 2
+========================= */
 
-        .page-subtitle {
-            text-align: center;
+.profile {
+    display: grid;
 
-            color: #917697;
+    grid-template-columns: 350px 1fr;
 
-            font-size: 15px;
+    gap: 55px;
 
-            margin-bottom: 35px;
+    align-items: center;
+}
 
-            position: relative;
-            z-index: 2;
-        }
+.profile-photo {
+    text-align: center;
+}
 
-        .cute-line {
-            width: 90px;
-            height: 5px;
+.profile-photo img {
+    width: 270px;
+    height: 340px;
 
-            margin: 18px auto 30px;
+    object-fit: cover;
 
-            border-radius: 20px;
+    border-radius: 10px;
 
-            background: linear-gradient(
-                90deg,
-                #ff8fc6,
-                #b693ff,
-                #82cdf5
-            );
-        }
+    border: 1px solid #ddd;
 
-        .welcome-icon {
-            text-align: center;
-            font-size: 70px;
+    display: block;
 
-            margin-bottom: 5px;
+    margin: auto;
+}
 
-            animation: iconFloat 3s ease-in-out infinite;
-        }
+.profile-name {
+    margin-top: 20px;
 
-        @keyframes iconFloat {
-            0%,100% {
-                transform: translateY(0);
-            }
+    font-size: 22px;
+    font-weight: 700;
 
-            50% {
-                transform: translateY(-10px);
-            }
-        }
+    color: #333;
+}
 
-        .preface-box {
-            position: relative;
-            z-index: 2;
+.nickname {
+    color: #999;
+    font-size: 14px;
+}
 
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+.profile-info {
+    display: grid;
+    gap: 14px;
+}
 
-            gap: 20px;
+.info-row {
+    padding: 17px 20px;
 
-            margin-top: 35px;
-        }
+    border-bottom: 1px solid #eee;
+}
 
-        .info-box {
-            padding: 25px;
+.info-row:last-child {
+    border-bottom: none;
+}
 
-            border-radius: 24px;
+.info-row strong {
+    display: block;
 
-            background: linear-gradient(
-                135deg,
-                rgba(255,220,239,.7),
-                rgba(230,220,255,.7)
-            );
+    color: #8f506d;
 
-            border: 1px solid rgba(255,255,255,.8);
+    font-size: 14px;
 
-            transition: .3s;
+    margin-bottom: 3px;
+}
 
-            box-shadow:
-                0 10px 25px rgba(120,80,150,.08);
-        }
+.info-row span {
+    color: #555;
+    font-size: 15px;
+}
 
-        .info-box:hover {
-            transform: translateY(-8px);
+/* =========================
+   PAGE 3
+========================= */
 
-            box-shadow:
-                0 18px 35px rgba(120,80,150,.15);
-        }
+.school {
+    text-align: center;
 
-        .info-box .icon {
-            font-size: 32px;
-            margin-bottom: 12px;
-        }
+    background: #faf4f7;
 
-        .info-box h3 {
-            color: #704b79;
-            margin-bottom: 9px;
-        }
+    border: 1px solid #eedce5;
 
-        .info-box p {
-            color: #806c86;
-            line-height: 1.8;
-            font-size: 14px;
-        }
+    padding: 35px;
 
-        .quote {
-            position: relative;
-            z-index: 2;
+    border-radius: 12px;
 
-            margin-top: 30px;
+    margin-bottom: 30px;
+}
 
-            padding: 25px;
+.school-small {
+    color: #9a7183;
+    font-size: 13px;
+}
 
-            text-align: center;
+.school-name {
+    margin-top: 8px;
 
-            border-radius: 22px;
+    font-size: 27px;
 
-            background: rgba(255,255,255,.58);
+    font-weight: 700;
 
-            border: 1px dashed #dda5cf;
+    color: #49383f;
+}
 
-            color: #7d5d84;
+.school-level {
+    margin-top: 6px;
+    color: #888;
+}
 
-            line-height: 1.9;
-        }
+.education-grid {
+    display: grid;
 
-        .profile-grid {
-            position: relative;
-            z-index: 2;
+    grid-template-columns: 1fr 1fr;
 
-            display: grid;
+    gap: 25px;
+}
 
-            grid-template-columns: 330px 1fr;
+.education-section {
+    border: 1px solid #e9e5e2;
 
-            gap: 45px;
+    border-radius: 12px;
 
-            align-items: center;
-        }
+    padding: 28px;
 
-        .profile-image-wrapper {
-            text-align: center;
-        }
+    background: #fff;
+}
 
-        .profile-frame {
-            width: 270px;
-            height: 340px;
+.education-section h3 {
+    color: #8f506d;
 
-            margin: auto;
+    font-size: 18px;
 
-            padding: 9px;
+    margin-bottom: 18px;
+}
 
-            border-radius: 35px;
+.education-section ul {
+    list-style: none;
+}
 
-            background: linear-gradient(
-                135deg,
-                #ff9fca,
-                #bd9aff,
-                #8bd4ff
-            );
+.education-section li {
+    padding: 9px 0;
 
-            box-shadow:
-                0 20px 40px rgba(120,70,150,.2);
+    border-bottom: 1px solid #f0eeee;
 
-            transform: rotate(-2deg);
+    color: #666;
 
-            transition: .4s;
-        }
+    font-size: 14px;
+}
 
-        .profile-frame:hover {
-            transform: rotate(0deg) scale(1.03);
-        }
+.education-section li:last-child {
+    border-bottom: none;
+}
 
-        .profile-frame img {
-            width: 100%;
-            height: 100%;
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
-            object-fit: cover;
+.skill {
+    padding: 7px 13px;
 
-            border-radius: 28px;
+    background: #f8edf2;
 
-            display: block;
+    color: #805269;
 
-            border: 5px solid white;
-        }
+    border-radius: 20px;
 
-        .profile-name {
-            margin-top: 25px;
+    font-size: 13px;
+}
 
-            font-size: 25px;
+/* =========================
+   PAGE 4
+========================= */
 
-            color: #704a78;
+.university {
+    text-align: center;
 
-            font-weight: 700;
-        }
+    padding: 55px 35px;
+}
 
-        .nickname {
-            margin-top: 5px;
-            color: #a27ba5;
-        }
+.university-mark {
+    width: 80px;
+    height: 80px;
 
-        .profile-details {
-            display: grid;
-            gap: 15px;
-        }
+    margin: auto auto 25px;
 
-        .detail-card {
-            display: flex;
-            align-items: center;
+    border-radius: 50%;
 
-            gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            padding: 18px 20px;
+    background: #f4dce8;
 
-            border-radius: 20px;
+    font-size: 34px;
+}
 
-            background: rgba(255,255,255,.58);
+.university-label {
+    color: #9a7183;
 
-            border: 1px solid rgba(255,255,255,.75);
+    font-size: 13px;
 
-            transition: .3s;
-        }
+    margin-bottom: 10px;
+}
 
-        .detail-card:hover {
-            transform: translateX(7px);
-            background: rgba(255,255,255,.78);
-        }
+.university-name {
+    max-width: 750px;
 
-        .detail-icon {
-            width: 48px;
-            height: 48px;
+    margin: auto;
 
-            flex-shrink: 0;
+    font-size: 34px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    font-weight: 700;
 
-            border-radius: 15px;
+    line-height: 1.5;
 
-            background: linear-gradient(
-                135deg,
-                #ffc2df,
-                #c9baff
-            );
+    color: #333;
+}
 
-            font-size: 23px;
-        }
+.university-eng {
+    margin-top: 10px;
 
-        .detail-card strong {
-            display: block;
-            color: #704b79;
-            margin-bottom: 4px;
-        }
+    color: #999;
 
-        .detail-card span {
-            color: #89728d;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+    font-size: 14px;
+}
 
-        .school-highlight {
-            position: relative;
-            z-index: 2;
+.badge {
+    display: inline-block;
 
-            margin-bottom: 30px;
+    margin-top: 20px;
 
-            padding: 30px;
+    padding: 8px 18px;
 
-            border-radius: 28px;
+    border-radius: 20px;
 
-            text-align: center;
+    background: #f8edf2;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,205,231,.78),
-                    rgba(214,205,255,.78)
-                );
+    color: #8f506d;
 
-            border: 1px solid rgba(255,255,255,.9);
+    font-weight: 700;
 
-            box-shadow:
-                0 15px 35px rgba(120,80,150,.1);
-        }
+    font-size: 13px;
+}
 
-        .school-icon {
-            font-size: 50px;
-            margin-bottom: 12px;
-        }
+.faculty-grid {
+    display: grid;
 
-        .school-label {
-            color: #98759f;
-            font-size: 14px;
-            margin-bottom: 7px;
-        }
+    grid-template-columns: 1fr 1fr;
 
-        .school-name {
-            font-size: clamp(21px, 4vw, 32px);
-            color: #694572;
-            font-weight: 800;
-            line-height: 1.5;
-        }
+    gap: 18px;
 
-        .school-level {
-            margin-top: 8px;
-            color: #8a6b91;
-        }
+    margin-top: 35px;
+}
 
-        .education-grid {
-            position: relative;
-            z-index: 2;
+.faculty {
+    text-align: left;
 
-            display: grid;
+    padding: 22px;
 
-            grid-template-columns: 1fr 1fr;
+    border: 1px solid #eee;
 
-            gap: 25px;
-        }
+    border-radius: 10px;
 
-        .education-card {
-            background: rgba(255,255,255,.62);
+    background: #fafafa;
+}
 
-            padding: 28px;
+.faculty strong {
+    display: block;
 
-            border-radius: 25px;
+    color: #8f506d;
 
-            border: 1px solid rgba(255,255,255,.8);
+    margin-bottom: 5px;
+}
 
-            box-shadow:
-                0 12px 30px rgba(110,70,130,.08);
-        }
+.faculty span {
+    color: #666;
 
-        .education-card h3 {
-            color: #704b79;
-            margin-bottom: 18px;
-        }
+    font-size: 14px;
+}
 
-        .education-card ul {
-            list-style: none;
-        }
+.goal {
+    margin-top: 25px;
 
-        .education-card li {
-            padding: 10px 0;
-            color: #806b87;
-            border-bottom: 1px dashed #dfc8e0;
-            line-height: 1.6;
-        }
+    padding: 25px;
 
-        .education-card li:last-child {
-            border-bottom: none;
-        }
+    background: #faf4f7;
 
-        .education-card li::before {
-            content: "✦";
-            color: #df76af;
-            margin-right: 9px;
-        }
+    border-radius: 10px;
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+    text-align: center;
 
-        .skill {
-            padding: 9px 15px;
+    color: #666;
 
-            border-radius: 30px;
+    font-size: 14px;
+}
 
-            background: linear-gradient(
-                135deg,
-                #ffd4e8,
-                #ddd6ff
-            );
+/* =========================
+   PAGE 5 & 6
+========================= */
 
-            color: #73567a;
+.work {
+    display: grid;
 
-            font-size: 13px;
+    grid-template-columns: 1fr 1fr;
 
-            border: 1px solid rgba(255,255,255,.9);
+    gap: 45px;
 
-            transition: .3s;
-        }
+    align-items: center;
+}
 
-        .skill:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 7px 15px rgba(120,80,150,.12);
-        }
+.work-image {
+    width: 100%;
 
-        .university-card {
-            position: relative;
-            z-index: 2;
+    border-radius: 10px;
 
-            text-align: center;
+    overflow: hidden;
 
-            padding: 45px 30px;
+    border: 1px solid #ddd;
 
-            border-radius: 30px;
+    background: #f5f5f5;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,218,238,.75),
-                    rgba(218,212,255,.75),
-                    rgba(204,237,255,.7)
-                );
+.work-image img {
+    width: 100%;
 
-            border: 1px solid rgba(255,255,255,.9);
+    height: 430px;
 
-            box-shadow:
-                0 18px 45px rgba(100,70,130,.12);
-        }
+    object-fit: cover;
 
-        .university-icon {
-            font-size: 65px;
-            margin-bottom: 15px;
-        }
+    display: block;
+}
 
-        .university-small {
-            color: #94739c;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
+.work-content h2 {
+    font-size: 28px;
 
-        .university-name {
-            font-size: clamp(25px, 5vw, 42px);
-            color: #684570;
-            font-weight: 800;
-            line-height: 1.4;
-        }
+    color: #333;
 
-        .university-eng {
-            margin-top: 10px;
-            color: #8d7194;
-            font-size: 14px;
-        }
+    line-height: 1.5;
 
-        .kmitl-badge {
-            display: inline-block;
+    margin-bottom: 18px;
+}
 
-            margin-top: 22px;
+.work-content p {
+    color: #666;
 
-            padding: 10px 22px;
+    font-size: 15px;
 
-            border-radius: 30px;
+    line-height: 2;
 
-            background: rgba(255,255,255,.75);
+    margin-bottom: 18px;
+}
 
-            color: #80528b;
+.award {
+    display: inline-block;
 
-            font-weight: bold;
+    padding: 9px 16px;
 
-            letter-spacing: 2px;
-        }
+    margin-bottom: 18px;
 
-        .faculty-box {
-            margin-top: 28px;
+    border-radius: 20px;
 
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+    background: #f8edf2;
 
-            gap: 18px;
-        }
+    color: #8f506d;
 
-        .faculty-item {
-            padding: 22px;
+    font-size: 14px;
 
-            border-radius: 20px;
+    font-weight: 700;
+}
 
-            background: rgba(255,255,255,.6);
+.sub-box {
+    padding: 20px;
 
-            border: 1px solid rgba(255,255,255,.8);
-        }
+    background: #fafafa;
 
-        .faculty-item strong {
-            display: block;
+    border-left: 3px solid #c98aa8;
 
-            color: #704b79;
+    margin-top: 20px;
+}
 
-            margin-bottom: 7px;
-        }
+.sub-box h3 {
+    color: #8f506d;
 
-        .faculty-item span {
-            color: #8b708f;
-            line-height: 1.6;
-        }
+    font-size: 16px;
 
-        .goal-box {
-            position: relative;
-            z-index: 2;
+    margin-bottom: 7px;
+}
 
-            margin-top: 25px;
+.sub-box p {
+    margin: 0;
 
-            padding: 28px;
+    font-size: 14px;
+}
 
-            border-radius: 25px;
+/* =========================
+   NAVIGATION
+========================= */
 
-            background: rgba(255,255,255,.6);
+.navigation {
+    position: fixed;
 
-            border: 1px dashed #d6a5cf;
+    bottom: 0;
+    left: 0;
 
-            text-align: center;
+    width: 100%;
 
-            line-height: 1.9;
+    background: rgba(255,255,255,.96);
 
-            color: #7e6684;
-        }
+    border-top: 1px solid #e8e5e2;
 
-        .achievement-card {
-            position: relative;
-            z-index: 2;
+    z-index: 1000;
+}
 
-            display: grid;
+.nav-inner {
+    max-width: 1100px;
 
-            grid-template-columns: 1fr 1fr;
+    margin: auto;
 
-            gap: 35px;
+    padding: 15px 25px;
 
-            align-items: center;
-        }
+    display: flex;
 
-        .work-image {
-            position: relative;
+    justify-content: space-between;
 
-            padding: 9px;
+    align-items: center;
+}
 
-            border-radius: 28px;
+.nav-btn {
+    border: 1px solid #ddd;
 
-            background: linear-gradient(
-                135deg,
-                #ff9fca,
-                #bba0ff,
-                #91d9ff
-            );
+    background: #fff;
 
-            box-shadow:
-                0 18px 40px rgba(100,70,140,.16);
-        }
+    color: #555;
 
-        .work-image img {
-            width: 100%;
+    padding: 11px 25px;
 
-            height: 390px;
+    border-radius: 6px;
 
-            object-fit: cover;
+    font-family: inherit;
 
-            display: block;
+    font-size: 14px;
 
-            border-radius: 21px;
+    cursor: pointer;
 
-            border: 4px solid white;
-        }
+    transition: .2s;
+}
 
-        .achievement-content h2 {
-            color: #704b79;
+.nav-btn:hover {
+    border-color: #c98aa8;
 
-            font-size: 28px;
+    color: #8f506d;
+}
 
-            line-height: 1.4;
+.nav-btn.next {
+    background: #8f506d;
 
-            margin-bottom: 15px;
-        }
+    color: #fff;
 
-        .achievement-content p {
-            color: #816a87;
+    border-color: #8f506d;
+}
 
-            line-height: 1.9;
+.nav-btn.next:hover {
+    background: #7b435e;
+}
 
-            font-size: 15px;
-        }
+.nav-btn:disabled {
+    opacity: .4;
 
-        .award {
-            display: inline-block;
+    cursor: not-allowed;
+}
 
-            margin: 18px 0;
+.nav-status {
+    color: #999;
 
-            padding: 11px 20px;
+    font-size: 13px;
+}
 
-            border-radius: 30px;
+/* =========================
+   FOOTER
+========================= */
 
-            background: linear-gradient(
-                135deg,
-                #ffd1e5,
-                #ded2ff
-            );
+footer {
+    max-width: 1100px;
 
-            color: #784d80;
+    margin: auto;
 
-            font-weight: bold;
-        }
+    padding: 35px 25px 100px;
 
-        .learning-box {
-            margin-top: 18px;
+    text-align: center;
 
-            padding: 20px;
+    color: #999;
 
-            border-radius: 20px;
+    font-size: 13px;
+}
 
-            background: rgba(255,255,255,.58);
+footer strong {
+    color: #8f506d;
+}
 
-            border: 1px solid rgba(255,255,255,.8);
-        }
+/* =========================
+   RESPONSIVE
+========================= */
 
-        .learning-box h3 {
-            color: #754f7c;
-            margin-bottom: 10px;
-        }
+@media (max-width: 800px) {
 
-        .project-card {
-            position: relative;
-            z-index: 2;
+    main {
+        padding: 40px 18px 110px;
+    }
 
-            display: grid;
+    .page-title {
+        font-size: 32px;
+    }
 
-            grid-template-columns: 1fr 1fr;
+    .card {
+        padding: 25px;
+    }
 
-            gap: 35px;
+    .three-columns {
+        grid-template-columns: 1fr;
+    }
 
-            align-items: center;
-        }
+    .profile {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
 
-        .project-content h2 {
-            font-size: 30px;
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
 
-            color: #704b79;
+    .faculty-grid {
+        grid-template-columns: 1fr;
+    }
 
-            line-height: 1.4;
+    .work {
+        grid-template-columns: 1fr;
+    }
 
-            margin-bottom: 16px;
-        }
+    .work-image img {
+        height: 350px;
+    }
 
-        .project-content p {
-            color: #806a87;
+    .university-name {
+        font-size: 27px;
+    }
 
-            line-height: 1.9;
+    .nav-inner {
+        padding: 12px 15px;
+    }
 
-            font-size: 15px;
-        }
+}
 
-        .process {
-            margin-top: 20px;
+@media (max-width: 500px) {
 
-            display: grid;
+    .header-inner {
+        padding: 14px 15px;
+    }
 
-            gap: 10px;
-        }
+    .logo-text h1 {
+        font-size: 16px;
+    }
 
-        .process-step {
-            display: flex;
-            align-items: center;
+    .logo-text p {
+        font-size: 10px;
+    }
 
-            gap: 12px;
+    .page-number {
+        font-size: 11px;
+    }
 
-            padding: 12px 15px;
+    main {
+        padding: 30px 12px 105px;
+    }
 
-            border-radius: 16px;
+    .page-title {
+        font-size: 28px;
+    }
 
-            background: rgba(255,255,255,.6);
-        }
+    .card {
+        padding: 20px;
+    }
 
-        .step-number {
-            width: 34px;
-            height: 34px;
+    .profile-photo img {
+        width: 230px;
+        height: 295px;
+    }
 
-            flex-shrink: 0;
+    .school-name {
+        font-size: 21px;
+    }
 
-            border-radius: 50%;
+    .university-name {
+        font-size: 23px;
+    }
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    .work-content h2 {
+        font-size: 24px;
+    }
 
-            background: linear-gradient(
-                135deg,
-                #ffabd1,
-                #bca9ff
-            );
+    .work-image img {
+        height: 280px;
+    }
 
-            color: white;
+    .nav-btn {
+        padding: 10px 16px;
+    }
 
-            font-weight: bold;
-        }
+    .nav-status {
+        display: none;
+    }
 
-        .project-image {
-            padding: 9px;
+}
 
-            border-radius: 28px;
-
-            background: linear-gradient(
-                135deg,
-                #ff9fca,
-                #bba0ff,
-                #91d9ff
-            );
-
-            box-shadow:
-                0 18px 40px rgba(100,70,140,.16);
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 390px;
-
-            object-fit: cover;
-
-            display: block;
-
-            border-radius: 21px;
-
-            border: 4px solid white;
-        }
-
-        .navigation {
-            position: fixed;
-
-            bottom: 20px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            z-index: 1500;
-
-            width: calc(100% - 30px);
-
-            max-width: 650px;
-
-            padding: 12px 15px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            gap: 10px;
-
-            background: rgba(255,255,255,.72);
-
-            border: 1px solid rgba(255,255,255,.9);
-
-            border-radius: 30px;
-
-            backdrop-filter: blur(18px);
-
-            -webkit-backdrop-filter: blur(18px);
-
-            box-shadow:
-                0 15px 35px rgba(90,60,110,.16);
-        }
-
-        .nav-btn {
-            border: none;
-
-            cursor: pointer;
-
-            padding: 11px 18px;
-
-            border-radius: 22px;
-
-            background: rgba(255,255,255,.8);
-
-            color: #76567d;
-
-            font-family: inherit;
-
-            font-weight: bold;
-
-            transition: .3s;
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-3px);
-
-            background: linear-gradient(
-                135deg,
-                #ffc0dd,
-                #cbbdff
-            );
-
-            color: #694873;
-
-            box-shadow:
-                0 8px 18px rgba(130,90,150,.15);
-        }
-
-        .nav-btn.home {
-            background: linear-gradient(
-                135deg,
-                #ffafd2,
-                #bdaeff
-            );
-
-            color: white;
-        }
-
-        .dots {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            margin: 0 5px;
-        }
-
-        .dot {
-            width: 9px;
-            height: 9px;
-
-            border-radius: 50%;
-
-            background: #d8bfdc;
-
-            cursor: pointer;
-
-            transition: .3s;
-        }
-
-        .dot.active {
-            width: 25px;
-
-            border-radius: 20px;
-
-            background: linear-gradient(
-                90deg,
-                #ff8fc5,
-                #a997ff
-            );
-        }
-
-        footer {
-            text-align: center;
-
-            padding: 30px 20px 105px;
-
-            color: #8e7394;
-
-            font-size: 13px;
-
-            line-height: 1.8;
-        }
-
-        footer strong {
-            color: #79547f;
-        }
-
-        @media (max-width: 800px) {
-
-            .glass-card {
-                padding: 30px 20px;
-                border-radius: 25px;
-            }
-
-            .preface-box {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .faculty-box {
-                grid-template-columns: 1fr;
-            }
-
-            .achievement-card,
-            .project-card {
-                grid-template-columns: 1fr;
-            }
-
-            .work-image img,
-            .project-image img {
-                height: 320px;
-            }
-
-            .navigation {
-                padding: 9px;
-                gap: 5px;
-            }
-
-            .nav-btn {
-                padding: 10px 12px;
-                font-size: 12px;
-            }
-
-            .dots {
-                gap: 5px;
-            }
-
-            .dot {
-                width: 7px;
-                height: 7px;
-            }
-
-            .dot.active {
-                width: 18px;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            header {
-                padding: 12px 15px;
-            }
-
-            .logo-icon {
-                width: 42px;
-                height: 42px;
-            }
-
-            .logo-text h1 {
-                font-size: 16px;
-            }
-
-            .logo-text p {
-                font-size: 10px;
-            }
-
-            .page-counter {
-                font-size: 11px;
-                padding: 7px 10px;
-            }
-
-            main {
-                padding: 25px 12px 110px;
-            }
-
-            .page-title {
-                font-size: 31px;
-            }
-
-            .profile-frame {
-                width: 230px;
-                height: 295px;
-            }
-
-            .profile-name {
-                font-size: 21px;
-            }
-
-            .school-name {
-                font-size: 22px;
-            }
-
-            .university-name {
-                font-size: 25px;
-            }
-
-            .work-image img,
-            .project-image img {
-                height: 280px;
-            }
-
-            .navigation {
-                width: calc(100% - 16px);
-            }
-
-            .nav-btn {
-                padding: 9px 10px;
-            }
-
-            .nav-btn span {
-                display: none;
-            }
-        }
-
-    </style>
+</style>
 </head>
 
 <body>
 
-    <!-- LOADING -->
+<!-- PROGRESS -->
 
-    <div id="loading">
-
-        <div class="loading-icon">🏛️</div>
-
-        <h2>Daran's Portfolio</h2>
-
-        <p>Architecture • Design • Creativity</p>
-
-    </div>
+<div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
 
 
-    <!-- BACKGROUND -->
+<!-- HEADER -->
 
-    <div class="background-shape shape1"></div>
-    <div class="background-shape shape2"></div>
-    <div class="background-shape shape3"></div>
+<header>
 
-    <div class="floating flower1">🌸</div>
-    <div class="floating flower2">🌷</div>
-    <div class="floating flower3">🌸</div>
+    <div class="header-inner">
 
-    <div class="floating sparkle1">✨</div>
-    <div class="floating sparkle2">✦</div>
-    <div class="floating heart">💗</div>
+        <div class="logo">
 
-
-    <!-- PROGRESS -->
-
-    <div class="progress-container">
-
-        <div id="progressBar"></div>
-
-    </div>
-
-
-    <!-- HEADER -->
-
-    <header>
-
-        <div class="header-content">
-
-            <div class="logo">
-
-                <div class="logo-icon">
-                    🏛️
-                </div>
-
-                <div class="logo-text">
-
-                    <h1>Portfolio</h1>
-
-                    <p>ดารัณ เผ่าสกุลทอง</p>
-
-                </div>
-
+            <div class="logo-mark">
+                🏛️
             </div>
 
-            <div class="page-counter" id="pageCounter">
-                หน้า 1 / 6
+            <div class="logo-text">
+
+                <h1>Portfolio</h1>
+
+                <p>ดารัณ เผ่าสกุลทอง</p>
+
             </div>
 
         </div>
 
-    </header>
+        <div class="page-number" id="pageNumber">
+            หน้า 1 / 6
+        </div>
+
+    </div>
+
+</header>
 
 
-    <!-- MAIN -->
+<!-- MAIN -->
 
-    <main>
+<main>
 
 
-        <!-- PAGE 1 -->
+<!-- =========================
+     PAGE 1 : PREFACE
+========================= -->
 
-        <section class="page active">
+<section class="page active">
 
-            <div class="glass-card">
+    <div class="page-heading">
 
-                <div class="welcome-icon">
-                    🏛️
-                </div>
+        <div class="page-label">
+            01 / PREFACE
+        </div>
 
-                <h1 class="page-title">
-                    คำนำ
-                </h1>
+        <h1 class="page-title">
+            คำนำ
+        </h1>
 
-                <p class="page-subtitle">
-                    Welcome to my Portfolio
+        <p class="page-description">
+            Introduction to my portfolio
+        </p>
+
+    </div>
+
+
+    <div class="card preface">
+
+        <div class="preface-main">
+
+            <div class="preface-icon">
+                🏛️
+            </div>
+
+            <h2>
+                แฟ้มสะสมผลงาน
+            </h2>
+
+            <p>
+                แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวม
+                ประวัติ ความรู้ ความสามารถ กิจกรรม
+                และผลงานต่าง ๆ ที่ได้เรียนรู้และสร้างสรรค์ขึ้น
+                ในช่วงที่ผ่านมา
+            </p>
+
+        </div>
+
+
+        <div class="three-columns">
+
+            <div class="simple-box">
+
+                <h3>
+                    ความสนใจ
+                </h3>
+
+                <p>
+                    ฉันมีความสนใจด้านการออกแบบ
+                    สถาปัตยกรรม ศิลปะ และการคิดสร้างสรรค์
                 </p>
 
-                <div class="cute-line"></div>
+            </div>
 
 
-                <div class="quote">
+            <div class="simple-box">
 
-                    แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติ
-                    ความรู้ ความสามารถ กิจกรรม และผลงานต่าง ๆ
-                    ที่ได้เรียนรู้และสร้างสรรค์ขึ้นในช่วงที่ผ่านมา
+                <h3>
+                    การพัฒนา
+                </h3>
 
+                <p>
+                    ฉันต้องการพัฒนาทักษะของตนเอง
+                    และเรียนรู้สิ่งใหม่ ๆ อย่างต่อเนื่อง
+                </p>
+
+            </div>
+
+
+            <div class="simple-box">
+
+                <h3>
+                    เป้าหมาย
+                </h3>
+
+                <p>
+                    ต้องการนำความรู้และความสามารถ
+                    ไปต่อยอดในการเรียนด้านสถาปัตยกรรม
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2 : ABOUT
+========================= -->
+
+<section class="page">
+
+    <div class="page-heading">
+
+        <div class="page-label">
+            02 / ABOUT ME
+        </div>
+
+        <h1 class="page-title">
+            แนะนำตัว
+        </h1>
+
+        <p class="page-description">
+            About me
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="profile">
+
+
+            <div class="profile-photo">
+
+                <img
+                    src="IMG_6580.jpeg"
+                    alt="รูปโปรไฟล์ ดารัณ เผ่าสกุลทอง"
+                >
+
+                <div class="profile-name">
+                    นางสาว ดารัณ เผ่าสกุลทอง
                 </div>
 
-
-                <div class="preface-box">
-
-
-                    <div class="info-box">
-
-                        <div class="icon">🎨</div>
-
-                        <h3>ความสนใจ</h3>
-
-                        <p>
-                            ฉันมีความสนใจด้านการออกแบบและสถาปัตยกรรม
-                            ชอบการออกแบบสิ่งต่าง ๆ และการคิดสร้างสรรค์
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <div class="icon">💡</div>
-
-                        <h3>การพัฒนา</h3>
-
-                        <p>
-                            ฉันต้องการพัฒนาทักษะของตนเองอย่างต่อเนื่อง
-                            และเรียนรู้สิ่งใหม่ ๆ เพื่อนำมาปรับใช้กับการออกแบบ
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <div class="icon">🏛️</div>
-
-                        <h3>เป้าหมาย</h3>
-
-                        <p>
-                            ฉันหวังว่าแฟ้มสะสมผลงานนี้จะช่วยแสดงให้เห็นถึง
-                            ความตั้งใจ ความสามารถ และความสนใจ
-                            ที่มีต่อการเรียนด้านสถาปัตยกรรม
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="quote">
-
-                    💗 ขอบคุณที่เข้ามาชม Portfolio ของฉัน 💗
-
+                <div class="nickname">
+                    ชื่อเล่น : โฟกัส
                 </div>
 
             </div>
 
-        </section>
 
+            <div class="profile-info">
 
-        <!-- PAGE 2 : ABOUT ME -->
 
-        <section class="page">
+                <div class="info-row">
 
-            <div class="glass-card">
+                    <strong>
+                        อายุ
+                    </strong>
 
-                <h1 class="page-title">
-                    แนะนำตัว
-                </h1>
-
-                <p class="page-subtitle">
-                    About Me
-                </p>
-
-                <div class="cute-line"></div>
-
-
-                <div class="profile-grid">
-
-
-                    <div class="profile-image-wrapper">
-
-                        <div class="profile-frame">
-
-                            <img
-                                src="IMG_6580.jpeg"
-                                alt="รูปโปรไฟล์ ดารัณ เผ่าสกุลทอง"
-                            >
-
-                        </div>
-
-                        <div class="profile-name">
-                            นางสาว ดารัณ เผ่าสกุลทอง
-                        </div>
-
-                        <div class="nickname">
-                            ✨ ชื่อเล่น : โฟกัส ✨
-                        </div>
-
-                    </div>
-
-
-                    <div class="profile-details">
-
-
-                        <!-- อายุ -->
-
-                        <div class="detail-card">
-
-                            <div class="detail-icon">
-                                🎂
-                            </div>
-
-                            <div>
-
-                                <strong>อายุ</strong>
-
-                                <span>
-                                    18 ปี
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- ระดับการศึกษา -->
-
-                        <div class="detail-card">
-
-                            <div class="detail-icon">
-                                👩🏻‍🎓
-                            </div>
-
-                            <div>
-
-                                <strong>ระดับการศึกษา</strong>
-
-                                <span>
-                                    มัธยมศึกษาปีที่ 6
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- แผนการเรียน -->
-
-                        <div class="detail-card">
-
-                            <div class="detail-icon">
-                                🏫
-                            </div>
-
-                            <div>
-
-                                <strong>แผนการเรียน</strong>
-
-                                <span>
-                                    เตรียมวิศวกรรมศาสตร์
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- ความสนใจ -->
-
-                        <div class="detail-card">
-
-                            <div class="detail-icon">
-                                🎨
-                            </div>
-
-                            <div>
-
-                                <strong>ความสนใจ</strong>
-
-                                <span>
-                                    การวาดรูป ศิลปะ การออกแบบ
-                                    สถาปัตยกรรม และความคิดสร้างสรรค์
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- ทักษะ -->
-
-                        <div class="detail-card">
-
-                            <div class="detail-icon">
-                                ✏️
-                            </div>
-
-                            <div>
-
-                                <strong>ทักษะเด่น</strong>
-
-                                <span>
-                                    การวาดเส้น สเก็ตช์ภาพ
-                                    ลงสี การออกแบบ
-                                    และการจัดองค์ประกอบภาพ
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- ความฝัน -->
-
-                        <div class="detail-card">
-
-                            <div class="detail-icon">
-                                🏛️
-                            </div>
-
-                            <div>
-
-                                <strong>ความฝัน</strong>
-
-                                <span>
-                                    ต้องการศึกษาต่อด้านสถาปัตยกรรม
-                                    และพัฒนาตนเองเพื่อก้าวสู่การเป็นสถาปนิก
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
+                    <span>
+                        18 ปี
+                    </span>
 
                 </div>
 
-            </div>
 
-        </section>
+                <div class="info-row">
 
+                    <strong>
+                        ระดับการศึกษา
+                    </strong>
 
-        <!-- PAGE 3 : EDUCATION & SKILLS -->
-
-        <section class="page">
-
-            <div class="glass-card">
-
-                <h1 class="page-title">
-                    รายละเอียดการศึกษา
-                </h1>
-
-                <p class="page-subtitle">
-                    Education & Skills
-                </p>
-
-                <div class="cute-line"></div>
-
-
-                <div class="school-highlight">
-
-                    <div class="school-icon">
-                        🏫
-                    </div>
-
-                    <div class="school-label">
-                        สถานศึกษาปัจจุบัน
-                    </div>
-
-                    <div class="school-name">
-                        โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์”
-                    </div>
-
-                    <div class="school-level">
+                    <span>
                         มัธยมศึกษาปีที่ 6
-                    </div>
+                    </span>
 
                 </div>
 
 
-                <div class="education-grid">
+                <div class="info-row">
 
+                    <strong>
+                        แผนการเรียน
+                    </strong>
 
-                    <!-- ข้อมูลการศึกษา -->
-
-                    <div class="education-card">
-
-                        <h3>
-                            📚 ข้อมูลการศึกษา
-                        </h3>
-
-                        <ul>
-
-                            <li>
-                                ระดับชั้น : มัธยมศึกษาปีที่ 6
-                            </li>
-
-                            <li>
-                                แผนการเรียน : เตรียมวิศวกรรมศาสตร์
-                            </li>
-
-                            <li>
-                                โรงเรียน : บ้านบึง “อุตสาหกรรมนุเคราะห์”
-                            </li>
-
-                            <li>
-                                ความสนใจ : สถาปัตยกรรมและการออกแบบ
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-                    <!-- ทักษะด้านศิลปะและการวาดรูป -->
-
-                    <div class="education-card">
-
-                        <h3>
-                            🎨 ทักษะด้านศิลปะและการวาดรูป
-                        </h3>
-
-                        <div class="skills">
-
-                            <div class="skill">
-                                ✏️ การวาดเส้น
-                            </div>
-
-                            <div class="skill">
-                                📝 การสเก็ตช์ภาพ
-                            </div>
-
-                            <div class="skill">
-                                👤 การวาดคน
-                            </div>
-
-                            <div class="skill">
-                                🏞️ การวาดภาพทิวทัศน์
-                            </div>
-
-                            <div class="skill">
-                                🏛️ การวาดอาคาร
-                            </div>
-
-                            <div class="skill">
-                                📐 Perspective
-                            </div>
-
-                            <div class="skill">
-                                🎨 การลงสี
-                            </div>
-
-                            <div class="skill">
-                                🌈 การเลือกใช้สี
-                            </div>
-
-                            <div class="skill">
-                                🖌️ การลงน้ำหนักแสงเงา
-                            </div>
-
-                            <div class="skill">
-                                💡 การออกแบบ
-                            </div>
-
-                            <div class="skill">
-                                🧩 องค์ประกอบศิลป์
-                            </div>
-
-                            <div class="skill">
-                                ✨ ความคิดสร้างสรรค์
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ทักษะทั่วไป -->
-
-                    <div class="education-card">
-
-                        <h3>
-                            🌟 ทักษะทั่วไป
-                        </h3>
-
-                        <div class="skills">
-
-                            <div class="skill">
-                                💡 ความคิดสร้างสรรค์
-                            </div>
-
-                            <div class="skill">
-                                🔎 การวิเคราะห์
-                            </div>
-
-                            <div class="skill">
-                                🧩 การแก้ปัญหา
-                            </div>
-
-                            <div class="skill">
-                                📋 การวางแผน
-                            </div>
-
-                            <div class="skill">
-                                🤝 การทำงานเป็นทีม
-                            </div>
-
-                            <div class="skill">
-                                ⏰ การบริหารเวลา
-                            </div>
-
-                            <div class="skill">
-                                🌱 การพัฒนาตนเอง
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ความสามารถด้านการออกแบบ -->
-
-                    <div class="education-card">
-
-                        <h3>
-                            🏛️ ความสามารถด้านการออกแบบ
-                        </h3>
-
-                        <ul>
-
-                            <li>
-                                ออกแบบแนวคิดและรูปแบบงาน
-                            </li>
-
-                            <li>
-                                จัดองค์ประกอบภาพให้เหมาะสม
-                            </li>
-
-                            <li>
-                                คิดและพัฒนารูปแบบงานอย่างสร้างสรรค์
-                            </li>
-
-                            <li>
-                                สามารถนำการวาดรูปมาประยุกต์กับงานออกแบบ
-                            </li>
-
-                            <li>
-                                สนใจการออกแบบสถาปัตยกรรม
-                            </li>
-
-                        </ul>
-
-                    </div>
-
+                    <span>
+                        เตรียมวิศวกรรมศาสตร์
+                    </span>
 
                 </div>
 
 
-                <div class="quote">
+                <div class="info-row">
 
-                    🌷 ฉันชอบการวาดรูปและการออกแบบ
-                    เพราะเป็นวิธีที่ช่วยถ่ายทอดความคิด
-                    และจินตนาการออกมาเป็นผลงานที่มองเห็นได้
-                    และต้องการนำทักษะเหล่านี้ไปต่อยอด
-                    ในการเรียนด้านสถาปัตยกรรม 🌷
+                    <strong>
+                        ความสนใจ
+                    </strong>
+
+                    <span>
+                        การวาดรูป ศิลปะ การออกแบบ
+                        และสถาปัตยกรรม
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <strong>
+                        ทักษะ
+                    </strong>
+
+                    <span>
+                        การวาดเส้น สเก็ตช์ภาพ ลงสี
+                        การออกแบบ และการจัดองค์ประกอบภาพ
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <strong>
+                        เป้าหมาย
+                    </strong>
+
+                    <span>
+                        ศึกษาต่อด้านสถาปัตยกรรม
+                        และพัฒนาตนเองเพื่อก้าวสู่การเป็นสถาปนิก
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3 : EDUCATION
+========================= -->
+
+<section class="page">
+
+    <div class="page-heading">
+
+        <div class="page-label">
+            03 / EDUCATION
+        </div>
+
+        <h1 class="page-title">
+            รายละเอียดการศึกษา
+        </h1>
+
+        <p class="page-description">
+            Education & Skills
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+
+        <div class="school">
+
+            <div class="school-small">
+                สถานศึกษาปัจจุบัน
+            </div>
+
+            <div class="school-name">
+                โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์”
+            </div>
+
+            <div class="school-level">
+                มัธยมศึกษาปีที่ 6
+            </div>
+
+        </div>
+
+
+        <div class="education-grid">
+
+
+            <div class="education-section">
+
+                <h3>
+                    ข้อมูลการศึกษา
+                </h3>
+
+                <ul>
+
+                    <li>
+                        ระดับชั้น : มัธยมศึกษาปีที่ 6
+                    </li>
+
+                    <li>
+                        แผนการเรียน : เตรียมวิศวกรรมศาสตร์
+                    </li>
+
+                    <li>
+                        โรงเรียน : บ้านบึง “อุตสาหกรรมนุเคราะห์”
+                    </li>
+
+                    <li>
+                        ความสนใจ : สถาปัตยกรรมและการออกแบบ
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="education-section">
+
+                <h3>
+                    ทักษะด้านศิลปะและการออกแบบ
+                </h3>
+
+                <div class="skills">
+
+                    <div class="skill">
+                        การวาดเส้น
+                    </div>
+
+                    <div class="skill">
+                        การสเก็ตช์ภาพ
+                    </div>
+
+                    <div class="skill">
+                        การวาดคน
+                    </div>
+
+                    <div class="skill">
+                        การวาดอาคาร
+                    </div>
+
+                    <div class="skill">
+                        Perspective
+                    </div>
+
+                    <div class="skill">
+                        การลงสี
+                    </div>
+
+                    <div class="skill">
+                        แสงและเงา
+                    </div>
+
+                    <div class="skill">
+                        องค์ประกอบศิลป์
+                    </div>
+
+                    <div class="skill">
+                        ความคิดสร้างสรรค์
+                    </div>
 
                 </div>
 
             </div>
 
-        </section>
+
+            <div class="education-section">
+
+                <h3>
+                    ทักษะทั่วไป
+                </h3>
+
+                <div class="skills">
+
+                    <div class="skill">
+                        การวิเคราะห์
+                    </div>
+
+                    <div class="skill">
+                        การแก้ปัญหา
+                    </div>
+
+                    <div class="skill">
+                        การวางแผน
+                    </div>
+
+                    <div class="skill">
+                        การทำงานเป็นทีม
+                    </div>
+
+                    <div class="skill">
+                        การบริหารเวลา
+                    </div>
+
+                    <div class="skill">
+                        การพัฒนาตนเอง
+                    </div>
+
+                </div>
+
+            </div>
 
 
-        <!-- PAGE 4 : UNIVERSITY -->
+            <div class="education-section">
 
-        <section class="page">
+                <h3>
+                    ความสามารถด้านการออกแบบ
+                </h3>
 
-            <div class="glass-card">
+                <ul>
 
-                <h1 class="page-title">
-                    มหาวิทยาลัยที่อยากเข้า
-                </h1>
+                    <li>
+                        ออกแบบแนวคิดและรูปแบบงาน
+                    </li>
 
-                <p class="page-subtitle">
-                    My Dream University
+                    <li>
+                        จัดองค์ประกอบภาพให้เหมาะสม
+                    </li>
+
+                    <li>
+                        คิดและพัฒนารูปแบบงานอย่างสร้างสรรค์
+                    </li>
+
+                    <li>
+                        นำการวาดรูปมาประยุกต์กับงานออกแบบ
+                    </li>
+
+                    <li>
+                        สนใจการออกแบบสถาปัตยกรรม
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4 : UNIVERSITY
+========================= -->
+
+<section class="page">
+
+    <div class="page-heading">
+
+        <div class="page-label">
+            04 / UNIVERSITY
+        </div>
+
+        <h1 class="page-title">
+            มหาวิทยาลัยที่อยากเข้า
+        </h1>
+
+        <p class="page-description">
+            My Dream University
+        </p>
+
+    </div>
+
+
+    <div class="card university">
+
+
+        <div class="university-mark">
+            🏛️
+        </div>
+
+
+        <div class="university-label">
+            มหาวิทยาลัยในฝัน
+        </div>
+
+
+        <div class="university-name">
+
+            สถาบันเทคโนโลยี
+            พระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+
+        </div>
+
+
+        <div class="university-eng">
+
+            King Mongkut's Institute of Technology Ladkrabang
+
+        </div>
+
+
+        <div class="badge">
+            KMITL
+        </div>
+
+
+        <div class="faculty-grid">
+
+
+            <div class="faculty">
+
+                <strong>
+                    คณะที่ต้องการเข้า
+                </strong>
+
+                <span>
+                    คณะสถาปัตยกรรม ศิลปะและการออกแบบ
+                </span>
+
+            </div>
+
+
+            <div class="faculty">
+
+                <strong>
+                    สาขาที่สนใจ
+                </strong>
+
+                <span>
+                    สถาปัตยกรรม
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="goal">
+
+            <strong>
+                เป้าหมายในอนาคต
+            </strong>
+
+            <br>
+
+            ฉันต้องการศึกษาด้านสถาปัตยกรรม
+            เพื่อนำความรู้และความคิดสร้างสรรค์
+            มาพัฒนาเป็นผลงานที่สวยงาม เหมาะสม
+            และสามารถใช้งานได้จริง
+            รวมถึงเติบโตไปเป็นสถาปนิกที่มีความสามารถในอนาคต
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 5 : ACHIEVEMENT
+========================= -->
+
+<section class="page">
+
+    <div class="page-heading">
+
+        <div class="page-label">
+            05 / ACHIEVEMENT
+        </div>
+
+        <h1 class="page-title">
+            ผลงานที่ภาคภูมิใจ
+        </h1>
+
+        <p class="page-description">
+            My Proud Achievement
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+
+        <div class="work">
+
+
+            <div class="work-image">
+
+                <img
+                    src="IMG_0918.jpeg"
+                    alt="ผลงานศึกวัดเซียน ปรากฏการณ์ธรรมชาติ"
+                >
+
+            </div>
+
+
+            <div class="work-content">
+
+                <h2>
+                    ศึกวัดเซียน
+                    ปรากฏการณ์ธรรมชาติ
+                </h2>
+
+
+                <div class="award">
+                    รองชนะเลิศอันดับ 1
+                </div>
+
+
+                <p>
+
+                    ผลงานการแข่งขันในระดับ
+                    มัธยมศึกษาตอนปลาย
+                    ที่ได้มีโอกาสเข้าร่วมกิจกรรม
+                    และทำงานร่วมกับเพื่อน
+
                 </p>
 
-                <div class="cute-line"></div>
 
+                <p>
 
-                <div class="university-card">
+                    จากการเข้าร่วมกิจกรรมครั้งนี้
+                    ทำให้ฉันได้เรียนรู้เกี่ยวกับ
+                    ปรากฏการณ์ทางธรรมชาติ
+                    รวมถึงการวิเคราะห์ข้อมูล
+                    การวางแผน และการทำงานร่วมกัน
 
-                    <div class="university-icon">
-                        🏛️
-                    </div>
-
-                    <div class="university-small">
-                        มหาวิทยาลัยในฝัน
-                    </div>
-
-                    <div class="university-name">
-
-                        สถาบันเทคโนโลยี
-                        พระจอมเกล้าเจ้าคุณทหารลาดกระบัง
-
-                    </div>
-
-                    <div class="university-eng">
-
-                        King Mongkut's Institute of Technology Ladkrabang
-
-                    </div>
-
-                    <div class="kmitl-badge">
-                        KMITL
-                    </div>
-
-
-                    <div class="faculty-box">
-
-
-                        <div class="faculty-item">
-
-                            <strong>
-                                🎓 คณะที่ต้องการเข้า
-                            </strong>
-
-                            <span>
-                                คณะสถาปัตยกรรม ศิลปะและการออกแบบ
-                            </span>
-
-                        </div>
-
-
-                        <div class="faculty-item">
-
-                            <strong>
-                                🏛️ สาขาที่สนใจ
-                            </strong>
-
-                            <span>
-                                สถาปัตยกรรม
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-                <div class="goal-box">
-
-                    <strong>💗 เป้าหมายในอนาคต</strong>
-
-                    <br>
-
-                    ฉันต้องการศึกษาด้านสถาปัตยกรรม
-                    เพื่อนำความรู้และความคิดสร้างสรรค์
-                    มาพัฒนาเป็นผลงานที่สวยงาม เหมาะสม
-                    และสามารถใช้งานได้จริง
-                    รวมถึงเติบโตไปเป็นสถาปนิกที่มีความสามารถในอนาคต
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PAGE 5 : ACHIEVEMENT -->
-
-        <section class="page">
-
-            <div class="glass-card">
-
-                <h1 class="page-title">
-                    ผลงานที่ภาคภูมิใจ
-                </h1>
-
-                <p class="page-subtitle">
-                    My Proud Achievement
                 </p>
 
-                <div class="cute-line"></div>
 
+                <div class="sub-box">
 
-                <div class="achievement-card">
+                    <h3>
+                        สิ่งที่ได้รับ
+                    </h3>
 
+                    <p>
 
-                    <div class="work-image">
+                        ได้ฝึกการวางแผน
+                        การแบ่งหน้าที่
+                        การทำงานเป็นทีม
+                        การแก้ปัญหาเฉพาะหน้า
+                        และทำให้มีความมั่นใจในตนเองมากขึ้น
 
-                        <img
-                            src="IMG_0906.jpeg"
-                            alt="ผลงานศึกวัดเซียนปรากฏการณ์ธรรมชาติ"
-                        >
-
-                    </div>
-
-
-                    <div class="achievement-content">
-
-                        <h2>
-                            ศึกวัดเซียน
-                            ปรากฏการณ์ธรรมชาติ
-                        </h2>
-
-                        <p>
-                            ผลงานการแข่งขันในระดับ
-                            มัธยมศึกษาตอนปลาย
-                            ที่ได้มีโอกาสเข้าร่วมกิจกรรม
-                            และทำงานร่วมกับเพื่อน
-                        </p>
-
-
-                        <div class="award">
-                            🏆 รองชนะเลิศอันดับ 1
-                        </div>
-
-
-                        <p>
-                            จากการเข้าร่วมกิจกรรมครั้งนี้
-                            ทำให้ฉันได้เรียนรู้เกี่ยวกับ
-                            ปรากฏการณ์ทางธรรมชาติ
-                            รวมถึงการวิเคราะห์ข้อมูล
-                            การวางแผน และการทำงานร่วมกัน
-                        </p>
-
-
-                        <div class="learning-box">
-
-                            <h3>
-                                🌟 สิ่งที่ได้รับ
-                            </h3>
-
-                            <p>
-                                ได้ฝึกการวางแผน การแบ่งหน้าที่
-                                การทำงานเป็นทีม การแก้ปัญหาเฉพาะหน้า
-                                และทำให้มีความมั่นใจในตนเองมากขึ้น
-                            </p>
-
-                        </div>
-
-                    </div>
-
+                    </p>
 
                 </div>
 
+
             </div>
 
-        </section>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-        <!-- PAGE 6 : PROJECT -->
+<!-- =========================
+     PAGE 6 : PROJECT
+========================= -->
 
-        <section class="page">
+<section class="page">
 
-            <div class="glass-card">
+    <div class="page-heading">
 
-                <h1 class="page-title">
-                    โครงงาน / ชิ้นงาน
-                </h1>
+        <div class="page-label">
+            06 / PROJECT
+        </div>
 
-                <p class="page-subtitle">
-                    Project & Creative Work
+        <h1 class="page-title">
+            โครงงาน / ชิ้นงาน
+        </h1>
+
+        <p class="page-description">
+            Project & Creative Work
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+
+        <div class="work">
+
+
+            <div class="work-content">
+
+                <h2>
+                    ผลงานการออกแบบ
+                    และสร้างสรรค์
+                </h2>
+
+
+                <p>
+
+                    ผลงานชิ้นนี้เป็นผลงานที่เกิดจาก
+                    ความสนใจด้านการออกแบบและความคิดสร้างสรรค์
+                    โดยให้ความสำคัญกับความสวยงาม
+                    ความเหมาะสม และรายละเอียดของชิ้นงาน
+
                 </p>
 
-                <div class="cute-line"></div>
 
+                <div class="sub-box">
 
-                <div class="project-card">
+                    <h3>
+                        แนวคิดในการทำงาน
+                    </h3>
 
+                    <p>
 
-                    <div class="project-content">
+                        ก่อนเริ่มสร้างผลงาน
+                        ได้มีการคิดและวางแผนรูปแบบ
+                        ออกแบบรายละเอียดต่าง ๆ
+                        และนำมาปรับแก้ให้เหมาะสม
+                        ก่อนลงมือทำจริง
 
-                        <h2>
-                            🎨 ผลงานการออกแบบ
-                            และสร้างสรรค์
-                        </h2>
-
-                        <p>
-                            ผลงานชิ้นนี้เป็นผลงานที่เกิดจาก
-                            ความสนใจด้านการออกแบบและความคิดสร้างสรรค์
-                            โดยให้ความสำคัญกับความสวยงาม
-                            ความเหมาะสม และรายละเอียดของชิ้นงาน
-                        </p>
-
-
-                        <div class="learning-box">
-
-                            <h3>
-                                💡 แนวคิดในการทำงาน
-                            </h3>
-
-                            <p>
-                                ก่อนเริ่มสร้างผลงาน
-                                ได้มีการคิดและวางแผนรูปแบบ
-                                ออกแบบรายละเอียดต่าง ๆ
-                                และนำมาปรับแก้ให้เหมาะสม
-                                ก่อนลงมือทำจริง
-                            </p>
-
-                        </div>
-
-
-                        <div class="process">
-
-                            <div class="process-step">
-
-                                <div class="step-number">
-                                    1
-                                </div>
-
-                                <span>
-                                    💭 คิดไอเดียและออกแบบ
-                                </span>
-
-                            </div>
-
-
-                            <div class="process-step">
-
-                                <div class="step-number">
-                                    2
-                                </div>
-
-                                <span>
-                                    ✏️ วางแผนและสร้างผลงาน
-                                </span>
-
-                            </div>
-
-
-                            <div class="process-step">
-
-                                <div class="step-number">
-                                    3
-                                </div>
-
-                                <span>
-                                    🔎 ตรวจสอบและปรับปรุง
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="quote">
-
-                            🌷 สิ่งที่ได้รับคือการฝึกความคิดสร้างสรรค์
-                            การออกแบบ การวางแผน
-                            การใส่ใจรายละเอียด
-                            และการแก้ไขปัญหา
-                            เพื่อพัฒนาผลงานให้ดีขึ้น 🌷
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="project-image">
-
-                        <img
-                            src="IMG_0905.jpeg"
-                            alt="ผลงานการออกแบบและสร้างสรรค์"
-                        >
-
-                    </div>
-
+                    </p>
 
                 </div>
 
+
+                <div class="sub-box">
+
+                    <h3>
+                        ขั้นตอนการทำงาน
+                    </h3>
+
+                    <p>
+
+                        01 — คิดไอเดียและออกแบบ<br>
+                        02 — วางแผนและสร้างผลงาน<br>
+                        03 — ตรวจสอบและปรับปรุง
+
+                    </p>
+
+                </div>
+
+
+                <div class="sub-box">
+
+                    <h3>
+                        สิ่งที่ได้รับ
+                    </h3>
+
+                    <p>
+
+                        ฝึกความคิดสร้างสรรค์
+                        การออกแบบ การวางแผน
+                        การใส่ใจรายละเอียด
+                        และการแก้ไขปัญหา
+
+                    </p>
+
+                </div>
+
+
             </div>
 
-        </section>
+
+            <div class="work-image">
+
+                <img
+                    src="IMG_2052.jpeg"
+                    alt="โครงงานและชิ้นงานของดารัณ"
+                >
+
+            </div>
 
 
-    </main>
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- NAVIGATION -->
+</main>
 
-    <div class="navigation">
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="navigation">
+
+    <div class="nav-inner">
+
 
         <button
             class="nav-btn"
+            id="prevBtn"
             onclick="previousPage()"
         >
-            ← <span>ก่อนหน้า</span>
+            ← ย้อนกลับ
         </button>
 
 
-        <div class="dots">
-
-            <div class="dot active" onclick="goToPage(0)"></div>
-            <div class="dot" onclick="goToPage(1)"></div>
-            <div class="dot" onclick="goToPage(2)"></div>
-            <div class="dot" onclick="goToPage(3)"></div>
-            <div class="dot" onclick="goToPage(4)"></div>
-            <div class="dot" onclick="goToPage(5)"></div>
-
+        <div
+            class="nav-status"
+            id="navStatus"
+        >
+            หน้า 1 จาก 6
         </div>
 
 
         <button
-            class="nav-btn home"
-            onclick="goHome()"
-        >
-            🏠 <span>หน้าแรก</span>
-        </button>
-
-
-        <button
-            class="nav-btn"
+            class="nav-btn next"
+            id="nextBtn"
             onclick="nextPage()"
         >
-            <span>ถัดไป</span> →
+            ถัดไป →
         </button>
+
 
     </div>
 
+</div>
 
-    <!-- FOOTER -->
 
-    <footer>
+<!-- FOOTER -->
 
-        <strong>
-            🌷 Portfolio ของ ดารัณ เผ่าสกุลทอง 🌷
-        </strong>
+<footer>
 
-        <br>
+    <strong>
+        Portfolio — ดารัณ เผ่าสกุลทอง
+    </strong>
 
-        🏫 โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์”
-        • 🎓 มัธยมศึกษาปีที่ 6
-        • 🏛️ KMITL
+    <br>
 
-        <br>
+    โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์”
+    • มัธยมศึกษาปีที่ 6
+    • KMITL
 
-        Made with 💗 & creativity
+</footer>
 
-    </footer>
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
-    <!-- JAVASCRIPT -->
+<script>
 
-    <script>
+let currentPage = 0;
 
-        let currentPage = 0;
+const pages = document.querySelectorAll(".page");
 
-        const pages =
-            document.querySelectorAll(".page");
+const pageNumber = document.getElementById("pageNumber");
 
-        const dots =
-            document.querySelectorAll(".dot");
+const navStatus = document.getElementById("navStatus");
 
-        const pageCounter =
-            document.getElementById("pageCounter");
+const progressBar = document.getElementById("progressBar");
 
-        const progressBar =
-            document.getElementById("progressBar");
+const prevBtn = document.getElementById("prevBtn");
 
+const nextBtn = document.getElementById("nextBtn");
 
-        function showPage(index) {
 
-            if (index < 0) {
-                index = 0;
-            }
+function showPage(index) {
 
-            if (index >= pages.length) {
-                index = pages.length - 1;
-            }
+    if (index < 0) {
+        index = 0;
+    }
 
-            currentPage = index;
+    if (index >= pages.length) {
+        index = pages.length - 1;
+    }
 
+    currentPage = index;
 
-            pages.forEach((page, i) => {
 
-                page.classList.toggle(
-                    "active",
-                    i === currentPage
-                );
+    pages.forEach(function(page, i) {
 
-            });
-
-
-            dots.forEach((dot, i) => {
-
-                dot.classList.toggle(
-                    "active",
-                    i === currentPage
-                );
-
-            });
-
-
-            pageCounter.textContent =
-                "หน้า " +
-                (currentPage + 1) +
-                " / " +
-                pages.length;
-
-
-            const progress =
-                ((currentPage + 1) / pages.length) * 100;
-
-
-            progressBar.style.width =
-                progress + "%";
-
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-
-
-        function nextPage() {
-
-            if (currentPage < pages.length - 1) {
-
-                showPage(currentPage + 1);
-
-            }
-
-        }
-
-
-        function previousPage() {
-
-            if (currentPage > 0) {
-
-                showPage(currentPage - 1);
-
-            }
-
-        }
-
-
-        function goHome() {
-
-            showPage(0);
-
-        }
-
-
-        function goToPage(index) {
-
-            showPage(index);
-
-        }
-
-
-        /* KEYBOARD */
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (
-                    event.key === "ArrowRight" ||
-                    event.key === "ArrowDown"
-                ) {
-
-                    nextPage();
-
-                }
-
-
-                if (
-                    event.key === "ArrowLeft" ||
-                    event.key === "ArrowUp"
-                ) {
-
-                    previousPage();
-
-                }
-
-
-                if (event.key === "Home") {
-
-                    goHome();
-
-                }
-
-            }
+        page.classList.toggle(
+            "active",
+            i === currentPage
         );
 
-
-        /* TOUCH SWIPE */
-
-        let touchStartX = 0;
-
-        let touchEndX = 0;
+    });
 
 
-        document.addEventListener(
-            "touchstart",
-            function(event) {
-
-                touchStartX =
-                    event.changedTouches[0].screenX;
-
-            }
-        );
+    pageNumber.textContent =
+        "หน้า " +
+        (currentPage + 1) +
+        " / " +
+        pages.length;
 
 
-        document.addEventListener(
-            "touchend",
-            function(event) {
-
-                touchEndX =
-                    event.changedTouches[0].screenX;
-
-                handleSwipe();
-
-            }
-        );
+    navStatus.textContent =
+        "หน้า " +
+        (currentPage + 1) +
+        " จาก " +
+        pages.length;
 
 
-        function handleSwipe() {
-
-            const difference =
-                touchStartX - touchEndX;
+    const progress =
+        ((currentPage + 1) / pages.length) * 100;
 
 
-            if (Math.abs(difference) < 50) {
-                return;
-            }
+    progressBar.style.width =
+        progress + "%";
 
 
-            if (difference > 0) {
+    /* ปุ่มย้อนกลับ */
 
-                nextPage();
-
-            } else {
-
-                previousPage();
-
-            }
-
-        }
+    prevBtn.disabled =
+        currentPage === 0;
 
 
-        /* START */
+    /* ปุ่มถัดไป */
 
-        showPage(0);
+    if (currentPage === pages.length - 1) {
 
-    </script>
+        nextBtn.textContent =
+            "หน้าสุดท้าย ✓";
+
+        nextBtn.disabled = true;
+
+    } else {
+
+        nextBtn.textContent =
+            "ถัดไป →";
+
+        nextBtn.disabled = false;
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* ถัดไป */
+
+function nextPage() {
+
+    if (currentPage < pages.length - 1) {
+
+        showPage(currentPage + 1);
+
+    }
+
+}
+
+
+/* ย้อนกลับ */
+
+function previousPage() {
+
+    if (currentPage > 0) {
+
+        showPage(currentPage - 1);
+
+    }
+
+}
+
+
+/* เริ่มต้น */
+
+showPage(0);
+
+</script>
 
 </body>
 </html>
